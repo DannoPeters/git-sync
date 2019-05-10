@@ -1,0 +1,24 @@
+{
+  "name": "git-sync-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gith": "^1.0.4",
+    "ngrok": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannoPeters/Git-Sync-NodeJS.git"
+  },
+  "author": "DannoPeters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannoPeters/Git-Sync-NodeJS/issues"
+  },
+  "homepage": "https://github.com/DannoPeters/Git-Sync-NodeJS#readme"
+}
