@@ -128,16 +128,6 @@ http.createServer(function (req, res) { //create webserver
 
 
                     //Commit changes to local repoB with message from GitHub repo
-
-                    /*console.log(`git branch`);
-                    var cmd = `git branch`;
-                    exec(cmd, (error, stdout, stderr)=> {
-                           if (error) {
-                               console.error(`${cmd}: ${error}\n`);
-                           }
-                           console.log(`${cmd}: ${stdout}`)
-                       }); 
-*/
                     
                     var cmd = `cd ${repoB} && git commit -m "${commitMessage}"`;
                     console.log(cmd);
