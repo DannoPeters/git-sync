@@ -129,7 +129,7 @@ http.createServer(function (req, res) { //create webserver
 
                     //Commit changes to local repoB with message from GitHub repo
 
-                    console.log(`git branch`);
+                    /*console.log(`git branch`);
                     var cmd = `git branch`;
                     exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
@@ -137,10 +137,10 @@ http.createServer(function (req, res) { //create webserver
                            }
                            console.log(`${cmd}: ${stdout}`)
                        }); 
-
+*/
                     
-                    var cmd = `git commit -m "${commitMessage}"`;
-                    console.log(cmd)
+                    var cmd = `cd ${repoB} && git commit -m "${commitMessage}"`;
+                    console.log(cmd);
                     exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
                                console.error(`${cmd}: ${error}\n`);
@@ -149,9 +149,8 @@ http.createServer(function (req, res) { //create webserver
 
 
                     //Push local repoB to GitHub
-                    console.log(`Push Changes`);
-                    console.log(`git push origin master\n`);
-                    var cmd = `git push origin master`;
+                    var cmd = `cd ${repoB} && git push ${gitWeb}${gitB}.git`;
+                    console.log(cmd);
                     exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
                                console.error(`${cmd}: ${error}\n`);
