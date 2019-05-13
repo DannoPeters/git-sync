@@ -39,71 +39,72 @@ http.createServer(function (req, res) { //create webserver
     req.on('data', function(chunk) {
         let sig = "sha1=" + crypto.createHmac('sha1', secret).update(chunk.toString()).digest('hex'); //verify message is authentic (correct secret)
         
+        if (req.headers['x-hub-signature'] == sig) {
         var githubWebHook = JSON.parse(chunk) //Parse the JSON datafile from the push
 
         var gitFullName = githubWebHook.repository.full_name; //full name of the repository
         var gitID = githubWebHook.repository.id; //ID of the repository
         var gitURL = githubWebHook.repository.html_url; //URL of the repository
 
-        switch (gitFullName){
 
-            case gitA: //pull from repo A to local A, and copy from local A to local B
-                //Print statements to ensure data is read correctly
-                //console.log('Commit Message: ' + commitMessage);
-                //console.log('Added Files: ' + addedFiles);
-                //console.log('Modified Files: ' + modifiedFiles);
-                //console.log('Removed Files: ' + removedFiles);
+        if (req.headers['X-GitHub-Event'] == "push") { //if event type is push run following code
+            switch (gitFullName){
 
-                //Seperate data from intrest our of JSON dicts and lists
-                var modifiedFiles = githubWebHook.commits[0].modified; //Create list of files modified in Push
-                var addedFiles = githubWebHook.commits[0].added; //Create list of files added in Push
-                var removedFiles = githubWebHook.commits[0].removed; //Create list of files removed in Push
-                var commitMessage = githubWebHook.commits[0].message; //Read commit message for use in push to repo-B
+                case gitA: //pull from repo A to local A, and copy from local A to local B
+                    //Print statements to ensure data is read correctly
+                    //console.log('Commit Message: ' + commitMessage);
+                    //console.log('Added Files: ' + addedFiles);
+                    //console.log('Modified Files: ' + modifiedFiles);
+                    //console.log('Removed Files: ' + removedFiles);
 
-                if (req.headers['x-hub-signature'] == sig) {
-                    console.log(`cd ${RepoA} && git pull`);
-                    exec(`cd ${RepoA} && git pull`); //Pull from github repoA to local repoA
+                        //Seperate data from intrest our of JSON dicts and lists
+                        var modifiedFiles = githubWebHook.commits[0].modified; //Create list of files modified in Push
+                        var addedFiles = githubWebHook.commits[0].added; //Create list of files added in Push
+                        var removedFiles = githubWebHook.commits[0].removed; //Create list of files removed in Push
+                        var commitMessage = githubWebHook.commits[0].message; //Read commit message for use in push to repo-B
 
-                    //Copy all modified files to repoB
-                    //console.log('Copy Modified Files');
-                    for (var file in modifiedFiles) {
-                        console.log(`cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`);
-                        exec(`cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`);
-                    }
+                        console.log(`cd ${repoA} && git pull`);
+                        exec(`cd ${repoA} && git pull`); //Pull from github repoA to local repoA
 
-                    //Copy all new files to repoB
-                    //console.log('Copy Added Files');
-                    for (var file in addedFiles) {
-                        console.log(`cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`);
-                        exec(`cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`);
-                    }
-                    //Commit changes to local repoB with message from GitHub repoA
-                    //console.log('Commit Changes');
-                    console.log(`cd ${repoB} && git commit -m [${commitMessage}]`);
-                    exec(`cd ${repoB} && git commit -m [${commitMessage}]`);
+                        //Copy all modified files to repoB
+                        //console.log('Copy Modified Files');
+                        for (var file in modifiedFiles) {
+                            console.log(`cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`);
+                            exec(`cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`);
+                        }
 
-                    //Push local repoB to GitHub
-                    //console.log('Push Changes');
-                    console.log(`cd ${repoB} && git push origin master`);
-                    exec(`cd ${repoB} && git push origin master`);
-                }
-                break;
+                        //Copy all new files to repoB
+                        //console.log('Copy Added Files');
+                        for (var file in addedFiles) {
+                            console.log(`cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`);
+                            exec(`cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`);
+                        }
+                        //Commit changes to local repoB with message from GitHub repoA
+                        //console.log('Commit Changes');
+                        console.log(`cd ${repoB} && git commit -m [${commitMessage}]`);
+                        exec(`cd ${repoB} && git commit -m [${commitMessage}]`);
 
-            case gitB: //Verify that push to repo B was correct
-                    testModified = (modifiedFiles == githubWebHook.commits[0].modified);
-                    testAdded = (addedFiles == githubWebHook.commits[0].added);
-                    testRemoved = (removedFiles == githubWebHook.commits[0].removed);
-                    testCommit = (commitMessage == githubWebHook.commits[0].message);
+                        //Push local repoB to GitHub
+                        //console.log('Push Changes');
+                        console.log(`cd ${repoB} && git push origin master`);
+                        exec(`cd ${repoB} && git push origin master`);
+                    break;
 
-                    if (testModified && testAdded && testRemoved && testCommit) {
-                        console.log(`Git Sync between ${gitA} and ${gitB} was sucessful`);
+                case gitB: //Verify that push to repo B was correct
+                        testModified = (modifiedFiles == githubWebHook.commits[0].modified);
+                        testAdded = (addedFiles == githubWebHook.commits[0].added);
+                        testRemoved = (removedFiles == githubWebHook.commits[0].removed);
+                        testCommit = (commitMessage == githubWebHook.commits[0].message);
 
-                    }
-                break;
+                        if (testModified && testAdded && testRemoved && testCommit) {
+                            console.log(`Git Sync between ${gitA} and ${gitB} was sucessful`);
 
-            default:
+                        }
+                    break;
 
-        }
+                default:
+
+        } } }
 
 
         
