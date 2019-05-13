@@ -15,8 +15,9 @@ step 9. PROFIT $$$
 var secret = "Very$ecret$ecret"; //Secret for verifying WebHook from Repo-A
 var gitA = "DannoPeters/Repo-A" //Full repo name, used to identify Webhook Sender
 var gitB = "DannoPeters/Repo-B" //Full repo name, used to identify Webhook Sender
-var repoA = "/home/marina/Git_Projects/Repo-A"; //location of repo-A on server
-var repoB = "/home/marina/Git_Projects/Repo-B"; //location of repo-b on server
+var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
+var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
+var gitWeb = "git@github.com:"
 const port = 8080 //specify the port for the server to listen on
 var dir = "hardware_dir" //directory to copy files to in repo-B
 
@@ -65,19 +66,36 @@ http.createServer(function (req, res) { //create webserver
 
 
 
-                    console.log(`cd ${repoA} && git pull\n`);
-                    var cmd = `cd ${repoA} && git pull`
+                    
+                    var cmd = `cd ${repoA} && git pull ${gitWeb}${gitA}.git --allow-unrelated-histories`
+                    console.log(cmd);
                     exec(cmd, (error, stdout, stderr)=> {
                         if (error) {
                             console.error(`${cmd}: ${error}\n`);
                         }
                     }); //Pull from github repoA to local repo
 
+
+                   //Pull request for repoB
+                    var cmd = `cd ${repoB}`
+                    exec(cmd, (error, stdout, stderr)=> {
+                                if (error) {
+                                    console.error(`${cmd}: ${error}\n`);
+                                }
+                            });
+                    var cmd = `git pull ${gitWeb}${gitB}.git --allow-unrelated-histories`;
+                    console.log(cmd);
+                    exec(cmd, (error, stdout, stderr)=> {
+                        if (error) {
+                            console.error(`${cmd}: ${error}\n`);
+                        }
+                    }); 
+
+
                     //Copy all modified files to repoB
-                    console.log(`Copy Modified Files`);
                     for (var file in modifiedFiles) {
-                        console.log(`cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}\n`);
                         var cmd = `cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`;
+                        console.log(cmd);
                         exec(cmd, (error, stdout, stderr)=> {
                             if (error) {
                                 console.error(`${cmd}: ${error}\n`);
@@ -86,74 +104,59 @@ http.createServer(function (req, res) { //create webserver
                     }
 
                     //Copy all new files to repoB
-                    //console.log(`Copy Added Files`);
+                    for (var file in addedFiles) {
+                       var cmd = `cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`;
+                       console.log(cmd);
+                       exec(cmd, (error, stdout, stderr)=> {
+                           if (error) {
+                               console.error(`${cmd}: ${error}\n`);
+                           }
+                       });
+                    }
+
+                    var cmd = `git add --all`;
+                    console.log(cmd);
+                       exec(cmd, (error, stdout, stderr)=> {
+                           if (error) {
+                               console.error(`${cmd}: ${error}\n`);
+                           }
+                       });
+
+
+
+
+
+
+                    //Commit changes to local repoB with message from GitHub repo
+
+                    console.log(`git branch`);
+                    var cmd = `git branch`;
+                    exec(cmd, (error, stdout, stderr)=> {
+                           if (error) {
+                               console.error(`${cmd}: ${error}\n`);
+                           }
+                           console.log(`${cmd}: ${stdout}`)
+                       }); 
+
                     
-                    var cmd = `cd ${repoB}`
+                    var cmd = `git commit -m "${commitMessage}"`;
+                    console.log(cmd)
                     exec(cmd, (error, stdout, stderr)=> {
-                                if (error) {
-                                    console.error(`${cmd}: ${error}\n`);
-                                }
-                            });
-                    console.log(`git pull\n`);
-                    var cmd = `git pull`
-                    exec(cmd, (error, stdout, stderr)=> {
-                        if (error) {
-                            console.error(`${cmd}: ${error}\n`);
-                        }
-                    }); //Pull from github repoA to local repo
-                    //for (var file in addedFiles) {
-                    //    console.log(`cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}\n`);
-                    //    var cmd = `cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`;
-                    //    exec(cmd, (error, stdout, stderr)=> {
-                    //        if (error) {
-                    //            console.error(`${cmd}: ${error}\n`);
-                    //        }
-                    //    });
-                    //    var cmd = `git add ${repoB}/${dir}/${addedFiles[file]}`;
-                    //    console.log(cmd)
-                    //    exec(cmd, (error, stdout, stderr)=> {
-                    //            if (error) {
-                    //                console.error(`${cmd}: ${error}`);
-                    //            }
-                    //        });
-                    //}
-                    ////Commit changes to local repoB with message from GitHub repoA
-                    ////console.log(`Commit Changes`);
-                    //console.log(`pwd`);
-                    //var cmd = `pwd`;
-                    //exec(cmd, (error, stdout, stderr)=> {
-                    //        if (error) {
-                    //            console.error(`${cmd}: ${error}\n`);
-                    //        }
-                    //        console.log(`${cmd}: ${stdout}`)
-                    //    }); 
+                           if (error) {
+                               console.error(`${cmd}: ${error}\n`);
+                           }
+                       });
 
-                    //console.log(`git branch`);
-                    //var cmd = `git branch`;
-                    //exec(cmd, (error, stdout, stderr)=> {
-                    //        if (error) {
-                    //            console.error(`${cmd}: ${error}\n`);
-                    //        }
-                    //        console.log(`${cmd}: ${stdout}`)
-                    //    }); 
 
-                    //
-                    //console.log(`git commit -m ${commitMessage}\n`);
-                    //var cmd = `git commit -m ${commitMessage}`;
-                    //exec(cmd, (error, stdout, stderr)=> {
-                    //        if (error) {
-                    //            console.error(`${cmd}: ${error}\n`);
-                    //        }
-                    //    });
                     //Push local repoB to GitHub
-                    //console.log(`Push Changes`);
-                    //console.log(`git push origin master\n`);
-                    //var cmd = `git push origin master`;
-                    //exec(cmd, (error, stdout, stderr)=> {
-                    //        if (error) {
-                    //            console.error(`${cmd}: ${error}\n`);
-                    //        }
-                    //    });
+                    console.log(`Push Changes`);
+                    console.log(`git push origin master\n`);
+                    var cmd = `git push origin master`;
+                    exec(cmd, (error, stdout, stderr)=> {
+                           if (error) {
+                               console.error(`${cmd}: ${error}\n`);
+                           }
+                       });
                 }
                 break;
 
