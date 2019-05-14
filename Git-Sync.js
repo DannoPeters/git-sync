@@ -114,7 +114,7 @@ http.createServer(function (req, res) { //create webserver
                        });
                     }
 
-                    var cmd = `git add --all`;
+                    var cmd = `cd ${repoB} && git add --all`;
                     console.log(cmd);
                        exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
@@ -134,16 +134,18 @@ http.createServer(function (req, res) { //create webserver
                     exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
                                console.error(`${cmd}: ${error}\n`);
+                               console.error(`stderr_commit: ${stderr}\n`);
                            }
                        });
 
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${repoB} && git push ${gitWeb}${gitB}.git`;
+                    var cmd = `cd ${repoB} && git push`;
                     console.log(cmd);
                     exec(cmd, (error, stdout, stderr)=> {
                            if (error) {
                                console.error(`${cmd}: ${error}\n`);
+                               console.error(`stderr_push: ${stderr}\n`);
                            }
                        });
                 }
