@@ -57,6 +57,8 @@ http.createServer(function (req, res) { //create webserver
                     var addedFiles = githubWebHook.commits[0].added; //Create list of files added in Push
                     var removedFiles = githubWebHook.commits[0].removed; //Create list of files removed in Push
                     var commitMessage = githubWebHook.commits[0].message; //Read commit message for use in push to repo-B
+                    var username = gitWebHook.commits[0].author[0];
+                    console.log(`username: ${username}`);
 
                     if (req.headers[`x-hub-signature`] == sig) {
 
