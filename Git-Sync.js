@@ -27,7 +27,7 @@ let http = require(`http`); //import http library
 let crypto = require(`crypto`); //import crypto library
 //let ngrok = require(`ngrok`); //include ngrok to allow through firewall
 //let fetch = require(`node-fetch`) //include fetch so ngrok settings JSOn can be fetched
-const exec = require(`child_process`).exec; //include child_process library so we can exicute shell commands
+var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 
 /*
 //Start ngrok connection, and print out URL. Will start a new server with each exicution
@@ -64,90 +64,52 @@ http.createServer(function (req, res) { //create webserver
 
                 if (req.headers[`x-hub-signature`] == sig) {
 
-
-
-                    
-                    var cmd = `cd ${repoA} && git pull ${gitWeb}${gitA}.git --allow-unrelated-histories`
+                    //Pull from github repoA to local repo
+                    var cmd = `cd ${repoA} && git pull`;
+                    execSync(cmd); 
                     console.log(cmd);
-                    exec(cmd, (error, stdout, stderr)=> {
-                        if (error) {
-                            console.error(`${cmd}: ${error}\n`);
-                        }
-                    }); //Pull from github repoA to local repo
-
 
                    //Pull request for repoB
-                    var cmd = `cd ${repoB}`
-                    exec(cmd, (error, stdout, stderr)=> {
-                                if (error) {
-                                    console.error(`${cmd}: ${error}\n`);
-                                }
-                            });
-                    var cmd = `git pull ${gitWeb}${gitB}.git --allow-unrelated-histories`;
+                    //var cmd = `git pull ${gitWeb}${gitB}.git --allow-unrelated-histories`;
+                    var cmd = `cd ${repoB} && git pull`;
+                    execSync(cmd); 
                     console.log(cmd);
-                    exec(cmd, (error, stdout, stderr)=> {
-                        if (error) {
-                            console.error(`${cmd}: ${error}\n`);
-                        }
-                    }); 
-
 
                     //Copy all modified files to repoB
                     for (var file in modifiedFiles) {
                         var cmd = `cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`;
+                        execSync(cmd); 
                         console.log(cmd);
-                        exec(cmd, (error, stdout, stderr)=> {
-                            if (error) {
-                                console.error(`${cmd}: ${error}\n`);
-                            }
-                        });
                     }
 
                     //Copy all new files to repoB
                     for (var file in addedFiles) {
                        var cmd = `cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`;
-                       console.log(cmd);
-                       exec(cmd, (error, stdout, stderr)=> {
-                           if (error) {
-                               console.error(`${cmd}: ${error}\n`);
-                           }
-                       });
+                       execSync(cmd); 
+                        console.log(cmd);
                     }
 
-                    var cmd = `cd ${repoB} && git add --all`;
+                    
+                    //Copy all files
+                    var cmd = `cp ${repoA} ${repoB}/${dir}`;
+                    execSync(cmd); 
                     console.log(cmd);
-                       exec(cmd, (error, stdout, stderr)=> {
-                           if (error) {
-                               console.error(`${cmd}: ${error}\n`);
-                           }
-                       });
 
-
-
-
+                    //add all files to git
+                    var cmd = `cd ${repoB} && git add --all`;
+                    execSync(cmd); 
+                    console.log(cmd);
 
 
                     //Commit changes to local repoB with message from GitHub repo
-                    
-                    var cmd = `cd ${repoB} && git commit -m "${commitMessage}"`;
+                    var cmd = `cd ${repoB} && git commit -m "${commitMessage}" --verbose`;
+                    execSync(cmd); 
                     console.log(cmd);
-                    exec(cmd, (error, stdout, stderr)=> {
-                           if (error) {
-                               console.error(`${cmd}: ${error}\n`);
-                               console.error(`stderr_commit: ${stderr}\n`);
-                           }
-                       });
-
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${repoB} && git push`;
+                    var cmd = `cd ${repoB} && git push --force --verbose`;
+                    execSync(cmd); 
                     console.log(cmd);
-                    exec(cmd, (error, stdout, stderr)=> {
-                           if (error) {
-                               console.error(`${cmd}: ${error}\n`);
-                               console.error(`stderr_push: ${stderr}\n`);
-                           }
-                       });
                 }
                 break;
 
