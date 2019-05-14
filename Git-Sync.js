@@ -1,10 +1,10 @@
-/*step 1. detect Repo A push via webhook
-step 2. get push commit message via webhook
-step 3. git pull Repo A clone on server 
-step 4. cp repo A clone to repo B clone /hardware_dir
-step 5. git add /hardaware_dir
-step 6. git commit -m repo A push commit message 
-step 7. git push to repo B
+/*step 1. detect Repo A push via webhook              :-)
+step 2. get push commit message via webhook           :-)
+step 3. git pull Repo A clone on server               :-)
+step 4. cp repo A clone to repo B clone /hardware_dir :-)
+step 5. git add /hardaware_dir                        :-)
+step 6. git commit -m repo A push commit message      :-)
+step 7. git push to repo B                            :-)
 Step 8. ??????
 step 9. PROFIT $$$
 
@@ -77,21 +77,21 @@ http.createServer(function (req, res) { //create webserver
 
                     //Copy all modified files to repoB
                     for (var file in modifiedFiles) {
-                        var cmd = `cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]}`;
+                        var cmd = `cp ${repoA}/${modifiedFiles[file]} ${repoB}/${dir}/${modifiedFiles[file]} --recursive`;
                         execSync(cmd); 
                         console.log(cmd);
                     }
 
                     //Copy all new files to repoB
                     for (var file in addedFiles) {
-                       var cmd = `cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]}`;
+                       var cmd = `cp ${repoA}/${addedFiles[file]} ${repoB}/${dir}/${addedFiles[file]} --recursive`;
                        execSync(cmd); 
                         console.log(cmd);
                     }
 
                     
                     //Copy all files
-                    var cmd = `cp ${repoA} ${repoB}/${dir}`;
+                    var cmd = `cp ${repoA} ${repoB}/${dir} --recursive`;
                     execSync(cmd); 
                     console.log(cmd);
 
