@@ -77,7 +77,7 @@ http.createServer(function (req, res) { //create webserver
 
                     
                     //Copy all files
-                    var cmd = `cp ${repoA}/* ${repoB}/${dir} --recursive`;
+                    var cmd = `cp ${repoA}/ * ${repoB}/${dir} --recursive`;
                     runCmd(cmd);
 
                     //add all files to git
@@ -103,7 +103,18 @@ http.createServer(function (req, res) { //create webserver
 
                     if (testModified && testAdded && testRemoved && testCommit) {
                         console.log(`Git Sync between ${gitA} and ${gitB} was sucessful`);
-
+                    } 
+                    if (testModified == False){
+                        console.log(`Error: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`);
+                    }
+                    if (testAdded == False){
+                        console.log(`Error: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`);
+                    }
+                    if (testRemoved == False){
+                        console.log(`Error: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`);
+                    }
+                    if (testCommit == False){
+                        console.log(`Error: Git Sync between ${gitA} and ${gitB} commit is incorrect`);
                     }
                 break;
 
