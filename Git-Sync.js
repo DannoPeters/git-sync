@@ -63,7 +63,7 @@ http.createServer(function (req, res) { //create webserver
                     var cmd = `cd ${repoB} && git pull`;
                     runCmd(cmd);
 
-                    //Copy all modified files to repoB
+                   /* //Copy all modified files to repoB
                     for (var file in repo.modifiedFiles) {
                         var cmd = `cp ${repoA}/${repo.modifiedFiles[file]} ${repoB}/${dir}/${repo.modifiedFiles[file]} --recursive`;
                         runCmd(cmd);
@@ -73,11 +73,11 @@ http.createServer(function (req, res) { //create webserver
                     for (var file in repo.addedFiles) {
                        var cmd = `cp ${repoA}/${repo.addedFiles[file]} ${repoB}/${dir}/${repo.addedFiles[file]} --recursive`;
                        runCmd(cmd);
-                    }
+                    } */
 
                     
                     //Copy all files
-                    var cmd = `cp ${repoA} ${repoB}/${dir} --recursive`;
+                    var cmd = `cp ${repoA}/* ${repoB}/${dir} --recursive`;
                     runCmd(cmd);
 
                     //add all files to git
@@ -86,7 +86,7 @@ http.createServer(function (req, res) { //create webserver
 
 
                     //Commit changes to local repoB with message from GitHub repo
-                    var cmd = `cd ${repoB} && git commit -m "${repo.commitMessage}" --verbose`;
+                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}" --verbose`;
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
@@ -161,10 +161,10 @@ function githubJSON(file, event) {
     return repo;
 }
 
-
+/*
 function mirrorRepo(repoA, repoB, repo) {
     var addedFolders = repo.addedFiles.split("/");
-    for (car folder in addedFolders){
+    for (var folder in addedFolders){
         checkFolderA = `${repoB}/${folder}`;
         checkFolderB = `${repoB}/${folder}`;
         if (checkFolder.exists == False){
@@ -173,3 +173,4 @@ function mirrorRepo(repoA, repoB, repo) {
     }
 
 }
+*/
