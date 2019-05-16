@@ -19,6 +19,8 @@ var gitWeb = "git@github.com:";
 const port = 8080; //specify the port for the server to listen on
 var dir = "hardware_dir"; //directory to copy files to in repo-B
 
+var actionArray = new Array(); //Array to store information about actions taken
+
 
 //Import Required
 let http = require(`http`); //import http library
@@ -39,20 +41,95 @@ http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
+            githubHook(chunk,req);
+        } else {
+            var signature = req.headers[`x-hub-signature`];
+            console.log(`Incorrect Signature: ${signature}`)
+        }
+         });
 
+    res.end('');
+}).listen(port, (err) => {
+    if (err) return console.log(`Something bad happened: ${err}`);
+    console.log(`Node.js server listening on ${port}`);
+
+
+
+});
+
+//runs coomands in synchronus (serial) terminal 
+function runCmd(cmd) {
+    console.log(`At Step: ${cmd}`);
+    try{ 
+        execSync(`${cmd} --verbose`); 
+    }
+    catch(error){ 
+        console.log(`Terminal Command Failed: ${error}`);
+        return;
+    }
+}
+
+//creates a linked list of all important information from JSON
+function githubJSON(file, event) {
+    var githubWebHook = JSON.parse(file); //Parse the JSON datafile from the push
+    switch(event){
+
+        case "push":
+            
+            try{ //Test if push formatting is correct.
+            var repo = {
+                gitFullName: githubWebHook.repository.full_name, //full name of the repository
+                gitID: githubWebHook.repository.id, //ID of the repository
+                gitURL: githubWebHook.repository.html_url, //URL of the repository
+                modifiedFiles: githubWebHook.commits[0].modified, //Create list of files modified in Push
+                addedFiles: githubWebHook.commits[0].added, //Create list of files added in Push
+                removedFiles: githubWebHook.commits[0].removed, //Create list of files removed in Push
+                commitMessage: githubWebHook.commits[0].message, //Read commit message for use in push to repo-B
+                username: githubWebHook.commits[0].author.username //User which pushed the files
+            }
+        }
+            catch(error) {
+            console.log(`Push JSON Formatting Incorrect: ${error}`);
+            return;
+            };
+        
+            
+
+        default:
+        break;
+        }
+
+    return repo;
+}
+
+/*
+function mirrorRepo(repoA, repoB, repo) {
+    var addedFolders = repo.addedFiles.split("/");
+    for (var folder in addedFolders){
+        checkFolderA = `${repoB}/${folder}`;
+        checkFolderB = `${repoB}/${folder}`;
+        if (checkFolder.exists == False){
+
+        }
+    }
+
+}
+*/
+
+function githubHook(chunk, req) {
+    //Test if file has GitHub Event info
+        try {
         repo = githubJSON(chunk,req.headers['x-github-event']);
+        }
+        catch (error) {
+        console.log(`JSON Formatting Incorrect: ${error}`);
+        return;
+        }
 
         if (req.headers['x-github-event'] == "push") { //if event type is push run following code
         switch (repo.gitFullName){
 
-            case gitA: //pull from repo A to local A, and copy from local A to local B
-                //Print statements to ensure data is read correctly
-                //console.log(`Commit Message: ` + commitMessage);
-                //console.log(`Added Files: ` + addedFiles);
-                //console.log(`Modified Files: ` + modifiedFiles);
-                //console.log(`Removed Files: ` + removedFiles);
-
-               
+            case gitA: 
 
                     //Pull from github repoB to local repo
                     var cmd = `cd ${repoA} && git pull`;
@@ -77,7 +154,7 @@ http.createServer(function (req, res) { //create webserver
 
                     
                     //Copy all files
-                    var cmd = `cp ${repoA}/ * ${repoB}/${dir} --recursive`;
+                    var cmd = `cp ${repoA}/* ${repoB}/${dir} --recursive`;
                     runCmd(cmd);
 
                     //add all files to git
@@ -86,16 +163,19 @@ http.createServer(function (req, res) { //create webserver
 
 
                     //Commit changes to local repoB with message from GitHub repo
-                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}" --verbose`;
+                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}"`;
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${repoB} && git push --force --verbose`;
+                    var cmd = `cd ${repoB} && git push`;
                     runCmd(cmd);
+
+                    //Store information to confirm
                 
                 break;
 
             case gitB: //Verify that push to repo B was correct
+                    try{
                     testModified = (repo.modifiedFiles == githubWebHook.commits[0].modified);
                     testAdded = (repo.addedFiles == githubWebHook.commits[0].added);
                     testRemoved = (repo.removedFiles == githubWebHook.commits[0].removed);
@@ -116,6 +196,11 @@ http.createServer(function (req, res) { //create webserver
                     if (testCommit == False){
                         console.log(`Error: Git Sync between ${gitA} and ${gitB} commit is incorrect`);
                     }
+                }
+                catch(error){
+                    console.log(`${gitB} push confirmation failed: ${error}`);
+                    return;
+                }
                 break;
 
             default:
@@ -126,62 +211,16 @@ http.createServer(function (req, res) { //create webserver
     }
 
 
-        
-
-        
-    });
-
-    res.end('');
-}).listen(port, (err) => {
-    if (err) return console.log(`Something bad happened: ${err}`);
-    console.log(`Node.js server listening on ${port}`);
-
-
-
-});
-
-
-function runCmd(cmd) {
-    console.log(`At Step: ${cmd}`);
-    execSync(`${cmd} --verbose`);
+function stackAdd(queue, value) {
+ queue.push(value);
 }
-
-
-function githubJSON(file, event) {
-    var githubWebHook = JSON.parse(file); //Parse the JSON datafile from the push
-    switch(event){
-
-        case "push":
-            
-            var repo = {
-                gitFullName: githubWebHook.repository.full_name, //full name of the repository
-                gitID: githubWebHook.repository.id, //ID of the repository
-                gitURL: githubWebHook.repository.html_url, //URL of the repository
-                modifiedFiles: githubWebHook.commits[0].modified, //Create list of files modified in Push
-                addedFiles: githubWebHook.commits[0].added, //Create list of files added in Push
-                removedFiles: githubWebHook.commits[0].removed, //Create list of files removed in Push
-                commitMessage: githubWebHook.commits[0].message, //Read commit message for use in push to repo-B
-                username: githubWebHook.commits[0].author.username //User which pushed the files
-            };
-            
-
-        default:
-        break;
+ 
+function stackGet(queue) {
+    var retrievedQueueValue = queue.shift();
+    if(retrievedQueueValue) {
+       return retrievedQueueValue;
     }
-
-    return repo;
-}
-
-/*
-function mirrorRepo(repoA, repoB, repo) {
-    var addedFolders = repo.addedFiles.split("/");
-    for (var folder in addedFolders){
-        checkFolderA = `${repoB}/${folder}`;
-        checkFolderB = `${repoB}/${folder}`;
-        if (checkFolder.exists == False){
-
-        }
+    else {
+       return "";
     }
-
 }
-*/
