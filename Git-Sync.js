@@ -86,6 +86,7 @@ function githubJSON(file, event) {
                 removedFiles: githubWebHook.commits[0].removed, //Create list of files removed in Push
                 commitMessage: githubWebHook.commits[0].message, //Read commit message for use in push to repo-B
                 username: githubWebHook.commits[0].author.username //User which pushed the files
+                finalCommitMessage: ""
             }
         }
             catch(error) {
@@ -164,22 +165,25 @@ function githubHook(chunk, req) {
 
                     //Commit changes to local repoB with message from GitHub repo
                     var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}"`;
+                    repo.finalCommitMessage = `User: ${repo.username} Message:${repo.commitMessage}`;
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
                     var cmd = `cd ${repoB} && git push`;
                     runCmd(cmd);
 
-                    //Store information to confirm
+                    //Store information to confirm proper push to repo B
+                    stackAdd(actionArray, repo)
                 
                 break;
 
             case gitB: //Verify that push to repo B was correct
                     try{
-                    testModified = (repo.modifiedFiles == githubWebHook.commits[0].modified);
-                    testAdded = (repo.addedFiles == githubWebHook.commits[0].added);
-                    testRemoved = (repo.removedFiles == githubWebHook.commits[0].removed);
-                    testCommit = (repo.commitMessage == githubWebHook.commits[0].message);
+                    pastRepo = stackGet(actionArray),
+                    testModified = (repo.modifiedFiles == pastRepo.modifiedFiles);
+                    testAdded = (repo.addedFiles == pastRepo.addedFiles);
+                    testRemoved = (repo.removedFiles == pastRepo.addedFiles);
+                    testCommit = (repo.commitMessage == pastRepo.addedFiles);
 
                     if (testModified && testAdded && testRemoved && testCommit) {
                         console.log(`Git Sync between ${gitA} and ${gitB} was sucessful`);
