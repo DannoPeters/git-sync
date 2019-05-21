@@ -39,27 +39,27 @@ var fs = require("fs"); //required to write to files
 //Webserver OP
 http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
-        log(`OP`, `JSON: File Recieved`, 0);
+        log(`OP`, `NEW OPERATION: File Recieved from ${req.connection.remoteAddress}`, 0);
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
             log(`OP`, `JSON: Signature Verified`, 1);
             githubHook(chunk,req);
         } else {
             var signature = req.headers[`x-hub-signature`];
-            log(`OP`, `ERROR: Incorrect Signature: ${signature}`, 1);
-            log(`OP`, `ERROR: Incorrect Signature: ${signature}`, 1);
+            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 1);
+            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 1);
         }
          });
 
     res.end('');
 }).listen(port, (err) => {
-    if (err) return log(`OP`, `ERROR: Issue with server: ${err}`, 1);
+    if (err) return log(`ALL`, `ERROR: Issue with init of server: ${err}`, 1);
     log(`OP`, `INIT: Node.js server listening on ${port}`, 1);
 
 
 });
 
-//runs coomands in synchronus (serial) terminal 
+//runs commands in synchronus (serial) terminal 
 function runCmd(cmd) {
     log(`OP`, `SYNC: Exicuted ${cmd}`, 1);
 
@@ -67,7 +67,7 @@ function runCmd(cmd) {
         execSync(`${cmd}`); 
     }
     catch(error){
-        log(`OP`, `ERROR: Terminal Command Failed: ${error}`, 2);
+        log(`ALL`, `ERROR: Terminal Command Failed: ${error}`, 2);
         return;
     }
 }
@@ -134,6 +134,7 @@ function githubHook(chunk, req) {
         switch (repo.gitFullName){
 
             case gitA: 
+                    log(`OP`, `JSON: Source ${gitA}`, 1);
 
                     //Pull from github repoB to local repo
                     var cmd = `cd ${repoA} && git pull`;
@@ -157,8 +158,15 @@ function githubHook(chunk, req) {
                     } */
 
                     
-                    //Copy all files
-                    var cmd = `cp ${repoA}/* ${repoB}/${dirB} --recursive`;
+                    /*//Copy all files 
+                    var cmd = `cp ${repoA}/${dirA}/* ${repoB}/${dirB} --recursive`;
+                    runCmd(cmd);
+                    */
+
+                    if (fileType(repo, 'hwd', 1, '.')) {
+
+                    //Copy only Hardware Files
+                    var cmd = `cp ${repoA}/${dirA}/hwd.dat.* ${repoB}/${dirB}`;
                     runCmd(cmd);
 
                     //add all files to git
@@ -168,7 +176,7 @@ function githubHook(chunk, req) {
 
                     //Commit changes to local repoB with message from GitHub repo
                     var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}"`;
-                    repo.finalCommitMessage = `User: ${repo.username} Message:${repo.commitMessage}`;
+                    repo.finalCommitMessage = `User: ${repo.username}   Message:${repo.commitMessage}`;
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
@@ -177,40 +185,52 @@ function githubHook(chunk, req) {
 
                     //Store information to confirm proper push to repo B
                     stackAdd(actionArray, repo)
+
+                } else {
+                    log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 1);
+                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 0);
+                }
                 
                 break;
 
             case gitB: //Verify that push to repo B was correct
+                    log(`OP`, `JSON: Source ${gitB}`, 1);
                     try{
-                    pastRepo = stackGet(actionArray),
+
+                    var splitRepo.modifiedFiles = arraySplit(repo.modifiedFiles);
+                    var splitRepo.addedFiles = arraySplit(repo.addedFiles);
+                    var splitRepo.removedFiles = arraySplit(repo.removedFiles);
+
+                    
                     testModified = (repo.modifiedFiles == pastRepo.modifiedFiles);
                     testAdded = (repo.addedFiles == pastRepo.addedFiles);
-                    testRemoved = (repo.removedFiles == pastRepo.addedFiles);
-                    testCommit = (repo.commitMessage == pastRepo.addedFiles);
+                    testRemoved = (repo.removedFiles == pastRepo.removedFiles);
+                    testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
 
                     if (testModified && testAdded && testRemoved && testCommit) {
-                        log(`OP`, `Git Sync between ${gitA} and ${gitB} was sucessful`, 1);
+                        log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful`, 1);
                     } 
-                    if (testModified == False){
-                        log(`OP`, `Error: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 1);
+                    if (testModified == false){
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 1);
                     }
-                    if (testAdded == False){
-                        log(`OP`, `Error: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 1);
+                    if (testAdded == false){
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 1);
                     }
-                    if (testRemoved == False){
-                        log(`OP`, `Error: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 1);
+                    if (testRemoved == false){
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 1);
                     }
-                    if (testCommit == False){
-                        log(`OP`, `Error: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 1);
+                    if (testCommit == false){
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 1);
                     }
                 }
                 catch(error){
-                    log(`OP`, `CONFIRM: ${gitB} push confirmation failed: ${error}`, 1);
+                    log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 1);
                     return;
                 }
                 break;
 
             default:
+                log(`ALL`, `ERROR: Source "${repo.gitFullName}" Not Recognized`, 1);
             break;
         }
 
@@ -237,23 +257,23 @@ function log (stream, message, level){
     var operation = fs.createWriteStream(`./Git-Sync_${today.getUTCFullYear()}_Operation.log`, {flags:'a'});
     var error = fs.createWriteStream(`./Git-Sync_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
 
-    var date = `${today.getUTCFullYear()}/${(today.getUTCMonth()+1)}/${today.getUTCDate()}`;
+    var date = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()}`;
     var time = `${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()}`;
     //fs.appendFile( `${gitSync}/Git-Sync_${today.getUTCFullYear()}_${stream}.log`, `${level*"    "}${date} ${time} UTC     ${message}`, (error) => {});
     switch (stream){
         case 'OP':
-            operation.write(`${level*"    "}${date} ${time} UTC     ${message}\n`);
+            operation.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
             operation.end();
             break;
 
         case 'ER':
-            error.write(`${level*"    "}${date} ${time} UTC     ${message}\n`);
+            error.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             break;
 
         case 'ALL':
-            error.write(`${level*"    "}${date} ${time} UTC     ${message}\n`);
-            operation.write(`${level*"    "}${date} ${time} UTC     ${message}\n`);
+            error.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
+            operation.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             operation.end();
             break;
@@ -264,3 +284,46 @@ function log (stream, message, level){
     }
     
     }
+
+
+function arraySplit (array, char) {
+    for (var i = 0; i < array.length; i++) {
+                        var split = array[i].split(char);  // just split once
+                        array1.push(split); //push to nested array
+                    }
+    return array1
+}
+
+
+function fileType (repo, file, rank, char){
+    
+    modified = arraySplit(repo.modifiedFiles, '/');
+    added = arraySplit(repo.addedFiles, '/');
+    removed = arraySplit(repo.addedFiles, '/');
+
+    //check modified files
+    for (F in modified){
+        var split = F[F.length()].split(char)
+        if  (split[rank] == file){
+            return true
+        }
+    }
+
+    //check new files
+    for (F in added){
+        var split = F[F.length()].split(char)
+        if  (split[rank] == file){
+            return true
+        }
+    }
+
+    //check deleted files
+    for (F in removed){
+        var split = F[F.length()].split(char)
+        if  (split[rank] == file){
+            return true
+        }
+    }
+
+    return false
+}

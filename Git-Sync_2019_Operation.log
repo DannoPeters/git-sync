@@ -21,3 +21,46 @@
 02019/5/17 19:29:11 UTC     JSON: File Recieved
 02019/5/17 19:29:11 UTC     JSON: Signature Verified
 02019/5/17 19:29:11 UTC     CONFIRM: DannoPeters/Repo-B push confirmation failed: ReferenceError: False is not defined
+21/5/2019 16:14:0 UTC  0   INIT: Node.js server listening on 8080
+21/5/2019 16:19:13 UTC          INIT: Node.js server listening on 8080
+21/5/2019 16:20:50 UTC     JSON: File Recieved
+21/5/2019 16:20:50 UTC          JSON: Signature Verified
+21/5/2019 16:22:18 UTC     JSON: File Recieved
+21/5/2019 16:22:18 UTC          JSON: Signature Verified
+21/5/2019 16:22:21 UTC          SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir --recursive
+21/5/2019 16:22:18 UTC          JSON: Source DannoPeters/Repo-A
+21/5/2019 16:22:24 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Interesting message for Test 3"
+21/5/2019 16:22:18 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+21/5/2019 16:22:20 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+21/5/2019 16:22:21 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+21/5/2019 16:22:24 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+21/5/2019 16:22:29 UTC     JSON: File Recieved
+21/5/2019 16:22:29 UTC          JSON: Signature Verified
+21/5/2019 16:22:29 UTC          JSON: Source DannoPeters/Repo-B
+21/5/2019 16:22:29 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+21/5/2019 16:22:29 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+21/5/2019 16:22:29 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+21/5/2019 16:22:29 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+21/5/2019 16:22:39 UTC     JSON: File Recieved
+21/5/2019 16:22:39 UTC          JSON: Signature Verified
+21/5/2019 16:22:39 UTC          JSON: Source DannoPeters/Repo-B
+21/5/2019 16:22:39 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+21/5/2019 16:22:39 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+21/5/2019 16:22:39 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+21/5/2019 16:22:39 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+21/5/2019 16:23:5 UTC     JSON: File Recieved
+21/5/2019 16:23:5 UTC          JSON: Signature Verified
+21/5/2019 16:23:5 UTC          JSON: Source DannoPeters/Repo-A
+21/5/2019 16:23:5 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+21/5/2019 16:23:8 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+21/5/2019 16:23:9 UTC          SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir --recursive
+21/5/2019 16:23:9 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+21/5/2019 16:23:10 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Message for test 4"
+21/5/2019 16:23:10 UTC          SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+21/5/2019 16:23:14 UTC     JSON: File Recieved
+21/5/2019 16:23:14 UTC          JSON: Signature Verified
+21/5/2019 16:23:14 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+21/5/2019 16:23:14 UTC          JSON: Source DannoPeters/Repo-B
+21/5/2019 16:23:14 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+21/5/2019 16:23:14 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+21/5/2019 16:23:14 UTC           ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
