@@ -1,0 +1,23 @@
+02019/5/17 19:20:58 UTC     ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Testing Log File"
+02019/5/17 19:26:13 UTC     INIT: Node.js server listening on 8080
+02019/5/17 19:26:23 UTC     JSON: File Recieved
+02019/5/17 19:26:23 UTC     JSON: Signature Verified
+02019/5/17 19:26:25 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+02019/5/17 19:26:23 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+02019/5/17 19:26:25 UTC     ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Testing Log File"
+02019/5/17 19:26:25 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+02019/5/17 19:26:24 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+02019/5/17 19:26:25 UTC     SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir --recursive
+02019/5/17 19:26:25 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Testing Log File"
+02019/5/17 19:28:49 UTC     INIT: Node.js server listening on 8080
+02019/5/17 19:29:2 UTC     JSON: File Recieved
+02019/5/17 19:29:2 UTC     JSON: Signature Verified
+02019/5/17 19:29:2 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+02019/5/17 19:29:7 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Test 2"
+02019/5/17 19:29:7 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+02019/5/17 19:29:5 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+02019/5/17 19:29:7 UTC     SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir --recursive
+02019/5/17 19:29:7 UTC     SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+02019/5/17 19:29:11 UTC     JSON: File Recieved
+02019/5/17 19:29:11 UTC     JSON: Signature Verified
+02019/5/17 19:29:11 UTC     CONFIRM: DannoPeters/Repo-B push confirmation failed: ReferenceError: False is not defined
