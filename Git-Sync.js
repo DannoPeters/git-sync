@@ -39,7 +39,9 @@ var fs = require("fs"); //required to write to files
 //Webserver OP
 http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
-        log(`OP`, `NEW OPERATION: File Recieved from ${req.connection.remoteAddress}`, 0);
+        var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
+        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}`, 0);
+
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
             log(`OP`, `JSON: Signature Verified`, 1);
@@ -53,8 +55,8 @@ http.createServer(function (req, res) { //create webserver
 
     res.end('');
 }).listen(port, (err) => {
-    if (err) return log(`ALL`, `ERROR: Issue with init of server: ${err}`, 1);
-    log(`OP`, `INIT: Node.js server listening on ${port}`, 1);
+    if (err) return log(`ALL`, `ERROR: Issue with init of server: ${err}`, 0);
+    log(`OP`, `INIT: Node.js server listening on ${port}`, 0);
 
 
 });
@@ -186,10 +188,7 @@ function githubHook(chunk, req) {
                     //Store information to confirm proper push to repo B
                     stackAdd(actionArray, repo)
 
-                } else {
-                    log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 1);
-                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 0);
-                }
+                } 
                 
                 break;
 
@@ -197,9 +196,9 @@ function githubHook(chunk, req) {
                     log(`OP`, `JSON: Source ${gitB}`, 1);
                     try{
 
-                    var splitRepo.modifiedFiles = arraySplit(repo.modifiedFiles);
-                    var splitRepo.addedFiles = arraySplit(repo.addedFiles);
-                    var splitRepo.removedFiles = arraySplit(repo.removedFiles);
+                    var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles),
+                        addedFiles: arraySplit(repo.addedFiles), 
+                        removedFiles: arraySplit(repo.removedFiles)}
 
                     
                     testModified = (repo.modifiedFiles == pastRepo.modifiedFiles);
@@ -262,18 +261,18 @@ function log (stream, message, level){
     //fs.appendFile( `${gitSync}/Git-Sync_${today.getUTCFullYear()}_${stream}.log`, `${level*"    "}${date} ${time} UTC     ${message}`, (error) => {});
     switch (stream){
         case 'OP':
-            operation.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
+            operation.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             operation.end();
             break;
 
         case 'ER':
-            error.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
+            error.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             break;
 
         case 'ALL':
-            error.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
-            operation.write(`${date} ${time} UTC    ${new Array(level*5+1).join(' ')}    ${message}\n`);
+            error.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
+            operation.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             operation.end();
             break;
@@ -287,10 +286,12 @@ function log (stream, message, level){
 
 
 function arraySplit (array, char) {
+    var array1 =[];
     for (var i = 0; i < array.length; i++) {
                         var split = array[i].split(char);  // just split once
                         array1.push(split); //push to nested array
                     }
+                    console.log(array1);
     return array1
 }
 
@@ -303,7 +304,7 @@ function fileType (repo, file, rank, char){
 
     //check modified files
     for (F in modified){
-        var split = F[F.length()].split(char)
+        var split = F.split(char);
         if  (split[rank] == file){
             return true
         }
@@ -319,11 +320,12 @@ function fileType (repo, file, rank, char){
 
     //check deleted files
     for (F in removed){
-        var split = F[F.length()].split(char)
+        var split = F[F.length].split(char)
         if  (split[rank] == file){
             return true
         }
     }
-
+        log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 1);
+        log(`OP`, `SYNC: No Push to ${repoB} Required`, 1);
     return false
 }
