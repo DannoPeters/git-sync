@@ -234,3 +234,170 @@
 23/5/2019 14:51:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
 23/5/2019 14:51:59 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
 23/5/2019 14:51:59 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 15:19:9 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:19:27 UTC              ERROR: DNS lookup failed for 140.82.115.0: Error: getHostByAddr EINVAL
+23/5/2019 15:19:27 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:19:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:19:27 UTC         NEW OPERATION: File Recieved from 140.82.115.0 a.k.a null
+23/5/2019 15:19:27 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 15:19:27 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:19:29 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 15:19:29 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 15:22:47 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:22:47 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 15:22:47 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:22:47 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:22:47 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:22:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:22:49 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 15:22:49 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 15:25:41 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:25:41 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+23/5/2019 15:25:41 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:25:41 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:25:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:25:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:25:43 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 15:25:43 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 15:25:56 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:26:44 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:29:7 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:29:36 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:30:28 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:30:34 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:30:34 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+23/5/2019 15:30:35 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:30:36 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 15:30:36 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 15:30:34 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:30:34 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:30:34 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:31:50 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:31:55 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:31:55 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:31:55 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 15:31:55 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:31:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:31:56 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:31:57 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A//hwd.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:31:57 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A//hwd.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A//hwd.dat.*': No such file or directory
+
+23/5/2019 15:31:57 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:31:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:32:1 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:32:1 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:34:13 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:34:17 UTC              ERROR: DNS lookup failed for 140.82.115.12: Error: getHostByAddr EINVAL
+23/5/2019 15:34:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:34:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:34:19 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:34:19 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat.*': No such file or directory
+
+23/5/2019 15:34:17 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
+23/5/2019 15:34:17 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:34:17 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:34:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:34:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:34:20 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:34:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:35:8 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:35:15 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:35:15 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+23/5/2019 15:35:15 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:35:15 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:35:17 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:35:15 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:35:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:35:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathdw.dat.*': No such file or directory
+
+23/5/2019 15:35:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:35:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:35:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:35:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:35:38 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:35:46 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 15:35:46 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:35:47 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:35:48 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:35:46 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+23/5/2019 15:35:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:35:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:35:46 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:35:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:35:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:35:52 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:35:52 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 15:35:52 UTC              JSON: Signature Verified: sha1=a5eedf5a7ce3a8f1ddffb7e0f3d4967d9dcbcad1
+23/5/2019 15:35:52 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 15:35:52 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: pastRepo is not defined
+23/5/2019 15:40:0 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:40:12 UTC              ERROR: DNS lookup failed for 140.82.115.1: Error: getHostByAddr EINVAL
+23/5/2019 15:40:12 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:40:14 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:40:12 UTC         NEW OPERATION: File Recieved from 140.82.115.1 a.k.a null
+23/5/2019 15:40:12 UTC              JSON: Signature Verified: sha1=96b7fb632dce7167c6b834f4e4993d820311abc1
+23/5/2019 15:40:12 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:40:16 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:40:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:40:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:40:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:40:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:41:18 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:41:18 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:41:18 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 15:41:18 UTC              JSON: Signature Verified: sha1=d83bf87ec7b0b1944f8ffdde89cf4c69f2f95ca7
+23/5/2019 15:41:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:41:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:41:20 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:41:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:41:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Testing Repo-B Verification"
+23/5/2019 15:41:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:41:24 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 15:41:24 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:41:24 UTC              JSON: Signature Verified: sha1=ae1944be3f3ccc933143b735989783a70e4e053e
+23/5/2019 15:41:24 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 15:46:27 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:46:47 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
+23/5/2019 15:46:47 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+23/5/2019 15:46:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:46:47 UTC              JSON: Signature Verified: sha1=3e3daabf3f9d54282a613c5516c2e51d744ec737
+23/5/2019 15:46:47 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:46:47 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:46:49 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:46:49 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:46:49 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Update hdw.dat.adw"
+23/5/2019 15:46:49 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:46:53 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:46:53 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+23/5/2019 15:46:53 UTC              JSON: Signature Verified: sha1=fb902c82bf9256e47a18176db7f0f3334caa462a
+23/5/2019 15:46:53 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 15:52:4 UTC    INIT: Node.js server listening on 8080
+23/5/2019 15:52:44 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:52:44 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 15:52:44 UTC              JSON: Signature Verified: sha1=fc9e3cef21fbc4564a44137e2ca67ee135cc9469
+23/5/2019 15:52:44 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 15:52:44 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 15:52:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 15:52:46 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 15:52:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 15:52:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters Message:Test 3 for GitB Confirm"
+23/5/2019 15:52:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 15:52:50 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
+23/5/2019 15:52:50 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+23/5/2019 15:52:50 UTC              JSON: Signature Verified: sha1=cb935d997aa8cb6a2a9228e2f3bdb61e32dce580
+23/5/2019 15:52:50 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
