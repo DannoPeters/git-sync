@@ -87,3 +87,150 @@
 21/5/2019 18:14:46 UTC             SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
 21/5/2019 18:14:47 UTC             SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
 21/5/2019 18:14:47 UTC             SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+21/5/2019 18:28:55 UTC    INIT: Node.js server listening on 8080
+21/5/2019 18:29:51 UTC    INIT: Node.js server listening on 8080
+21/5/2019 18:30:47 UTC    INIT: Node.js server listening on 8080
+21/5/2019 18:31:23 UTC    INIT: Node.js server listening on 8080
+21/5/2019 18:31:27 UTC              JSON: Signature Verified
+21/5/2019 18:31:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+21/5/2019 18:31:27 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+21/5/2019 18:31:27 UTC              JSON: Source DannoPeters/Repo-A
+21/5/2019 18:31:27 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+21/5/2019 18:31:29 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+21/5/2019 18:31:29 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+22/5/2019 14:18:52 UTC    INIT: Node.js server listening on 8080
+22/5/2019 14:20:39 UTC    [42mINIT: Node.js server listening on 8080[49m
+22/5/2019 14:41:56 UTC    INIT: Node.js server listening on 8080
+22/5/2019 14:45:32 UTC    INIT: Node.js server listening on 8080
+22/5/2019 14:45:38 UTC              ERROR: DNS lookup failed for 140.82.115.65: ReferenceError: $jsonIP is not defined
+22/5/2019 14:45:38 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+22/5/2019 14:45:39 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+22/5/2019 14:45:38 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+22/5/2019 14:45:38 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+22/5/2019 14:45:38 UTC              JSON: Source DannoPeters/Repo-A
+22/5/2019 14:45:40 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+22/5/2019 14:45:40 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+22/5/2019 14:46:53 UTC    INIT: Node.js server listening on 8080
+22/5/2019 14:46:59 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+22/5/2019 14:46:59 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+22/5/2019 14:46:59 UTC              JSON: Source DannoPeters/Repo-A
+22/5/2019 14:46:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+22/5/2019 14:47:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+22/5/2019 14:47:2 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+22/5/2019 14:47:2 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+22/5/2019 14:50:54 UTC    INIT: Node.js server listening on 8080
+22/5/2019 14:51:9 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: "callback" argument must be a function
+22/5/2019 14:51:9 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+22/5/2019 14:51:9 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+22/5/2019 14:51:9 UTC              JSON: Source DannoPeters/Repo-A
+22/5/2019 14:51:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+22/5/2019 14:51:10 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+22/5/2019 14:51:12 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+22/5/2019 14:51:12 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:21:55 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:22:14 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: "callback" argument must be a function
+23/5/2019 14:22:14 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a undefined
+23/5/2019 14:22:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:22:17 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:22:17 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:22:14 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:22:14 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:22:14 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:29:24 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:31:18 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:33:6 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:33:12 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+23/5/2019 14:33:12 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:33:12 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:33:12 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:33:13 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:33:14 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:33:14 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:33:50 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:33:53 UTC         NEW OPERATION: File Recieved from 140.82.115.6 a.k.a null
+23/5/2019 14:33:53 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:33:53 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:33:53 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:33:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:33:56 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:33:56 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:34:21 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:34:24 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
+23/5/2019 14:34:24 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:34:24 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:34:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:34:25 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:34:26 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:34:26 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:34:26 UTC              ERROR: reverse DNS failed for 140.82.115.12: Error: getHostByAddr ENOTFOUND 140.82.115.12
+23/5/2019 14:36:49 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:36:55 UTC         NEW OPERATION: File Recieved from 8.8.8.8 a.k.a null
+23/5/2019 14:36:55 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:36:55 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:36:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:36:56 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:36:57 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:36:57 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:41:8 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:41:15 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 14:41:15 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+23/5/2019 14:41:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:41:17 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:41:15 UTC              JSON: Signature Verified: sha1=0a5788efca19b45bb7d8d5616711893127b5f277
+23/5/2019 14:41:15 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:41:15 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:41:17 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:42:28 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:43:43 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 14:43:43 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+23/5/2019 14:43:43 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:43:43 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:43:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:43:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:43:46 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:43:46 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:46:8 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:46:33 UTC              ERROR: DNS lookup failed for 140.82.115.9: Error: getHostByAddr EINVAL
+23/5/2019 14:46:33 UTC         NEW OPERATION: File Recieved from 140.82.115.9 a.k.a null
+23/5/2019 14:46:33 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:46:33 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:46:33 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:46:34 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:46:35 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:46:35 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:49:22 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:49:28 UTC              ERROR: DNS lookup failed for 140.82.115.69: Error: getHostByAddr EINVAL
+23/5/2019 14:49:28 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+23/5/2019 14:49:28 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:49:28 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:49:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:49:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:49:30 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:49:30 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:50:13 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:50:17 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
+23/5/2019 14:50:17 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:50:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:50:19 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:50:19 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:50:17 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+23/5/2019 14:50:17 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:50:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:51:5 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:51:9 UTC              ERROR: DNS lookup failed for 140.82.115.12: Error: getHostByAddr EINVAL
+23/5/2019 14:51:9 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
+23/5/2019 14:51:9 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:51:9 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:51:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:51:10 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:51:11 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:51:11 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+23/5/2019 14:51:53 UTC    INIT: Node.js server listening on 8080
+23/5/2019 14:51:57 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 14:51:57 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+23/5/2019 14:51:57 UTC              JSON: Signature Verified: sha1=26a9408a3772816dac224cfcb214c8f8e8edec5e
+23/5/2019 14:51:57 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 14:51:57 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 14:51:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 14:51:59 UTC              SYNC: No changes to files of type "hwd" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/
+23/5/2019 14:51:59 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
