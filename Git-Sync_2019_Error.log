@@ -21,3 +21,45 @@
 23/5/2019 14:50:17 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
 23/5/2019 14:51:9 UTC              ERROR: DNS lookup failed for 140.82.115.12: Error: getHostByAddr EINVAL
 23/5/2019 14:51:57 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 15:19:27 UTC              ERROR: DNS lookup failed for 140.82.115.0: Error: getHostByAddr EINVAL
+23/5/2019 15:22:47 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:25:41 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:30:34 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:31:55 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:31:57 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A//hwd.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A//hwd.dat.*': No such file or directory
+
+23/5/2019 15:32:1 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:34:17 UTC              ERROR: DNS lookup failed for 140.82.115.12: Error: getHostByAddr EINVAL
+23/5/2019 15:34:19 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat.*': No such file or directory
+
+23/5/2019 15:34:20 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:35:15 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:35:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathdw.dat.*': No such file or directory
+
+23/5/2019 15:35:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:35:46 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 15:35:52 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:35:52 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: pastRepo is not defined
+23/5/2019 15:40:12 UTC              ERROR: DNS lookup failed for 140.82.115.1: Error: getHostByAddr EINVAL
+23/5/2019 15:40:17 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: Bookem306 Message:Testing multiple hardware file modification detection."
+23/5/2019 15:41:18 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:41:24 UTC              ERROR: DNS lookup failed for 140.82.115.71: Error: getHostByAddr EINVAL
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:41:24 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 15:46:47 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
+23/5/2019 15:46:53 UTC              ERROR: DNS lookup failed for 140.82.115.65: Error: getHostByAddr EINVAL
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:46:53 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 15:52:44 UTC              ERROR: DNS lookup failed for 140.82.115.15: Error: getHostByAddr EINVAL
+23/5/2019 15:52:50 UTC              ERROR: DNS lookup failed for 140.82.115.70: Error: getHostByAddr EINVAL
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect

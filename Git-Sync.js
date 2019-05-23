@@ -19,7 +19,7 @@ var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location 
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
 var gitWeb = "git@github.com:";
 const port = 8080; //specify the port for the server to listen on
-var dirA = "" //directory to copy files from in repo-A
+var dirA = "hdw.dat/" //directory to copy files from in repo-A
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
 
 var actionArray = new Array(); //Array to store information about actions taken
@@ -183,10 +183,10 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
                     */
 
-                    if (fileType(repo, 'hwd', 0, '.')) {
+                    if (fileType(repo, 'hdw', 0, '.')) {
 
                     //Copy only Hardware Files
-                    var cmd = `cp ${repoA}/${dirA}/hwd.dat.* ${repoB}/${dirB}`;
+                    var cmd = `cp ${repoA}/${dirA}hdw.dat.* ${repoB}/${dirB}`;
                     runCmd(cmd);
 
                     //add all files to git
@@ -195,7 +195,7 @@ function githubHook(chunk, req) {
 
 
                     //Commit changes to local repoB with message from GitHub repo
-                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username} Message:${repo.commitMessage}"`;
+                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username}   Message:${repo.commitMessage}"`;
                     repo.finalCommitMessage = `User: ${repo.username}   Message:${repo.commitMessage}`;
                     runCmd(cmd);
 
@@ -217,6 +217,15 @@ function githubHook(chunk, req) {
                     var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles),
                         addedFiles: arraySplit(repo.addedFiles), 
                         removedFiles: arraySplit(repo.removedFiles)}
+
+                    var pastRepo = stackGet(actionArray);
+
+                    console.log(`pastRepo: ${pastRepo}\n`);
+                    console.log(`repo: ${repo.modifiedFiles}     pastRepo: ${pastRepo.modifiedFiles}\n`);
+                    console.log(`repo: ${repo.addedFiles}     pastRepo: ${pastRepo.addedFiles}\n`);
+                    console.log(`repo: ${repo.deletedFiles}     pastRepo: ${pastRepo.deletedFiles}\n`);
+                    console.log(`repo: ${repo.commitMessage}     pastRepo: ${pastRepo.finalCommitMessage}\n`);
+
 
                     
                     testModified = (repo.modifiedFiles == pastRepo.modifiedFiles);
@@ -309,7 +318,6 @@ function arraySplit (array, char) {
                         var split = array[i].split(char);  // just split once
                         array1.push(split); //push to nested array
                     }
-                    console.log(array1);
     return array1
 }
 
@@ -320,14 +328,10 @@ function fileType (repo, file, rank, char){
     added = arraySplit(repo.addedFiles, '/');
     removed = arraySplit(repo.addedFiles, '/');
 
-    console.log(`Modified: ${modified}\n`);
-
     //check modified files
     for (F in modified){
-        var split = F.split(char);
-        console.log(`F: ${F}\n`);
-        console.log(`split: ${split}\n`);
-        console.log(`split[rank]: ${split[rank]}    file: ${file}\n`);
+        fileName = modified[F][modified[F].length-1];
+        var split = fileName.split(char);
         if  (split[rank] == file){
             return true
         }
@@ -335,7 +339,8 @@ function fileType (repo, file, rank, char){
 
     //check new files
     for (F in added){
-        var split = F[F.length()].split(char)
+        fileName = added[F][added[F].length-1];
+        var split = fileName.split(char);
         if  (split[rank] == file){
             return true
         }
@@ -343,7 +348,8 @@ function fileType (repo, file, rank, char){
 
     //check deleted files
     for (F in removed){
-        var split = F[F.length].split(char)
+        fileName = removed[F][removed[F].length-1];
+        var split = fileName.split(char);
         if  (split[rank] == file){
             return true
         }
