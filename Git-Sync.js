@@ -58,7 +58,7 @@ http.createServer(function (req, res) { //create webserver
         }
         }
         */
-        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1);
+        log(`OP`, `\n NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1);
 
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
@@ -73,8 +73,8 @@ http.createServer(function (req, res) { //create webserver
 
     res.end('');
 }).listen(port, (err) => {
-    if (err) return log(`ALL`, `ERROR: Issue with init of server: ${err}`, 0);
-    log(`OP`, `INIT: Node.js server listening on ${port}`, 0);
+    if (err) return log(`ALL`, `\n ERROR: Issue with init of server: ${err}`, 0);
+    log(`ALL`, `\n INIT: Node.js server listening on ${port}`, 0);
 
 
 });
