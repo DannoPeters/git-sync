@@ -44,7 +44,7 @@ http.createServer(function (req, res) { //create webserver
         var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         var jsonPort = req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         var jsonDomain = null;
-        if (jsonIP != null) {
+        /*if (jsonIP != null) {
             try {
                dns.reverse(`${jsonIP}:${jsonPort}`, function (error, domain) {
                     if (error) {
@@ -57,7 +57,7 @@ http.createServer(function (req, res) { //create webserver
             log(`ALL`, `ERROR: DNS lookup failed for ${jsonIP}: ${error}`, 2);
         }
         }
-        
+        */
         log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1);
 
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
@@ -225,6 +225,8 @@ function githubHook(chunk, req) {
                     console.log(`repo: ${repo.addedFiles}     pastRepo: ${pastRepo.addedFiles}\n`);
                     console.log(`repo: ${repo.deletedFiles}     pastRepo: ${pastRepo.deletedFiles}\n`);
                     console.log(`repo: ${repo.commitMessage}     pastRepo: ${pastRepo.finalCommitMessage}\n`);
+
+                    modified = arraySplit(repo.modifiedFiles, '/');
 
 
                     
