@@ -32,6 +32,8 @@ let crypto = require(`crypto`); //import crypto library
 //let fetch = require(`node-fetch`) //include fetch so ngrok settings JSOn can be fetched
 var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 var fs = require("fs"); //required to write to files
+const dns = require('dns'); //required to resolve domain name for log file
+var colors = require('colors/safe'); //required to colorize log file (only using production safe colors)
 
 
 
@@ -40,16 +42,32 @@ var fs = require("fs"); //required to write to files
 http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
         var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
-        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}`, 0);
+        var jsonPort = req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
+        var jsonDomain = null;
+        if (jsonIP != null) {
+            try {
+               dns.reverse(`${jsonIP}:${jsonPort}`, function (error, domain) {
+                    if (error) {
+                        log(`ALL`, `ERROR: reverse DNS failed for ${jsonIP}: ${error}`, 2);
+                    } else {
+                        jsonDomain = domain;
+                    }
+                });
+        } catch(error){
+            log(`ALL`, `ERROR: DNS lookup failed for ${jsonIP}: ${error}`, 2);
+        }
+        }
+        
+        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1);
 
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
-            log(`OP`, `JSON: Signature Verified`, 1);
+            log(`OP`, `JSON: Signature Verified: ${sig}`, 2);
             githubHook(chunk,req);
         } else {
             var signature = req.headers[`x-hub-signature`];
-            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 1);
-            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 1);
+            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
+            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
         }
          });
 
@@ -63,7 +81,7 @@ http.createServer(function (req, res) { //create webserver
 
 //runs commands in synchronus (serial) terminal 
 function runCmd(cmd) {
-    log(`OP`, `SYNC: Exicuted ${cmd}`, 1);
+    log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
 
     try{ 
         execSync(`${cmd}`); 
@@ -95,7 +113,7 @@ function githubJSON(file, event) {
             }
         }
             catch(error) {
-                log(`OP`, `JSON: Push Data Formatting Incorrect ${error}`, 1);
+                log(`OP`, `JSON: Push Data Formatting Incorrect ${error}`, 2);
             return;
             };
         
@@ -128,7 +146,7 @@ function githubHook(chunk, req) {
         repo = githubJSON(chunk,req.headers['x-github-event']);
         }
         catch (error) {
-           log(`OP`, `JSON: GitHub Data Formatting Incorrect ${error}`, 1);
+           log(`OP`, `JSON: GitHub Data Formatting Incorrect ${error}`, 2);
         return;
         }
 
@@ -136,7 +154,7 @@ function githubHook(chunk, req) {
         switch (repo.gitFullName){
 
             case gitA: 
-                    log(`OP`, `JSON: Source ${gitA}`, 1);
+                    log(`OP`, `JSON: Source ${gitA}`, 2);
 
                     //Pull from github repoB to local repo
                     var cmd = `cd ${repoA} && git pull`;
@@ -165,7 +183,7 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
                     */
 
-                    if (fileType(repo, 'hwd', 1, '.')) {
+                    if (fileType(repo, 'hwd', 0, '.')) {
 
                     //Copy only Hardware Files
                     var cmd = `cp ${repoA}/${dirA}/hwd.dat.* ${repoB}/${dirB}`;
@@ -193,7 +211,7 @@ function githubHook(chunk, req) {
                 break;
 
             case gitB: //Verify that push to repo B was correct
-                    log(`OP`, `JSON: Source ${gitB}`, 1);
+                    log(`OP`, `JSON: Source ${gitB}`, 2);
                     try{
 
                     var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles),
@@ -207,29 +225,29 @@ function githubHook(chunk, req) {
                     testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
 
                     if (testModified && testAdded && testRemoved && testCommit) {
-                        log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful`, 1);
+                        log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful`, 2);
                     } 
                     if (testModified == false){
-                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 1);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 2);
                     }
                     if (testAdded == false){
-                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 1);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 2);
                     }
                     if (testRemoved == false){
-                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 1);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 2);
                     }
                     if (testCommit == false){
-                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 1);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 2);
                     }
                 }
                 catch(error){
-                    log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 1);
+                    log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 2);
                     return;
                 }
                 break;
 
             default:
-                log(`ALL`, `ERROR: Source "${repo.gitFullName}" Not Recognized`, 1);
+                log(`ALL`, `ERROR: Source "${repo.gitFullName}" Not Recognized`, 2);
             break;
         }
 
@@ -302,9 +320,14 @@ function fileType (repo, file, rank, char){
     added = arraySplit(repo.addedFiles, '/');
     removed = arraySplit(repo.addedFiles, '/');
 
+    console.log(`Modified: ${modified}\n`);
+
     //check modified files
     for (F in modified){
         var split = F.split(char);
+        console.log(`F: ${F}\n`);
+        console.log(`split: ${split}\n`);
+        console.log(`split[rank]: ${split[rank]}    file: ${file}\n`);
         if  (split[rank] == file){
             return true
         }
@@ -325,7 +348,7 @@ function fileType (repo, file, rank, char){
             return true
         }
     }
-        log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 1);
-        log(`OP`, `SYNC: No Push to ${repoB} Required`, 1);
+        log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 2);
+        log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
     return false
 }
