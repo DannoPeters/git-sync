@@ -33,8 +33,6 @@ let crypto = require(`crypto`); //import crypto library
 var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 var fs = require("fs"); //required to write to files
 const dns = require('dns'); //required to resolve domain name for log file
-var colors = require('colors/safe'); //required to colorize log file (only using production safe colors)
-
 
 
 
@@ -58,7 +56,7 @@ http.createServer(function (req, res) { //create webserver
         }
         }
         */
-        log(`OP`, `\n NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1);
+        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1, '\n');
 
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
@@ -74,7 +72,7 @@ http.createServer(function (req, res) { //create webserver
     res.end('');
 }).listen(port, (err) => {
     if (err) return log(`ALL`, `\n ERROR: Issue with init of server: ${err}`, 0);
-    log(`ALL`, `\n INIT: Node.js server listening on ${port}`, 0);
+    log(`ALL`, `INIT: Node.js server listening on ${port}`, 0, '\n');
 
 
 });
@@ -280,7 +278,9 @@ function stackGet(queue) {
     }
 }
 
-function log (stream, message, level){
+//
+function log (stream, message, level, prefix){
+    prefix = prefix || '';
     var today = new Date();
     var operation = fs.createWriteStream(`./Git-Sync_${today.getUTCFullYear()}_Operation.log`, {flags:'a'});
     var error = fs.createWriteStream(`./Git-Sync_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
@@ -290,18 +290,18 @@ function log (stream, message, level){
     //fs.appendFile( `${gitSync}/Git-Sync_${today.getUTCFullYear()}_${stream}.log`, `${level*"    "}${date} ${time} UTC     ${message}`, (error) => {});
     switch (stream){
         case 'OP':
-            operation.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
+            operation.write(`${prefix}${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             operation.end();
             break;
 
         case 'ER':
-            error.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
+            error.write(`${prefix}${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             break;
 
         case 'ALL':
-            error.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
-            operation.write(`${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
+            error.write(`${prefix}${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
+            operation.write(`${prefix}${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
             error.end();
             operation.end();
             break;
