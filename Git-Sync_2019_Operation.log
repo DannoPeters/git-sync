@@ -401,3 +401,42 @@ cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathd
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 16:20:49 UTC    
+ INIT: Node.js server listening on 8080
+23/5/2019 16:21:33 UTC         
+ NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+23/5/2019 16:21:34 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 16:21:33 UTC              JSON: Signature Verified: sha1=3abf217dbbd80688828b08f9bcd0d2aee55d69cb
+23/5/2019 16:21:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 16:21:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.adw"
+23/5/2019 16:21:33 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 16:21:33 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 16:21:35 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 16:21:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+23/5/2019 16:21:39 UTC         
+ NEW OPERATION: File Recieved from 140.82.115.0 a.k.a null
+23/5/2019 16:21:39 UTC              JSON: Signature Verified: sha1=b3f2aef3e3a85d3b3525e8ad3df1cf3e355358c6
+23/5/2019 16:21:39 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 16:24:27 UTC    INIT: Node.js server listening on 8080
+
+23/5/2019 16:25:10 UTC    INIT: Node.js server listening on 8080
+
+23/5/2019 16:25:38 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+23/5/2019 16:25:39 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+23/5/2019 16:25:38 UTC              JSON: Signature Verified: sha1=9401a2cd7b1dff0020855ff2e98e81c86d08569a
+23/5/2019 16:25:38 UTC              JSON: Source DannoPeters/Repo-A
+23/5/2019 16:25:38 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+23/5/2019 16:25:40 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+23/5/2019 16:25:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+23/5/2019 16:25:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.adw"
+23/5/2019 16:25:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+23/5/2019 16:25:44 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+23/5/2019 16:25:44 UTC              JSON: Signature Verified: sha1=20ce79cada25b72ea7886ac11baccd3a22d85eaa
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 16:25:44 UTC              JSON: Source DannoPeters/Repo-B
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
