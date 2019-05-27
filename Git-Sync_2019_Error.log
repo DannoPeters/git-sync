@@ -63,3 +63,14 @@ cp: cannot stat '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dathd
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
 23/5/2019 15:52:50 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B commit is incorrect
+23/5/2019 16:20:49 UTC    
+ INIT: Node.js server listening on 8080
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 16:21:39 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
+23/5/2019 16:24:27 UTC    INIT: Node.js server listening on 8080
+
+23/5/2019 16:25:10 UTC    INIT: Node.js server listening on 8080
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B modified files synced incorrectly
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B added files synced incorrectly
+23/5/2019 16:25:44 UTC              ERROR: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B removed files synced incorrectly
