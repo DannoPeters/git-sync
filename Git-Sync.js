@@ -124,19 +124,6 @@ function githubJSON(file, event) {
     return repo;
 }
 
-/*
-function mirrorRepo(repoA, repoB, repo) {
-    var addedFolders = repo.addedFiles.split("/");
-    for (var folder in addedFolders){
-        checkFolderA = `${repoB}/${folder}`;
-        checkFolderB = `${repoB}/${folder}`;
-        if (checkFolder.exists == False){
-
-        }
-    }
-
-}
-*/
 
 function githubHook(chunk, req) {
     //Test if file has GitHub Event info
@@ -163,25 +150,8 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${repoB} && git pull`;
                     runCmd(cmd);
 
-                   /* //Copy all modified files to repoB
-                    for (var file in repo.modifiedFiles) {
-                        var cmd = `cp ${repoA}/${repo.modifiedFiles[file]} ${repoB}/${dirB}/${repo.modifiedFiles[file]} --recursive`;
-                        runCmd(cmd);
-                    }
-
-                    //Copy all new files to repoB
-                    for (var file in repo.addedFiles) {
-                       var cmd = `cp ${repoA}/${repo.addedFiles[file]} ${repoB}/${dirB}/${repo.addedFiles[file]} --recursive`;
-                       runCmd(cmd);
-                    } */
-
-                    
-                    /*//Copy all files 
-                    var cmd = `cp ${repoA}/${dirA}/* ${repoB}/${dirB} --recursive`;
-                    runCmd(cmd);
-                    */
-
-                    if (fileType(repo, 'hdw', 0, '.')) {
+                    var type = `hdw`;
+                    if (fileType(repo.modifiedFiles, type, 0, '.') && fileType(repo.addedFiles, type, 0, '.') && fileType(repo.removedFiles, type, 0, '.')) {
 
                     //Copy only Hardware Files
                     var cmd = `cp ${repoA}/${dirA}hdw.dat.* ${repoB}/${dirB}`;
@@ -204,6 +174,9 @@ function githubHook(chunk, req) {
                     //Store information to confirm proper push to repo B
                     stackAdd(actionArray, repo)
 
+                } else {
+                    log(`OP`, `SYNC: No changes to files of type "${fileType}" found in ${repoA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
                 } 
                 
                 break;
@@ -212,28 +185,18 @@ function githubHook(chunk, req) {
                     log(`OP`, `JSON: Source ${gitB}`, 2);
                     try{
 
-                    var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles),
-                        addedFiles: arraySplit(repo.addedFiles), 
-                        removedFiles: arraySplit(repo.removedFiles)}
+                    var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles, '/'),
+                        addedFiles: arraySplit(repo.addedFiles, '/'), 
+                        removedFiles: arraySplit(repo.removedFiles, '/')}
 
                     var pastRepo = stackGet(actionArray);
 
-                    console.log(`pastRepo: ${pastRepo}\n`);
-                    console.log(`repo: ${repo.modifiedFiles}     pastRepo: ${pastRepo.modifiedFiles}\n`);
-                    console.log(`repo: ${repo.addedFiles}     pastRepo: ${pastRepo.addedFiles}\n`);
-                    console.log(`repo: ${repo.deletedFiles}     pastRepo: ${pastRepo.deletedFiles}\n`);
-                    console.log(`repo: ${repo.commitMessage}     pastRepo: ${pastRepo.finalCommitMessage}\n`);
-
-                    modified = arraySplit(repo.modifiedFiles, '/');
-
-
-                    
-                    testModified = (repo.modifiedFiles == pastRepo.modifiedFiles);
-                    testAdded = (repo.addedFiles == pastRepo.addedFiles);
-                    testRemoved = (repo.removedFiles == pastRepo.removedFiles);
+                    testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
+                    testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
+                    testRemoved = checkFiles(repo.removedFiles, pastRepo.removedFiles, '/');
                     testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
 
-                    if (testModified && testAdded && testRemoved && testCommit) {
+                    if (testModifed && testAdded && testRemoved && testCommit) {
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful`, 2);
                     } 
                     if (testModified == false){
@@ -316,14 +279,33 @@ function log (stream, message, level, prefix){
 
 function arraySplit (array, char) {
     var array1 =[];
-    for (var i = 0; i < array.length; i++) {
+
+    if ((undefined === array || array.length)){ //check if array in undefined
+        return array1
+    } else {
+        for (var i = 0; i < array.length; i++) {
                         var split = array[i].split(char);  // just split once
                         array1.push(split); //push to nested array
                     }
-    return array1
+        return array1
+    }
 }
 
+function fileType (repo, file, rank, char){
+    files = arraySplit(repo, '/');
+    for (F in files){
+        fileName = files[F][files[F].length-1];
+        var split = fileName.split(char);
+        console.log(`${split[rank]} expected ${file}`);
+        if  (split[rank] == file){
+            return true;
+        }
+    }
 
+    return false;
+}
+
+/*
 function fileType (repo, file, rank, char){
     
     modified = arraySplit(repo.modifiedFiles, '/');
@@ -334,6 +316,7 @@ function fileType (repo, file, rank, char){
     for (F in modified){
         fileName = modified[F][modified[F].length-1];
         var split = fileName.split(char);
+        console.log(`${split[rank]} expected ${file}`);
         if  (split[rank] == file){
             return true
         }
@@ -359,4 +342,21 @@ function fileType (repo, file, rank, char){
         log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 2);
         log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
     return false
+}
+*/
+
+function checkFiles (A,B,char){
+    splitA = arraySplit(A, char);
+    splitB = arraySplit(B, char);
+    var test = true;
+    for (F in modified){
+        fileNameA = splitA[F][splitA[F].length-1];
+        fileNameB = splitB[F][splitB[F].length-1];
+        console.log(`repo files: ${fileNameA}     pastRepo files: ${fileNameB}\n`);
+        if  (fileNameA != fileNameB){
+            log(`ALL`, `ERROR: File ${fileNameA} in ${gitA} does not match ${fileNameB} in ${gitB}`, 2);
+            test = false;
+            }
+        }
+    return test
 }
