@@ -1836,4 +1836,5 @@ Aborting
 
 28/5/2019 21:2:51 UTC    INIT: Node.js server listening on 8080
 28/5/2019 21:10:48 UTC              ERROR: Copy Command failed, Attempting to recursive copy directory
-28/5/2019 21:10:52 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: TypeError: Cannot read property 'length' of undefined
+28/5/2019 21:10:52 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: TypeError: Cannot read property 'length'
+of undefined
