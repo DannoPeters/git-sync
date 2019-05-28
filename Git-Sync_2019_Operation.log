@@ -1,92 +1,662 @@
 
-27/5/2019 15:17:38 UTC    INIT: Node.js server listening on 8080
+27/5/2019 15:58:18 UTC         NEW OPERATION: File Recieved from 140.82.115.1 a.k.a null
+27/5/2019 15:58:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 15:58:18 UTC              JSON: Signature Verified: sha1=9ac78e38d633cc60076b66641f59f6be5e593daf
+27/5/2019 15:58:18 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 15:58:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 15:58:20 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 15:58:20 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:17:51 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
-27/5/2019 15:17:51 UTC              JSON: Signature Verified: sha1=0a77b380678d860bbdbe9137ecaea4316feb629e
-27/5/2019 15:17:51 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:17:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
-27/5/2019 15:17:52 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
-27/5/2019 15:17:53 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
-27/5/2019 15:17:53 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 15:59:23 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:20:35 UTC    INIT: Node.js server listening on 8080
+27/5/2019 15:59:38 UTC         NEW OPERATION: File Recieved from 140.82.115.1 a.k.a null
+27/5/2019 15:59:38 UTC              JSON: Signature Verified: sha1=0deaeb5f80c9b2d1739223fa6e9a570a1c67cc3f
+27/5/2019 15:59:38 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 15:59:38 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 15:59:39 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 15:59:40 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 15:59:40 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:20:54 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
-27/5/2019 15:20:54 UTC              JSON: Signature Verified: sha1=c7b2c983985cd2cc715db63e7c6b9817105ca436
-27/5/2019 15:20:54 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:20:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
-27/5/2019 15:20:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
-27/5/2019 15:20:56 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
-27/5/2019 15:20:56 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:1:14 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:23:55 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:1:23 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+27/5/2019 16:1:23 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:1:23 UTC              JSON: Signature Verified: sha1=6c30839c16d049be9cc5d3bbf74547c26341c91f
+27/5/2019 16:1:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:1:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:1:25 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:1:25 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:24:9 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
-27/5/2019 15:24:9 UTC              JSON: Signature Verified: sha1=cf728d88a5072f4474a7cc9dc97b67b957929f54
-27/5/2019 15:24:9 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:24:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
-27/5/2019 15:24:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
-27/5/2019 15:24:12 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
-27/5/2019 15:24:12 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:1:57 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:27:16 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:2:6 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+27/5/2019 16:2:6 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:2:6 UTC              JSON: Signature Verified: sha1=2dd7b1a9c40371f875e4a51424b95882a7372712
+27/5/2019 16:2:6 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:2:8 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:2:9 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:2:9 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:40:1 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:2:29 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:41:12 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:2:42 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+27/5/2019 16:2:42 UTC              JSON: Signature Verified: sha1=0cbecd10063bf629d6e90ba5d4ceb0c9441084bd
+27/5/2019 16:2:42 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:2:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:2:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:2:44 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:2:44 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:41:21 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
-27/5/2019 15:41:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
-27/5/2019 15:41:21 UTC              JSON: Signature Verified: sha1=246ad75ff051a9bdbf10730637d7d97ecb3ae087
-27/5/2019 15:41:21 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:41:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:3:54 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:44:13 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:4:4 UTC         NEW OPERATION: File Recieved from 140.82.115.6 a.k.a null
+27/5/2019 16:4:4 UTC              JSON: Signature Verified: sha1=7a54ad389998654aeff171684b6e9b4ff43d65be
+27/5/2019 16:4:4 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:4:4 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:4:7 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:4:8 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:4:8 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:4:8 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:4:8 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:4:8 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:4:8 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:4:8 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:4:8 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:45:43 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:6:28 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:47:31 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:6:40 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+27/5/2019 16:6:40 UTC              JSON: Signature Verified: sha1=6cdb10af599b643ad4233bef6a81490de4916c3d
+27/5/2019 16:6:40 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:6:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:6:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:6:42 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:6:42 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:6:42 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:6:42 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:6:42 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:6:42 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:6:42 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:6:42 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:48:34 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:7:47 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:49:43 UTC    INIT: Node.js server listening on 8080
+27/5/2019 16:7:58 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+27/5/2019 16:7:58 UTC              JSON: Signature Verified: sha1=9b1ce367edde516dfd2db37c0d61b06a43ee89d2
+27/5/2019 16:7:58 UTC              JSON: Source DannoPeters/Repo-A
+27/5/2019 16:7:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+27/5/2019 16:7:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+27/5/2019 16:8:0 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:8:0 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:8:0 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:8:0 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:8:0 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:8:0 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+27/5/2019 16:8:0 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+27/5/2019 16:8:0 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-27/5/2019 15:49:54 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
-27/5/2019 15:49:54 UTC              JSON: Signature Verified: sha1=c789da6a1b7f877d9de4559bd4459e4d81ebb07f
-27/5/2019 15:49:54 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:49:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
-27/5/2019 15:49:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
-27/5/2019 15:49:56 UTC              SYNC: No changes to files of type "function fileType(repo, file, rank, char){
-    files = arraySplit(repo, '/');
-    for (F in files){
-        fileName = files[F][files[F].length-1];
-        var split = fileName.split(char);
-        console.log(`${split[rank]} expected ${file}`);
-        if  (split[rank] == file){
-            return true;
-        }
-    }
+28/5/2019 14:16:51 UTC    INIT: Node.js server listening on 8080
 
-    return false;
-}" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
-27/5/2019 15:49:56 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:19:23 UTC    INIT: Node.js server listening on 8080
 
-27/5/2019 15:51:48 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
-27/5/2019 15:51:48 UTC              JSON: Signature Verified: sha1=44826592e27aa683acc56fd2752437cca9b88d3b
-27/5/2019 15:51:50 UTC              SYNC: No changes to files of type "function fileType(repo, file, rank, char){
-    files = arraySplit(repo, '/');
-    for (F in files){
-        fileName = files[F][files[F].length-1];
-        var split = fileName.split(char);
-        console.log(`${split[rank]} expected ${file}`);
-        if  (split[rank] == file){
-            return true;
-        }
-    }
+28/5/2019 14:19:35 UTC         NEW OPERATION: File Recieved from 140.82.115.9 a.k.a null
+28/5/2019 14:19:35 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:19:35 UTC              JSON: Signature Verified: sha1=1125798058153f860461172f742bdcade9f42c4a
+28/5/2019 14:19:35 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:19:37 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:19:38 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:19:38 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:19:38 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:19:38 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:19:38 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:19:38 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:19:38 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:19:38 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
 
-    return false;
-}" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
-27/5/2019 15:51:50 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
-27/5/2019 15:51:48 UTC              JSON: Source DannoPeters/Repo-A
-27/5/2019 15:51:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
-27/5/2019 15:51:49 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:21:12 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:22:1 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:22:9 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+28/5/2019 14:22:9 UTC              JSON: Signature Verified: sha1=b303c7bf04af2868aa5c384801b475d20c1bb1e0
+28/5/2019 14:22:9 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:22:12 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:22:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:22:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:22:12 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+
+28/5/2019 14:23:47 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:23:57 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+28/5/2019 14:23:57 UTC              JSON: Signature Verified: sha1=45972952ef5c33665aceb1a1c3f748a44f0733fc
+28/5/2019 14:23:59 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:23:59 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:23:57 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:23:57 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:23:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+
+28/5/2019 14:32:26 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:32:44 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 14:32:44 UTC              JSON: Signature Verified: sha1=6e9de77402612e29b0e0cbd40cb3b091823133c1
+28/5/2019 14:32:46 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:32:46 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:32:44 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:32:44 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:32:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+
+28/5/2019 14:34:2 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:35:16 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 14:35:16 UTC              JSON: Signature Verified: sha1=304edcc3d8873a7890f78280dbd27241896c2b3b
+28/5/2019 14:35:18 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:35:18 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+28/5/2019 14:35:16 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:35:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:35:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+
+28/5/2019 14:36:10 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:36:24 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+28/5/2019 14:36:24 UTC              JSON: Signature Verified: sha1=b96011e7d32f8229d922b505d0f48ee069510a0d
+28/5/2019 14:36:24 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:36:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:36:25 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:36:26 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:36:26 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+
+28/5/2019 14:37:22 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:37:32 UTC         NEW OPERATION: File Recieved from 140.82.115.6 a.k.a null
+28/5/2019 14:37:32 UTC              JSON: Signature Verified: sha1=da1fd1fee5a3ee4f540eac9fdbe9489080e4db4b
+28/5/2019 14:37:32 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:37:32 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:37:34 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:37:35 UTC              SYNC: No changes to files of type "hdw" found in /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/
+28/5/2019 14:37:35 UTC              SYNC: No Push to /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B Required
+
+28/5/2019 14:41:12 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:41:28 UTC         NEW OPERATION: File Recieved from 140.82.115.12 a.k.a null
+28/5/2019 14:41:28 UTC              JSON: Signature Verified: sha1=596500a2f80f4ff5efb82db0f849017a9ad5bd0c
+28/5/2019 14:41:30 UTC              Comparing File Types: hdw expected hdw
+28/5/2019 14:41:30 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+28/5/2019 14:41:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 14:41:33 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 14:41:33 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 14:41:28 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:41:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:41:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+
+28/5/2019 14:41:39 UTC         NEW OPERATION: File Recieved from 140.82.115.9 a.k.a null
+28/5/2019 14:41:39 UTC              JSON: Signature Verified: sha1=0a1ce5f112e83d7186f33d1d5f7f564d86c0f88a
+28/5/2019 14:41:39 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 14:41:39 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: modified is not defined
+
+28/5/2019 14:44:13 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 14:44:21 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+28/5/2019 14:44:21 UTC              JSON: Signature Verified: sha1=c6f32322b834cf101b018609f45ad0581f450155
+28/5/2019 14:44:21 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:44:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 14:44:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 14:44:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:44:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:44:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 14:44:24 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+28/5/2019 14:44:24 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 14:45:17 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 14:45:17 UTC              JSON: Signature Verified: sha1=78eb21eeb2bfef2d90c4a5f5338e8a62140188c5
+28/5/2019 14:45:19 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/hdw.dat/hdw.dat.* /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir
+28/5/2019 14:45:17 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 14:45:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 14:45:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 14:45:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 14:45:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.bks"
+28/5/2019 14:45:20 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.bks"
+28/5/2019 14:45:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:0:21 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:1:3 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:2:16 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:3:41 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:4:26 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:4:56 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:5:41 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:5:53 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 15:5:53 UTC              JSON: Signature Verified: sha1=e40922b9e35154f574ae88a8ca889bcc588f6fdb
+28/5/2019 15:5:53 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:5:53 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:5:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:5:55 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:5:56 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW,hdw.dat.ad
+28/5/2019 15:5:56 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:6:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:6:5 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+28/5/2019 15:6:5 UTC              JSON: Signature Verified: sha1=14aa33dcca62625ccb1da8f39af75d78a7c0c389
+28/5/2019 15:6:5 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 15:6:5 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: TypeError: Cannot read property 'length' of undefined
+
+28/5/2019 15:14:1 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:14:16 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 15:14:16 UTC              JSON: Signature Verified: sha1=e089c0e03559251e9862c504a9edc49c13ea8f61
+28/5/2019 15:14:16 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:14:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:14:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:14:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:14:20 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/
+28/5/2019 15:14:21 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/': No such file or directory
+
+28/5/2019 15:14:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:14:25 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:14:25 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:16:59 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:17:18 UTC         NEW OPERATION: File Recieved from 140.82.115.70 a.k.a null
+28/5/2019 15:17:18 UTC              JSON: Signature Verified: sha1=e398f95a5f2a9c82cabf12a0f3fc4faeaf99d812
+28/5/2019 15:17:18 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:17:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:17:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:17:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:17:22 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/
+28/5/2019 15:17:22 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/D/W/,/h/d/w/./d/a/t/./a/d/': No such file or directory
+
+28/5/2019 15:17:22 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:17:26 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:17:26 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:19:2 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:19:14 UTC         NEW OPERATION: File Recieved from 140.82.115.1 a.k.a null
+28/5/2019 15:19:14 UTC              JSON: Signature Verified: sha1=3a3ef88a652fce5031c7aa610b8deb35375eaa39
+28/5/2019 15:19:18 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/
+28/5/2019 15:19:18 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/H,D,W,,,h,d,w,.,d,a,t,.,a,d,e/': No such file or directory
+
+28/5/2019 15:19:14 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:19:14 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:19:22 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:19:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:19:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:19:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:19:22 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:25:26 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:28:41 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:28:54 UTC         NEW OPERATION: File Recieved from 140.82.115.9 a.k.a null
+28/5/2019 15:28:54 UTC              JSON: Signature Verified: sha1=2a86e1874a3cad330f00995b193bd116260d4f9b
+28/5/2019 15:28:59 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/
+28/5/2019 15:28:59 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/': Not a directory
+
+28/5/2019 15:28:54 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:28:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:28:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:28:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:29:2 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:29:4 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:29:4 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:29:29 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:29:42 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+28/5/2019 15:29:42 UTC              JSON: Signature Verified: sha1=2832c49b809238d6e29f8cc2c07cd862e877bf21
+28/5/2019 15:29:46 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/
+28/5/2019 15:29:42 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:29:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:29:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:29:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:29:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:29:46 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H/': Not a directory
+
+28/5/2019 15:29:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 15:29:51 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 15:31:59 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:32:11 UTC         NEW OPERATION: File Recieved from 140.82.115.0 a.k.a null
+28/5/2019 15:32:11 UTC              JSON: Signature Verified: sha1=1b55e8c1043b53f7632eeefaf5673be1fecbacd4
+28/5/2019 15:32:11 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:32:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:32:14 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:32:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:32:20 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:32:16 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d/
+28/5/2019 15:32:16 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/H,D,W,,,h,d,w,.,d,a,t,.,a,d/': Not a directory
+
+28/5/2019 15:32:18 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:32:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:32:57 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:33:8 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+28/5/2019 15:33:8 UTC              JSON: Signature Verified: sha1=53d0a7e964c5fd65692722730e9eab036b04e8c7
+28/5/2019 15:33:13 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:33:8 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:33:8 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:33:12 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:33:14 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:33:14 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:33:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:33:19 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:33:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:34:10 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:34:21 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+28/5/2019 15:34:21 UTC              JSON: Signature Verified: sha1=610af9661f401d2d3614c9a215a9e455d2b7cecd
+28/5/2019 15:34:21 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:34:25 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:34:25 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:34:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:34:27 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:34:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:34:25 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:34:30 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:34:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:36:30 UTC    INIT: Node.js server listening on 8080
+28/5/2019 15:36:41 UTC              JSON: Signature Verified: sha1=1b923e013d6c94a633de7ec9d5251ad319900951
+
+28/5/2019 15:36:41 UTC         NEW OPERATION: File Recieved from 140.82.115.1 a.k.a null
+28/5/2019 15:36:46 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:36:46 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:36:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:36:48 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:36:41 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:36:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 15:36:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:36:46 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:36:51 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 15:40:34 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:41:32 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:41:47 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 15:41:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:41:47 UTC              JSON: Signature Verified: sha1=4abb1e30e2d001b41d0f57c05a268074beaa604b
+28/5/2019 15:41:47 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:41:47 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:41:52 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:41:52 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:41:52 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:41:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:41:57 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:41:57 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:48:27 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:48:47 UTC         NEW OPERATION: File Recieved from 140.82.115.65 a.k.a null
+28/5/2019 15:48:47 UTC              JSON: Signature Verified: sha1=90a56325d19fc807cd5cb112bfb4c447ed475a06
+28/5/2019 15:48:47 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:48:47 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:48:50 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:48:51 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:48:56 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:48:51 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:48:56 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 15:48:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:48:53 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 15:55:5 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:55:19 UTC         NEW OPERATION: File Recieved from 140.82.115.0 a.k.a null
+28/5/2019 15:55:19 UTC              JSON: Signature Verified: sha1=78379e2ac3d23558abfa5a4636c32e5c29ec4b35
+28/5/2019 15:55:23 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:55:19 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:55:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:55:22 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:55:23 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:55:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:55:26 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:55:28 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:55:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:56:4 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 15:56:16 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+28/5/2019 15:56:16 UTC              JSON: Signature Verified: sha1=f603a0674b5901764cc61f96cc9f6cfd824e412e
+28/5/2019 15:56:20 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 15:56:16 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 15:56:16 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 15:56:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 15:56:21 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 15:56:21 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 15:56:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:56:25 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 15:56:25 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 15:59:59 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:0:23 UTC         NEW OPERATION: File Recieved from 140.82.115.6 a.k.a null
+28/5/2019 16:0:23 UTC              JSON: Signature Verified: sha1=e2eeee0213a508a449e6a6b2b0d15725d6ea8fa3
+28/5/2019 16:0:23 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:0:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:0:26 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:0:27 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:0:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:0:28 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:0:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:0:32 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:0:32 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 16:5:43 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:6:23 UTC    INIT: Node.js server listening on 8080
+28/5/2019 16:6:36 UTC              JSON: Signature Verified: sha1=23d07caf5c1cb1bf486d4e82c0fba0611ac159fc
+
+28/5/2019 16:6:36 UTC         NEW OPERATION: File Recieved from 140.82.115.71 a.k.a null
+28/5/2019 16:6:36 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:6:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:6:39 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:6:41 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:6:45 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:6:41 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:6:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:6:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:6:45 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 16:24:3 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:37:42 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:47:50 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:51:26 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:51:57 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:52:22 UTC         NEW OPERATION: File Recieved from 140.82.115.69 a.k.a null
+28/5/2019 16:52:22 UTC              JSON: Signature Verified: sha1=7f20cf1a03c332a8253be4558901511b7033cc72
+28/5/2019 16:52:24 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:52:22 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:52:22 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:52:26 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:52:23 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:52:24 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:52:24 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:52:28 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:52:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 16:54:5 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:54:27 UTC         NEW OPERATION: File Recieved from 140.82.115.15 a.k.a null
+28/5/2019 16:54:27 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:54:29 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:54:29 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:54:27 UTC              JSON: Signature Verified: sha1=741e9840f8bf335ce52da7f376e0be4294fcc573
+28/5/2019 16:54:27 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:54:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:54:30 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:54:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:54:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:54:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 16:56:58 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:57:8 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 16:57:8 UTC              JSON: Signature Verified: sha1=e1cca78acaed7709cbfbd5b8630cce6949efdbec
+28/5/2019 16:57:8 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:57:8 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:57:10 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:57:11 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:57:11 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:57:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:57:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 16:57:11 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:57:11 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 16:58:18 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 16:58:29 UTC         NEW OPERATION: File Recieved from 140.82.115.69
+28/5/2019 16:58:31 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 16:58:32 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 16:58:29 UTC              JSON: Signature Verified: sha1=584cdc2b8135ab8a6d38373bb7817289ce71c23b
+28/5/2019 16:58:29 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 16:58:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 16:58:32 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 16:58:32 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 16:58:32 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:58:32 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 16:58:32 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:3:49 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:3:58 UTC         NEW OPERATION: File Recieved from 140.82.115.0
+28/5/2019 17:3:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:4:0 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/
+28/5/2019 17:3:58 UTC              JSON: Signature Verified: sha1=41964d03e2557998c9a29b5fca7d2e7a5b3e7c88
+28/5/2019 17:3:58 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:4:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:4:0 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:3:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:4:0 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 17:4:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:4:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:7:47 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:7:58 UTC         NEW OPERATION: File Recieved from 140.82.115.6
+28/5/2019 17:7:58 UTC              JSON: Signature Verified: sha1=c25862c4f91e11712c4400412bc7b93e9d7f4281
+28/5/2019 17:7:58 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:7:58 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:7:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:8:0 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/1/2/3/4/5/6/7/8/9/10/
+28/5/2019 17:8:0 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/1/2/3/4/5/6/7/8/9/10/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/0/1/2/3/4/5/6/7/8/9/10/': No such file or directory
+
+28/5/2019 17:8:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:8:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:8:0 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:8:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:8:26 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:8:39 UTC         NEW OPERATION: File Recieved from 140.82.115.9
+28/5/2019 17:8:39 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:8:39 UTC              JSON: Signature Verified: sha1=e2aff46c4962d7d94945b88c73792b878d7724ae
+28/5/2019 17:8:39 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:8:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:8:41 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/
+28/5/2019 17:8:41 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/': No such file or directory
+
+28/5/2019 17:8:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:8:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:8:41 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:8:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:9:32 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:9:41 UTC         NEW OPERATION: File Recieved from 140.82.115.69
+28/5/2019 17:9:41 UTC              JSON: Signature Verified: sha1=df2476bdcce1f380856929669af7254ec8374012
+28/5/2019 17:9:41 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:9:41 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:9:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:9:43 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/
+28/5/2019 17:9:43 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/
+cp: cannot create regular file '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/undefined/': No such file or directory
+
+28/5/2019 17:9:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:9:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:9:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 17:9:43 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+
+28/5/2019 17:12:40 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:12:51 UTC         NEW OPERATION: File Recieved from 140.82.115.6
+28/5/2019 17:12:51 UTC              JSON: Signature Verified: sha1=28205398e8fd76a3b51d8d84b98ddfbb2fcade18
+28/5/2019 17:12:53 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+28/5/2019 17:12:51 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:12:51 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:12:52 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:12:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:12:53 UTC              ERROR: Terminal Command Failed: Error: Command failed: cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/
+cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/hdw.dat.ade/': Not a directory
+
+28/5/2019 17:12:53 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:12:54 UTC              ERROR: Terminal Command Failed: Error: Command failed: cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:12:54 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:13:29 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:13:42 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:13:42 UTC              JSON: Signature Verified: sha1=211c4cffd4f762a549d3a4f6dc31417f26fa747d
+28/5/2019 17:13:42 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:13:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:13:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:13:44 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:13:44 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:13:44 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:13:44 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:13:48 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:13:48 UTC              JSON: Signature Verified: sha1=9f79aab33376addcc098a9d9f146c33af3fcbbc2
+28/5/2019 17:13:48 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:13:48 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
