@@ -133,14 +133,11 @@ function githubHook(chunk, req) {
                     } else {
                         log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
 
-                    log(`OP`, `JSON: Source ${gitA}`, 2);
-
                     //Pull from github repoB to local repo
                     var cmd = `cd ${repoA} && git pull`;
                     runCmd(cmd);
 
                    //Pull request for repoB
-                    //var cmd = `git pull ${gitWeb}${gitB}.git --allow-unrelated-histories`;
                     var cmd = `cd ${repoB} && git pull`;
                     runCmd(cmd);
 
@@ -185,7 +182,8 @@ function githubHook(chunk, req) {
                 } else {
                     log(`OP`, `SYNC: No changes to files of type "${type}" found in ${repoA}/${dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
-                } 
+                }
+            }
                 
                 break;
 
@@ -194,7 +192,7 @@ function githubHook(chunk, req) {
 
                     if (repo.username != user) {
                         log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
-                        log(`OP`, `JSON: No further action required`, 2);
+                        log(`OP`, `JSON: No further action required (prevents false push confirm)`, 2);
                     } else {
                         log(`OP`, `JSON: GitHub user "${repo.username}" (This Server) pushed to ${repo.gitFullName}`, 2);
 
@@ -203,8 +201,7 @@ function githubHook(chunk, req) {
                      repo.removedFiles = repo.removedFiles.sort();
 
                     var pastRepo = stackGet(actionArray);
-                    stackAdd(actionArray, pastrepo);
-
+                    
                     var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
                     var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
                     var testRemoved = checkFiles(repo.removedFiles, pastRepo.removedFiles, '/');
@@ -265,7 +262,7 @@ function log (stream, message, level, prefix){
 
     var date = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()}`;
     var time = `${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()}`;
-    //fs.appendFile( `${gitSync}/Git-Sync_${today.getUTCFullYear()}_${stream}.log`, `${level*"    "}${date} ${time} UTC     ${message}`, (error) => {});
+
     switch (stream){
         case 'OP':
             operation.write(`${prefix}${date} ${time} UTC${new Array(level*5+1).join(' ')}    ${message}\n`);
@@ -307,23 +304,6 @@ function arraySplit (array, char) {
         return array1
     }
 }
-/*
-function fileType (repo, file, rank, char){
-    var files = arraySplit(repo, '/');
-    console.log(`test: ${files}`);
-    for (F in files){
-        fileName = files[F][files[F].length-1];
-        var split = fileName.split(char);
-        log(`OP`, `Comparing File Types: ${split[rank]} expected ${file}`, 2);
-        console.log(`Comparing File Types: ${split[rank]} expected ${file}`);
-        if  (split[rank] == file){
-            return true;
-        }
-    }
-
-    return false;
-}
-*/
 
 function fileType (repo, file, rank, char){
     var modified = arraySplit(repo, '/');
