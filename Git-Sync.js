@@ -21,6 +21,7 @@ var gitWeb = "git@github.com:";
 const port = 8080; //specify the port for the server to listen on
 var dirA = "hdw.dat/" //directory to copy files from in repo-A
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
+var user = "Bookem306"; //set the github username of the server (configured using ssh)
 
 var actionArray = new Array(); //Array to store information about actions taken
 
@@ -125,6 +126,13 @@ function githubHook(chunk, req) {
         switch (repo.gitFullName){
 
             case gitA: 
+
+                    if (repo.username == user) {
+                        log(`OP`, `JSON: GitHub user "${repo.username}" (This Server) pushed to ${repo.gitFullName}`, 2);
+                        log(`OP`, `JSON: No further action will be taken (Prevents accidental push loop)`, 2);
+                    } else {
+                        log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
+
                     log(`OP`, `JSON: Source ${gitA}`, 2);
 
                     //Pull from github repoB to local repo
@@ -154,14 +162,6 @@ function githubHook(chunk, req) {
                         var cmd = `cp ${repoA}/${commitedFiles[filePath]} ${repoB}/${dirB}/${copyPath}`;
                         runCmd(cmd);
                     }
-                        
-                    
-
-                    /*
-                    //Copy only Hardware Files
-                    var cmd = `cp ${repoA}/${dirA}hdw.dat.* ${repoB}/${dirB}`;
-                    runCmd(cmd);
-                    */
 
                     //add all files to git
                     var cmd = `cd ${repoB} && git add --all`;
@@ -177,6 +177,9 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     //Store information to confirm proper push to repo B
+                    repo.modifiedFiles = repo.modifiedFiles.sort();
+                    repo.addedFiles = repo.addedFiles.sort();
+                    repo.removedFiles = repo.removedFiles.sort();
                     stackAdd(actionArray, repo)
 
                 } else {
@@ -187,24 +190,28 @@ function githubHook(chunk, req) {
                 break;
 
             case gitB: //Verify that push to repo B was correct
-                    log(`OP`, `JSON: Source ${gitB}`, 2);
                     try{
 
-                    var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles, '/'),
-                        addedFiles: arraySplit(repo.addedFiles, '/'), 
-                        removedFiles: arraySplit(repo.removedFiles, '/')}
+                    if (repo.username != user) {
+                        log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
+                        log(`OP`, `JSON: No further action required`, 2);
+                    } else {
+                        log(`OP`, `JSON: GitHub user "${repo.username}" (This Server) pushed to ${repo.gitFullName}`, 2);
 
-
+                     repo.modifiedFiles = repo.modifiedFiles.sort();
+                     repo.addedFiles = repo.addedFiles.sort();
+                     repo.removedFiles = repo.removedFiles.sort();
 
                     var pastRepo = stackGet(actionArray);
+                    stackAdd(actionArray, pastrepo);
 
-                    testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
-                    testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
-                    testRemoved = checkFiles(repo.removedFiles, pastRepo.removedFiles, '/');
-                    testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
+                    var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
+                    var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
+                    var testRemoved = checkFiles(repo.removedFiles, pastRepo.removedFiles, '/');
+                    var testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
 
-                    if (testModifed && testAdded && testRemoved && testCommit) {
-                        log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful`, 2);
+                    if (testModified && testAdded && testRemoved && testCommit) {
+                        log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful :-)`, 2);
                     } 
                     if (testModified == false){
                         log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 2);
@@ -218,6 +225,7 @@ function githubHook(chunk, req) {
                     if (testCommit == false){
                         log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 2);
                     }
+                }
                 }
                 catch(error){
                     log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 2);
@@ -293,11 +301,9 @@ function arraySplit (array, char) {
         var i = 0;
         for (element in array) {
                         var split = array[element].split(char);  // just split once
-                        console.log(`array: ${array}  char: ${char}  split: ${split}`);
                         array1[i] = split; //push to nested array
                         i++;
                     }
-                    console.log(`array1: ${array1}`);
         return array1
     }
 }

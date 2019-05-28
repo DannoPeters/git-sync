@@ -213,3 +213,25 @@ cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hard
 
 28/5/2019 17:13:29 UTC    INIT: Node.js server listening on 8080
 28/5/2019 17:13:48 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:31:47 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:32:7 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:33:20 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:33:40 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:40:18 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:40:34 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:42:14 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:42:32 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:52:45 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:55:6 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:55:23 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:55:56 UTC    INIT: Node.js server listening on 8080
+28/5/2019 17:56:13 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:56:45 UTC    INIT: Node.js server listening on 8080
