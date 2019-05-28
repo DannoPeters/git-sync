@@ -11,17 +11,17 @@ step 9. PROFIT $$$
 */
 
 //User Configuration ***Both Repos MUST have local configuration***
-var secret = "Very$ecret$ecret"; //Secret for verifying WebHook from Repo-A
+var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
+var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
 var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
 var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Sender
 var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
 var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
-var gitWeb = "git@github.com:";
 const port = 8080; //specify the port for the server to listen on
 var dirA = "hdw.dat/" //directory to copy files from in repo-A
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
-var user = "Bookem306"; //set the github username of the server (configured using ssh)
+var user = "DannoPeters"; //set the github username of the server (configured using ssh)
 
 var actionArray = new Array(); //Array to store information about actions taken
 
