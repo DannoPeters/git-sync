@@ -660,3 +660,139 @@ cp: failed to access '/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hard
 28/5/2019 17:13:48 UTC              JSON: Signature Verified: sha1=9f79aab33376addcc098a9d9f146c33af3fcbbc2
 28/5/2019 17:13:48 UTC              JSON: Source DannoPeters/Repo-B
 28/5/2019 17:13:48 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:31:47 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:31:59 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:31:59 UTC              JSON: Signature Verified: sha1=36608c98c4fb281433e16f97d2f4368610589cea
+28/5/2019 17:31:59 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:31:59 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:32:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:32:1 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:32:1 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:32:1 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:32:1 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:32:7 UTC         NEW OPERATION: File Recieved from 140.82.115.9
+28/5/2019 17:32:7 UTC              JSON: Signature Verified: sha1=6605dd2daf63dc59885cd6eb66b781c5ef115ecb
+28/5/2019 17:32:7 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:32:7 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:33:20 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:33:34 UTC         NEW OPERATION: File Recieved from 140.82.115.70
+28/5/2019 17:33:34 UTC              JSON: Signature Verified: sha1=c95389fd500eaff3cb4c69a8fbc83f2978185b43
+28/5/2019 17:33:34 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:33:34 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:33:35 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:33:36 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:33:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:33:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:33:36 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:33:40 UTC         NEW OPERATION: File Recieved from 140.82.115.65
+28/5/2019 17:33:40 UTC              JSON: Signature Verified: sha1=ef14a790a2b0e073658c19857de7fd00643490c4
+28/5/2019 17:33:40 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:33:40 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:40:18 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:40:28 UTC         NEW OPERATION: File Recieved from 140.82.115.71
+28/5/2019 17:40:28 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:40:28 UTC              JSON: Signature Verified: sha1=4d6dd187e9455757e4167fe64ab879cd041a1863
+28/5/2019 17:40:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:40:31 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:40:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:40:30 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:40:30 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:40:31 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:40:34 UTC         NEW OPERATION: File Recieved from 140.82.115.9
+28/5/2019 17:40:34 UTC              JSON: Signature Verified: sha1=bcb99bf0925aa957c7b543ff7dcc09b8002f7dcb
+28/5/2019 17:40:34 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:40:34 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:42:14 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:42:26 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:42:26 UTC              JSON: Signature Verified: sha1=27f430811f75142637b8df1d96b4c251660c6522
+28/5/2019 17:42:28 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:42:26 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:42:26 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:42:27 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:42:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:42:28 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:42:29 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:42:32 UTC         NEW OPERATION: File Recieved from 140.82.115.6
+28/5/2019 17:42:32 UTC              JSON: Signature Verified: sha1=68ebebffe85873b68e566197b499932ef5a2eac5
+28/5/2019 17:42:32 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:42:32 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:52:45 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:55:6 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:55:17 UTC         NEW OPERATION: File Recieved from 140.82.115.69
+28/5/2019 17:55:17 UTC              JSON: Signature Verified: sha1=5d858e401b73267cd565c738385d5bdb9aae663f
+28/5/2019 17:55:17 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:55:17 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:55:19 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:55:20 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:55:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:55:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:55:20 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+28/5/2019 17:55:23 UTC              JSON: Signature Verified: sha1=dc2a29fda985295e29860351a31cf118d547c73c
+
+28/5/2019 17:55:23 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:55:23 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:55:23 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:55:56 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:56:6 UTC         NEW OPERATION: File Recieved from 140.82.115.1
+28/5/2019 17:56:6 UTC              JSON: Signature Verified: sha1=b819dadc9982ff2b660a82b30f3683e97cb47b4c
+28/5/2019 17:56:9 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:56:6 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:56:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:56:6 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:56:8 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:56:9 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:56:10 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:56:13 UTC         NEW OPERATION: File Recieved from 140.82.115.6
+28/5/2019 17:56:13 UTC              JSON: Signature Verified: sha1=1e3bc1e376efb721b1bb97c7f58f3236e2aea423
+28/5/2019 17:56:13 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:56:13 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: ReferenceError: testModifed is not defined
+
+28/5/2019 17:56:45 UTC    INIT: Node.js server listening on 8080
+
+28/5/2019 17:57:0 UTC         NEW OPERATION: File Recieved from 140.82.115.71
+28/5/2019 17:57:0 UTC              JSON: Signature Verified: sha1=cb9eb83ecc1ce3c4a7749154dc97914402e627ac
+28/5/2019 17:57:0 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:57:0 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:57:2 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:57:5 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:57:5 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:57:5 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:57:5 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:57:11 UTC         NEW OPERATION: File Recieved from 140.82.115.15
+28/5/2019 17:57:11 UTC              JSON: Signature Verified: sha1=c958fc7977200dac634f27976424fa25a6283cbc
+28/5/2019 17:57:11 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:57:11 UTC              CONFIRM: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B was sucessful
+
+28/5/2019 17:58:40 UTC         NEW OPERATION: File Recieved from 140.82.115.9
+28/5/2019 17:58:40 UTC              JSON: Signature Verified: sha1=255c504c803f2a371a64a796d65996ffad847581
+28/5/2019 17:58:40 UTC              JSON: Source DannoPeters/Repo-A
+28/5/2019 17:58:40 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A && git pull
+28/5/2019 17:58:42 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git pull
+28/5/2019 17:58:43 UTC              SYNC: Exicuted cp /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A/HDW/hdw.dat.ade /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B/hardware_dir/HDW/
+28/5/2019 17:58:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git add --all
+28/5/2019 17:58:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git commit -m "User: DannoPeters   Message:Update hdw.dat.ade"
+28/5/2019 17:58:43 UTC              SYNC: Exicuted cd /run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B && git push
+
+28/5/2019 17:58:47 UTC         NEW OPERATION: File Recieved from 140.82.115.1
+28/5/2019 17:58:47 UTC              JSON: Signature Verified: sha1=ee1d2481bac363be3273449d9a899913ecf6816d
+28/5/2019 17:58:47 UTC              JSON: Source DannoPeters/Repo-B
+28/5/2019 17:58:47 UTC              CONFIRM: Git Sync between DannoPeters/Repo-A and DannoPeters/Repo-B was sucessful
