@@ -11,17 +11,17 @@ step 9. PROFIT $$$
 */
 
 //User Configuration ***Both Repos MUST have local configuration***
-var secret = "Very$ecret$ecret"; //Secret for verifying WebHook from Repo-A
+var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
+var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
 var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
 var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Sender
 var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
 var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
-var gitWeb = "git@github.com:";
 const port = 8080; //specify the port for the server to listen on
 var dirA = "hdw.dat/" //directory to copy files from in repo-A
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
-var user = "Bookem306"; //set the github username of the server (configured using ssh)
+var user = "DannoPeters"; //set the github username of the server (configured using ssh)
 
 var actionArray = new Array(); //Array to store information about actions taken
 
@@ -45,13 +45,17 @@ http.createServer(function (req, res) { //create webserver
         
         log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}`, 1, '\n');
 
-        let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
-        if (req.headers[`x-hub-signature`] == sig) {
-            log(`OP`, `JSON: Signature Verified: ${sig}`, 2);
+        let sigA = "sha1=" + crypto.createHmac(`sha1`, secretA).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
+        let sigB = "sha1=" + crypto.createHmac(`sha1`, secretB).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
+        
+        if (req.headers[`x-hub-signature`] == sigA) {
+            log(`OP`, `JSON: WebHook ${gitA} Signature Verified: ${sigA}`, 2);
+            githubHook(chunk,req);
+        } else if (req.headers[`x-hub-signature`] == sigB) {
+            log(`OP`, `JSON: WebHook ${gitB} Signature Verified: ${sigB}`, 2);
             githubHook(chunk,req);
         } else {
             var signature = req.headers[`x-hub-signature`];
-            log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
             log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
         }
          });
@@ -143,21 +147,33 @@ function githubHook(chunk, req) {
 
                     var type = `hdw`;
                     var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
-                    if (fileType(commitedFiles, type, 0, '.')) {
+                    if (fileType(commitedFiles, type, 0, '.') && fileLoc(commitedFiles, `${dirA}`)) {
                     
                     //Copy only commited Files
-                    console.log(`commitedFiles ${commitedFiles}`);
                     for (filePath in commitedFiles){
                         splitFilePath = commitedFiles[filePath].split('/');
-                        console.log(`commitedFiles[filePath]: ${splitFilePath}`);
                         var copyPath = '';
                         for (var i=0; i < splitFilePath.length-1; i++){
                             copyPath = copyPath.concat(`${splitFilePath[i]}/`);
                         }
 
-                        console.log(`${copyPath}`);
+                        try {
                         var cmd = `cp ${repoA}/${commitedFiles[filePath]} ${repoB}/${dirB}/${copyPath}`;
-                        runCmd(cmd);
+                         log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
+                         execSync(`${cmd}`); 
+                    }
+                    catch (error) {
+                        try {
+                            log(`ALL`, `ERROR: Copy Command failed, Attempting to recursive copy directory`, 2);
+                            var cmd = `cp ${repoA}/${dirA} ${repoB}/${dirB} --recursive`;
+                            log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
+                            execSync(`${cmd}`); 
+                        }
+                        catch (error) {
+                            log(`ALL`, `ERROR: Recursive copy failed: ${error}`, 2);
+                        }
+
+                    }
                     }
 
                     //add all files to git
@@ -179,8 +195,14 @@ function githubHook(chunk, req) {
                     repo.removedFiles = repo.removedFiles.sort();
                     stackAdd(actionArray, repo)
 
+                } else  if (fileType(commitedFiles, type, 0, '.')){
+                    log(`OP`, `SYNC: Only chnages to files of type "${type}" found outside of ${repoA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
+                } else  if (fileLoc(commitedFiles, `${dirA}`)){
+                    log(`OP`, `SYNC: No changes to files of type "${type}" found in push`, 2);
+                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
                 } else {
-                    log(`OP`, `SYNC: No changes to files of type "${type}" found in ${repoA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No chnages to files of type "${type}" AND no chnges found in ${repoA}/${dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
                 }
             }
@@ -292,7 +314,6 @@ function log (stream, message, level, prefix){
 function arraySplit (array, char) {
     var array1 = new Array(array.length);
     if ((undefined === array)){ //check if array in undefined
-        console.log(`array undefined`);
         return array1
     } else {
         var i = 0;
@@ -333,4 +354,17 @@ function checkFiles (A,B,char){
             }
         }
     return test
+}
+
+function fileLoc (files, location){
+    var splitLocation = location.split('/');
+    var fileLocations = arraySplit(files, '/');
+    for (F in fileLocations){
+        for (var i = 0; i < splitLocation.length; i++) {
+            if (splitLocation[i] == fileLocations[F][i]){
+                return true;
+            }
+        }
+    }
+    return false;
 }
