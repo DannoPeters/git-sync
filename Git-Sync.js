@@ -41,22 +41,8 @@ http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
         var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         var jsonPort = req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
-        var jsonDomain = null;
-        /*if (jsonIP != null) {
-            try {
-               dns.reverse(`${jsonIP}:${jsonPort}`, function (error, domain) {
-                    if (error) {
-                        log(`ALL`, `ERROR: reverse DNS failed for ${jsonIP}: ${error}`, 2);
-                    } else {
-                        jsonDomain = domain;
-                    }
-                });
-        } catch(error){
-            log(`ALL`, `ERROR: DNS lookup failed for ${jsonIP}: ${error}`, 2);
-        }
-        }
-        */
-        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP} a.k.a ${jsonDomain}`, 1, '\n');
+        
+        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}`, 1, '\n');
 
         let sig = "sha1=" + crypto.createHmac(`sha1`, secret).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         if (req.headers[`x-hub-signature`] == sig) {
@@ -151,16 +137,35 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     var type = `hdw`;
-                    if (fileType(repo.modifiedFiles, type, 0, '.') && fileType(repo.addedFiles, type, 0, '.') && fileType(repo.removedFiles, type, 0, '.')) {
+                    var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
+                    if (fileType(commitedFiles, type, 0, '.')) {
+                    
+                    //Copy only commited Files
+                    console.log(`commitedFiles ${commitedFiles}`);
+                    for (filePath in commitedFiles){
+                        splitFilePath = commitedFiles[filePath].split('/');
+                        console.log(`commitedFiles[filePath]: ${splitFilePath}`);
+                        var copyPath = '';
+                        for (var i=0; i < splitFilePath.length-1; i++){
+                            copyPath = copyPath.concat(`${splitFilePath[i]}/`);
+                        }
 
+                        console.log(`${copyPath}`);
+                        var cmd = `cp ${repoA}/${commitedFiles[filePath]} ${repoB}/${dirB}/${copyPath}`;
+                        runCmd(cmd);
+                    }
+                        
+                    
+
+                    /*
                     //Copy only Hardware Files
                     var cmd = `cp ${repoA}/${dirA}hdw.dat.* ${repoB}/${dirB}`;
                     runCmd(cmd);
+                    */
 
                     //add all files to git
                     var cmd = `cd ${repoB} && git add --all`;
                     runCmd(cmd);
-
 
                     //Commit changes to local repoB with message from GitHub repo
                     var cmd = `cd ${repoB} && git commit -m "User: ${repo.username}   Message:${repo.commitMessage}"`;
@@ -175,7 +180,7 @@ function githubHook(chunk, req) {
                     stackAdd(actionArray, repo)
 
                 } else {
-                    log(`OP`, `SYNC: No changes to files of type "${fileType}" found in ${repoA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No changes to files of type "${type}" found in ${repoA}/${dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
                 } 
                 
@@ -188,6 +193,8 @@ function githubHook(chunk, req) {
                     var splitRepo = {modifiedFiles: arraySplit(repo.modifiedFiles, '/'),
                         addedFiles: arraySplit(repo.addedFiles, '/'), 
                         removedFiles: arraySplit(repo.removedFiles, '/')}
+
+
 
                     var pastRepo = stackGet(actionArray);
 
@@ -278,25 +285,31 @@ function log (stream, message, level, prefix){
 
 
 function arraySplit (array, char) {
-    var array1 =[];
-
-    if ((undefined === array || array.length)){ //check if array in undefined
+    var array1 = new Array(array.length);
+    if ((undefined === array)){ //check if array in undefined
+        console.log(`array undefined`);
         return array1
     } else {
-        for (var i = 0; i < array.length; i++) {
-                        var split = array[i].split(char);  // just split once
-                        array1.push(split); //push to nested array
+        var i = 0;
+        for (element in array) {
+                        var split = array[element].split(char);  // just split once
+                        console.log(`array: ${array}  char: ${char}  split: ${split}`);
+                        array1[i] = split; //push to nested array
+                        i++;
                     }
+                    console.log(`array1: ${array1}`);
         return array1
     }
 }
-
+/*
 function fileType (repo, file, rank, char){
-    files = arraySplit(repo, '/');
+    var files = arraySplit(repo, '/');
+    console.log(`test: ${files}`);
     for (F in files){
         fileName = files[F][files[F].length-1];
         var split = fileName.split(char);
-        console.log(`${split[rank]} expected ${file}`);
+        log(`OP`, `Comparing File Types: ${split[rank]} expected ${file}`, 2);
+        console.log(`Comparing File Types: ${split[rank]} expected ${file}`);
         if  (split[rank] == file){
             return true;
         }
@@ -304,55 +317,30 @@ function fileType (repo, file, rank, char){
 
     return false;
 }
+*/
 
-/*
 function fileType (repo, file, rank, char){
-    
-    modified = arraySplit(repo.modifiedFiles, '/');
-    added = arraySplit(repo.addedFiles, '/');
-    removed = arraySplit(repo.addedFiles, '/');
+    var modified = arraySplit(repo, '/');
 
     //check modified files
     for (F in modified){
         fileName = modified[F][modified[F].length-1];
         var split = fileName.split(char);
-        console.log(`${split[rank]} expected ${file}`);
         if  (split[rank] == file){
             return true
         }
     }
-
-    //check new files
-    for (F in added){
-        fileName = added[F][added[F].length-1];
-        var split = fileName.split(char);
-        if  (split[rank] == file){
-            return true
-        }
-    }
-
-    //check deleted files
-    for (F in removed){
-        fileName = removed[F][removed[F].length-1];
-        var split = fileName.split(char);
-        if  (split[rank] == file){
-            return true
-        }
-    }
-        log(`OP`, `SYNC: No changes to files of type "${file}" found in ${repoA}/${dirA}`, 2);
-        log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
     return false
 }
-*/
+
 
 function checkFiles (A,B,char){
     splitA = arraySplit(A, char);
     splitB = arraySplit(B, char);
     var test = true;
-    for (F in modified){
+    for (F in splitA){
         fileNameA = splitA[F][splitA[F].length-1];
         fileNameB = splitB[F][splitB[F].length-1];
-        console.log(`repo files: ${fileNameA}     pastRepo files: ${fileNameB}\n`);
         if  (fileNameA != fileNameB){
             log(`ALL`, `ERROR: File ${fileNameA} in ${gitA} does not match ${fileNameB} in ${gitB}`, 2);
             test = false;
