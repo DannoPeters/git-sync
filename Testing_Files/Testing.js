@@ -24,6 +24,7 @@ const dns = require('dns'); //required to resolve domain name for log file
 
 log(`ALL`, `INIT: Testing Program Started`, 0, '\n');
 
+//set maximum random delay times for pushes
 var days = 0;
 var hours = 0;
 var minutes = 0;
@@ -31,8 +32,20 @@ var seconds = 10;
 var ms = 60;
 
 
+/* runCmd
+    Purpose: runs commands in synchronus (serial) terminal 
 
-//runs commands in synchronus (serial) terminal 
+    Inputs:     cmd - command to be run, string
+
+    Wait it does:
+        - log command to be exicuted
+        - tries to execute command
+            - catch will log error and exit gracefully
+
+    Returned: None
+
+    Passes: none
+*/
 function runCmd(cmd) {
     log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
 
@@ -45,7 +58,22 @@ function runCmd(cmd) {
     }
 }
 
-//
+
+/* log
+    Purpose: create and write data to log files on server
+
+    Inputs:     stream - the log file which should be written to
+                message - string to be written tot eh log file
+                level - indent level of the text to be added
+                prefix - prefix to be placed infront of the log message
+
+    Wait it does:
+        - writes to log files with data and time (UTC) and specifed message
+
+    Returned:   none
+
+    Passes:     none
+*/
 function log (stream, message, level, prefix){
     prefix = prefix || '';
     var today = new Date();
@@ -80,6 +108,21 @@ function log (stream, message, level, prefix){
     
     }
 
+
+/* doSomething
+    Purpose: comples pushes to repoA at random intervals to test GitSync.js
+
+    Inputs: none
+
+    Wait it does:
+        - does nothing for random amount of time (with set max)
+        - edits log file with hdw in name
+        - commits and pushes edits to repoA
+
+    Returned: None
+
+    Passes: none
+*/
     function doSomething() {
     var d = new Date(),
         h = new Date(d.getFullYear(), d.getMonth(), d.getDate()+ Math.random( )*days, d.getHours() + Math.random( )*hours, d.getMinutes() + Math.random( )*minutes, d.getSeconds() + Math.random( )*seconds, Math.random( )*ms),
@@ -110,6 +153,19 @@ function log (stream, message, level, prefix){
     runCmd(cmd);
 }
 
+
+/* While(1) infinite loop
+    Purpose: calls donothing repeatedly to continue causing pushes to repoA at random intervals.
+
+    Inputs: none
+
+    Wait it does:
+        - calls doNothing() a lot
+
+    Returned: None
+
+    Passes: none
+*/
 while (1){
 	doSomething();
 }
