@@ -241,7 +241,7 @@ function githubHook(chunk, req) {
                          log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
                          execSync(`${cmd}`); 
                     }
-                    catch () { //error is not logged as expected in normal operation whne new folder is pushed to git
+                    catch (unlogged_error) { //error is not logged as expected in normal operation whne new folder is pushed to git
                         try { //if copying each file directly fails (ie new folder created) then recursively sync whole directory
                             log(`ALL`, `ERROR: Copy Command failed, Attempting to recursive copy directory`, 2);
                             var cmd = `cp ${repoA}/${dirA} ${repoB}/${dirB} --recursive`;
@@ -277,14 +277,14 @@ function githubHook(chunk, req) {
 
                 //leave discriptive log detailing which test for files to sync failed
                 } else  if (fileType(commitedFiles, type, 0, '.')){
-                    log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${repoA}/${dirA}`, 2);
-                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
+                    log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${gitA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No Push to ${gitB} Required`, 2);
                 } else  if (fileLoc(commitedFiles, `${dirA}`)){
                     log(`OP`, `SYNC: No changes to files of type "${type}" found in push`, 2);
-                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
+                    log(`OP`, `SYNC: No Push to ${gitB} Required`, 2);
                 } else {
-                    log(`OP`, `SYNC: No changes to files of type "${type}" AND no chnges found in ${repoA}/${dirA}`, 2);
-                    log(`OP`, `SYNC: No Push to ${repoB} Required`, 2);
+                    log(`OP`, `SYNC: No changes to files of type "${type}" AND no chnges found in ${gitA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No Push to ${gitB} Required`, 2);
                 }
             }
                 
