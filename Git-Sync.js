@@ -65,7 +65,7 @@ http.createServer(function (req, res) { //create webserver
         var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         var jsonPort = req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         
-        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}:${jsonPort}`, 1, '\n');
+        log(`OP`, `NEW OPERATION: File Recieved from ${jsonIP}${jsonPort}`, 1, '\n');
 
         let sigA = "sha1=" + crypto.createHmac(`sha1`, secretA).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
         let sigB = "sha1=" + crypto.createHmac(`sha1`, secretB).update(chunk.toString()).digest(`hex`); //verify message is authentic (correct secret)
