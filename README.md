@@ -45,10 +45,7 @@ ToDo:
  ##### 3. GitHub WebHook Config
     Using the GitHub web interface inside of your first repo navigate to Settings -> Webhooks
     Then select "Add Webhook" at the top right
-   ###### Payload Url 
-            Enter your public facing IP or URL and your chosen port into the text box
-  ###### Content Type
-            Select "aplication/json" from the drop down
-   ###### Which events would you like to trigger this webhook?
-            Select the "Just the push event." radio button
+**Payload Url** - Enter your public facing IP or URL and your chosen port into the text box
+**Content Type** - Select "aplication/json" from the drop down
+**Which events would you like to trigger this webhook?** - Select the "Just the push event." radio button
     
