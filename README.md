@@ -16,7 +16,11 @@ What it Does:
 - Checks user who initiated webhook (prevents push loop or false push confirm)
 - server side logging system
 
-
+```
+git status
+git add
+git commit
+```
 
 ToDo:
 - Setup Documentation
