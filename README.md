@@ -22,3 +22,11 @@ ToDo:
 - Setup Documentation
 - Confirm files are the same in repos A and B (line by line)
 - Notify Kevin S of new uploads, or improper use (file deletion, etc).
+
+# How to Install
+  In order for the webhooks to be recieved you will need a web acessible server with a public IP.
+    If you are running this code for testing on your machine, I recomend using ngrok to create a public URL for testing
+      https://ngrok.com
+  
+  Once you have a public facing IP, 
+    
