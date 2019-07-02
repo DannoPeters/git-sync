@@ -23,10 +23,23 @@ ToDo:
 - Confirm files are the same in repos A and B (line by line)
 - Notify Kevin S of new uploads, or improper use (file deletion, etc).
 
+
 # How to Install
+## Requirements
+  - Public Facing IP (or equilvallent - See step 1)
+  - local git install
+  - command line access
+  
+### 1. Public IP or URL
+  If you are running this script on a server with a public IP or URL skip to setp 2.
+
   In order for the webhooks to be recieved you will need a web acessible server with a public IP.
     If you are running this code for testing on your machine, I recomend using ngrok to create a public URL for testing
       https://ngrok.com
+    You will need to launch ngrok from the same directory as the 
   
-  Once you have a public facing IP, 
+  ### 2. Where to put the script
+    Git-Sync.JS must be placed in a public folder of your web server 
+  
+  ### 3. GitHub WebHook Config
     
