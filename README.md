@@ -31,8 +31,8 @@ ToDo:
   ##### The following Libraries
   * http - required to run JS server to listen for webhooks
   * crypto - required to unencrypt webhook json 
-  * execSync - Required to exicute shell commands from JS
-  * fs - Required to write files
+  * execSync - required to exicute shell commands from JS
+  * fs - required to write files
   
 ## Steps
 ### 1. Public IP or URL
@@ -89,5 +89,22 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    NOTE: if the github webhook is set as active by mistake you will recive an error stating "last delivery was not sucessful" This error is normal and expected, plese deactivate the webhook by selecting the edit button, then deselcting the "active" check box. 
    
 ### 7. Git-Sync.JS Config
-Open the Git-Sync.JS file in a text editor
+Open the Git-Sync.JS file in a text editor and set the following varibales:
+**secretA** - Secret set for Repo A
+**secretB** - Secret set for Repo B
+
+**gitA** - Full name of remote Repo A ie) the full name of this repo is "DannoPeters/Git-Sync"
+**gitB** - Full name of remote Repo B
+
+**repoA** - location of local Repo A clone on server
+**repoB** - location of local Repo B clone on server
+
+**gitSync** - location of the Git-Sync.JS (File youa re currently editing) on the server
+
+**port** - the listening port for incoming webhooks
+
+**dirA** - subdirectory in remote Repo A to sync files from, should be set to "" if whole repo is to be synced
+**dirB** - subdirectory in remote Repo B to sync files to, should be set to "" if Repo A is to be synced to root directory
+
+**user** - username of the fresh github account setup with SSH access
     
