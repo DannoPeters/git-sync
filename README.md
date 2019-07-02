@@ -90,6 +90,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    
 ### 7. Git-Sync.JS Config
 Open the Git-Sync.JS file in a text editor and set the following varibales:
+
 **secretA** - Secret set for Repo A
 
 **secretB** - Secret set for Repo B
