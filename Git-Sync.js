@@ -1,13 +1,9 @@
-/*step 1. detect Repo A push via webhook              :-)
-step 2. get push commit message via webhook           :-)
-step 3. git pull Repo A clone on server               :-)
-step 4. cp repo A clone to repo B clone /hardware_dirB :-)
-step 5. git add /hardaware_dirB                        :-)
-step 6. git commit -m repo A push commit message      :-)
-step 7. git push to repo B                            :-)
-Step 8. ??????
-step 9. PROFIT $$$
+/*
+Git-Sync.js
+    JavaScript Script to synchronize two remote GitHub repos
 
+Copyright SuperDARNCanada
+Authors: Marina Schmidt and Danno Peters
 */
 
 //User Configuration ***Both Repos MUST have local configuration***
