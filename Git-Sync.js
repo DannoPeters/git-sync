@@ -10,11 +10,11 @@ Authors: Marina Schmidt and Danno Peters
 var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
 var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
 
-var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
-var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Sender
+var gitA = "DannoPeters/Repo-A"; //Full remote repo name, used to identify Webhook Sender
+var gitB = "DannoPeters/Repo-B"; //Full remote repo name, used to identify Webhook Sender
 
-var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
-var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
+var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of local repo-A on server
+var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of local repo-b on server
 
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
 
