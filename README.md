@@ -91,20 +91,30 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 ### 7. Git-Sync.JS Config
 Open the Git-Sync.JS file in a text editor and set the following varibales:
 **secretA** - Secret set for Repo A
+
 **secretB** - Secret set for Repo B
 
+
 **gitA** - Full name of remote Repo A ie) the full name of this repo is "DannoPeters/Git-Sync"
+
 **gitB** - Full name of remote Repo B
 
+
 **repoA** - location of local Repo A clone on server
+
 **repoB** - location of local Repo B clone on server
+
 
 **gitSync** - location of the Git-Sync.JS (File youa re currently editing) on the server
 
+
 **port** - the listening port for incoming webhooks
 
+
 **dirA** - subdirectory in remote Repo A to sync files from, should be set to "" if whole repo is to be synced
+
 **dirB** - subdirectory in remote Repo B to sync files to, should be set to "" if Repo A is to be synced to root directory
+
 
 **user** - username of the fresh github account setup with SSH access
     
