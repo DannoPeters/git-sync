@@ -25,12 +25,13 @@ ToDo:
 
 
 # How to Install
-## Requirements
+### Requirements
   - Public Facing IP (or equilvallent - See step 1)
   - local git install
   - command line access
   
-### 1. Public IP or URL
+### Steps
+##### 1. Public IP or URL
   If you are running this script on a server with a public IP or URL skip to setp 2.
 
   In order for the webhooks to be recieved you will need a web acessible server with a public IP.
@@ -38,8 +39,8 @@ ToDo:
       https://ngrok.com
     You will need to launch ngrok from the same directory as the 
   
-  ### 2. Where to put the script
+  ##### 2. Where to put the script
     Git-Sync.JS must be placed in a public folder of your web server 
   
-  ### 3. GitHub WebHook Config
+  ##### 3. GitHub WebHook Config
     
