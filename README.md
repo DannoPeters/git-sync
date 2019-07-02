@@ -16,11 +16,6 @@ What it Does:
 - Checks user who initiated webhook (prevents push loop or false push confirm)
 - server side logging system
 
-```
-git status
-git add
-git commit
-```
 
 ToDo:
 - Setup Documentation
@@ -50,11 +45,15 @@ Session Status                online
 Account                       DannoPeters (Plan: Free)
 Update                        update available (version 2.3.30, Ctrl-U to update)    
 Version                       2.3.28      
-Region                        United States (us)                                                                              Web Interface                 http://127.0.0.1:4040                                                                              Forwarding                    http://f2c0131b.ngrok.io -> http://localhost:8080                                                 Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080                                                                      
+Region                        United States (us)
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    http://f2c0131b.ngrok.io -> http://localhost:8080
+Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080                                                                      
 Connections                   ttl     opn     rt1     rt5     p50     p90                                                       
                               0       0       0.00    0.00    0.00    0.00    
 ```
-  
+ The above text will be displayed int eh terminal, note the forwarding URL as it will be required for the webhook setup.
+ 
  ### 2. Where to put the script
  The Git-Sync.JS script must be placed in a public folder of your web server, or in the folder where you will run ngrok from
  
