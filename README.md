@@ -37,7 +37,23 @@ ToDo:
   In order for the webhooks to be recieved you will need a web acessible server with a public IP.
     If you are running this code for testing on your machine, I recomend using ngrok to create a public URL for testing
       https://ngrok.com
-    You will need to launch ngrok from the same directory as the 
+    You will need to launch ngrok from the same directory as the Git-Sync.JS script using ./ngrok http [port number]
+    Using the default port number is command is ./ngrok http 8080
+    '''
+    ngrok by @inconshreveable                                                                                                      (Ctrl+C to quit)
+                                                                                                                                               
+Session Status                online                                                                                                           
+Account                       DannoPeters (Plan: Free)                                                                                         
+Update                        update available (version 2.3.30, Ctrl-U to update)                                                              
+Version                       2.3.28                                                                                                           
+Region                        United States (us)                                                                                               
+Web Interface                 http://127.0.0.1:4040                                                                                            
+Forwarding                    http://f2c0131b.ngrok.io -> http://localhost:8080                                                                
+Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080                                                               
+                                                                                                                                               
+Connections                   ttl     opn     rt1     rt5     p50     p90                                                                      
+                              0       0       0.00    0.00    0.00    0.00    
+                              '''
   
  ### 2. Where to put the script
  The Git-Sync.JS script must be placed in a public folder of your web server, or in the folder where you will run ngrok from
@@ -51,7 +67,7 @@ ToDo:
  ### 5. Local Repos
   Using your fresh github account clone both of the repos you would like to sync to your local git. 
   
- ### 3. GitHub WebHook Config
+ ### 6. GitHub WebHook Config
  Using the GitHub web interface inside of your repos navigate to Settings -> Webhooks
  Then select "Add Webhook" at the top right
  
@@ -66,4 +82,6 @@ ToDo:
    **Active** Leave this checkbox unselected to avoid partial syncs until the full system is setup
    
    NOTE: if the github webhook is set as active by mistake you will recive an error stating "last delivery was not sucessful" This error is normal and expected, plese deactivate the webhook by selecting the edit button, then deselcting the "active" check box. 
+   
+   
     
