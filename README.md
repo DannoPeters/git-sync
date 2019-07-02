@@ -39,21 +39,17 @@ ToDo:
       https://ngrok.com
     You will need to launch ngrok from the same directory as the Git-Sync.JS script using ./ngrok http [port number]
     Using the default port number is command is ./ngrok http 8080
-    ` ` `
-    ngrok by @inconshreveable                                                                                                      (Ctrl+C to quit)
-                                                                                                                                               
-Session Status                online                                                                                                           
-Account                       DannoPeters (Plan: Free)                                                                                         
-Update                        update available (version 2.3.30, Ctrl-U to update)                                                              
-Version                       2.3.28                                                                                                           
-Region                        United States (us)                                                                                               
-Web Interface                 http://127.0.0.1:4040                                                                                            
-Forwarding                    http://f2c0131b.ngrok.io -> http://localhost:8080                                                                
-Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080                                                               
-                                                                                                                                               
-Connections                   ttl     opn     rt1     rt5     p50     p90                                                                      
+    ```
+ngrok by @inconshreveable                        (Ctrl+C to quit)
+    
+Session Status                online      
+Account                       DannoPeters (Plan: Free)
+Update                        update available (version 2.3.30, Ctrl-U to update)    
+Version                       2.3.28      
+Region                        United States (us)                                                                              Web Interface                 http://127.0.0.1:4040                                                                              Forwarding                    http://f2c0131b.ngrok.io -> http://localhost:8080                                                 Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080                                                                      
+Connections                   ttl     opn     rt1     rt5     p50     p90                                                       
                               0       0       0.00    0.00    0.00    0.00    
-                              ` ` `
+```
   
  ### 2. Where to put the script
  The Git-Sync.JS script must be placed in a public folder of your web server, or in the folder where you will run ngrok from
