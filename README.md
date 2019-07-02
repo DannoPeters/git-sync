@@ -28,6 +28,11 @@ ToDo:
   - Public Facing IP (or equilvallent - See step 1)
   - local git install
   - command line access
+  ### The following Libraries
+  * http - required to run JS server to listen for webhooks
+  * crypto - required to unencrypt webhook json 
+  * execSync - Required to exicute shell commands from JS
+  * fs - Required to write files
   
 ## Steps
 ### 1. Public IP or URL
@@ -70,7 +75,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
  Using the GitHub web interface inside of your repos navigate to Settings -> Webhooks
  Then select "Add Webhook" at the top right
  
- Enter the following values in the data fields
+ Enter the following values in the data fields for the webhooks of both Repo's A (master) and B (slave)
   **Payload Url** - Enter your public facing IP or URL and your chosen port into the text box
 
    **Content Type** - Select "aplication/json" from the drop down
@@ -78,9 +83,11 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    **Secret** - A password/message to ensure your webhook is authentic. This does NOT need to be the same for both hooks.
 
    **Which events would you like to trigger this webhook?** - Select the "Just the push event." radio button
+   
    **Active** Leave this checkbox unselected to avoid partial syncs until the full system is setup
    
    NOTE: if the github webhook is set as active by mistake you will recive an error stating "last delivery was not sucessful" This error is normal and expected, plese deactivate the webhook by selecting the edit button, then deselcting the "active" check box. 
    
-   
+### 7. Git-Sync.JS Config
+Open the Git-Sync.JS file in a text editor
     
