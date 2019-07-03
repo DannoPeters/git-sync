@@ -33,6 +33,7 @@ ToDo:
   * crypto - required to unencrypt webhook json 
   * execSync - required to exicute shell commands from JS
   * fs - required to write files
+  * Node.JS - required to run the Java Script script
   
 ## Steps
 ### 1. Public IP or URL
@@ -121,4 +122,11 @@ Open the Git-Sync.JS file in a text editor and set the following varibales:
 
 
 **user** - username of the fresh github account setup with SSH access
+
+### 8. Starting up Syncing
+- Start the Git-Sync.js script
+- If you are using Ngrok, start the Ngrok session and copy your forwarding URL
+- in each of the repos navigate to Settings -> Webhooks, slect edit and press the **Active** checkbox, then **Update Webhook**
+- To test your webhook post a commit to your Repo A, a commit of the following format should be made in repo B *User: {user} Message:{message}* ie) *User: DannoPeters Message:Update hdw.dat.ade*
+
     
