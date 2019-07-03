@@ -29,8 +29,11 @@ var fileType = ""; //specify file type to sync
 var nameContains = ""; //specify string contained in the file name to sync
 var fileContains = ""; //specify string contained in file to sync
 
+//Global Variables
 var actionArray = new Array(); //Array to store information about actions taken
-
+var today = new Date();
+var startTime = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()} ${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()} UTC`;
+var lastSync = 'Never';
 
 //Import Required
 let http = require(`http`); //import http library
@@ -81,6 +84,7 @@ http.createServer(function (req, res) { //create webserver
             log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
         }
          });
+    res.write(`<html><center><h3>If you are reading this, Git-Sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}</i><br> Repo B: <i>${gitB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br> Last Sync: <i>${lastSync}</i>`)
 
     res.end('');
 }).listen(port, (err) => {
@@ -339,8 +343,10 @@ function githubHook(chunk, req) {
                     	log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 2);
                     } 
                 }
-                    
+                
                 }
+                var today = new Date();
+                lastSync = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()} ${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()} UTC`;
                 }
                 catch(error){
                     log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 2);
