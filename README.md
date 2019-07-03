@@ -70,9 +70,9 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
  Use a fresh github account, ensure this account has read priveldges from your master repo and read/write privledges to the slave repo. In these instructions and the Sync-Git.JS script Repo A is the master and Repo B is the slave.
  
  ### 4. SSH Github acsess
- Setup SSH authentication from your machine to your fresh github account utilising sha keys. 
-If you have not used SSh authentication before, consult the github guide:
-https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account
+ Setup SSH authentication from your machine to your fresh github account utilising sha keys.
+ If you have not used SSh authentication before, consult the github guide:
+ https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account
  
  ### 5. Local Repos
   Using your fresh github account clone both of the repos you would like to sync to your local git. 
