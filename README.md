@@ -57,7 +57,8 @@ Forwarding                    https://f2c0131b.ngrok.io -> http://localhost:8080
 Connections                   ttl     opn     rt1     rt5     p50     p90                                                       
                               0       0       0.00    0.00    0.00    0.00    
 ```
- The above text will be displayed int eh terminal, note the forwarding URL as it will be required for the webhook setup.
+ The above text will be displayed your terminal, note your forwarding URL as it will be required for the webhook setup.
+**NOTE:** *Your forwarding URL will be updated each time Ngrok is started.*
  
  ### 2. Where to put the script
  The Git-Sync.JS script must be placed in a public folder of your web server, or in the folder where you will run ngrok from
