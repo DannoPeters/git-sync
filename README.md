@@ -40,8 +40,10 @@ ToDo:
 
   In order for the webhooks to be recieved you will need a web acessible server with a public IP.
     If you are running this code for testing on your machine, I recomend using ngrok to create a public URL for testing
-      https://ngrok.com
-    You will need to launch ngrok from the same directory as the Git-Sync.JS script using ./ngrok http [port number]
+    
+   https://ngrok.com
+      
+   You will need to launch ngrok from the same directory as the Git-Sync.JS script using ./ngrok http [port number]
     Using the default port number is command is ./ngrok http 8080
 ```
 ngrok by @inconshreveable                        (Ctrl+C to quit)
