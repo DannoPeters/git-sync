@@ -1,6 +1,6 @@
 /*
 Git-Sync.js
-    JavaScript Script to synchronize two remote GitHub repos
+    JavaScript Script to synchronize two remote GitHub repos (Master to Slave)
 
 Copyright SuperDARNCanada
 Authors: Marina Schmidt and Danno Peters
@@ -10,11 +10,11 @@ Authors: Marina Schmidt and Danno Peters
 var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
 var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
 
-var gitA = "DannoPeters/Repo-A"; //Full remote repo name, used to identify Webhook Sender
-var gitB = "DannoPeters/Repo-B"; //Full remote repo name, used to identify Webhook Sender
+var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
+var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Sender
 
-var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of local repo-A on server
-var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of local repo-b on server
+var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
+var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
 
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
 
@@ -24,6 +24,10 @@ var dirA = "hdw.dat/" //directory to copy files from in repo-A
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
 
 var user = "DannoPeters"; //set the github username of the server (configured using ssh)
+
+var fileType = ""; //specify file type to sync
+var nameContains = ""; //specify string contained in the file name to sync
+var fileContains = ""; //specify string contained in file to sync
 
 var actionArray = new Array(); //Array to store information about actions taken
 
