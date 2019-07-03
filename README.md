@@ -39,7 +39,7 @@ ToDo:
   If you are running this script on a server with a public IP or URL skip to step 2.
 
   In order for the webhooks to be recieved you will need a web acessible server with a public IP.
-    If you are running this code for testing on your machine, I recomend using ngrok to create a public URL for testing
+    If you are running this code for testing on your machine, I recomend installing Ngrok to create a public URL which tunnels through trough your NAT or firewall.
     
    https://ngrok.com
       
