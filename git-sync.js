@@ -48,6 +48,7 @@ const dns = require('dns'); //required to resolve domain name for log file
 
 
 
+
 /* Webserver
 	Purpose: Creates a webserver in order to recieve websocket requests
 
@@ -88,16 +89,16 @@ http.createServer(function (req, res) { //create webserver
             log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
         }
          });
-    res.write(`<html><center><h3>If you are reading this, Git-Sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}</i><br> Repo B: <i>${gitB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
-
+    console.log("HTML Running");
+    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}/${dirA}</i><br> Repo B: <i>${gitB}/${dirB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
     res.end('');
+
 }).listen(port, (err) => {
     if (err) return log(`ALL`, `\n ERROR: Issue with init of server: ${err}`, 0);
     log(`ALL`, `INIT: Node.js server listening on ${port}`, 0, '\n');
 
 
 });
-
 
 /* runCmd
 	Purpose: runs commands in synchronus (serial) terminal 
@@ -284,7 +285,7 @@ function githubHook(chunk, req) {
                     queueAdd(actionArray, repo)
 
                 //leave discriptive log detailing which test for files to sync failed
-                } else  if (fileType(commitedFiles, typeFile, typePosition, typeDeliminator)){
+                } else  if (fileType(commitedFiles, nameContains, typePosition, typeDeliminator)){
                     log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${gitA}/${dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${gitB} Required`, 2);
                 } else  if (fileLoc(commitedFiles, `${dirA}`)){
@@ -309,12 +310,29 @@ function githubHook(chunk, req) {
 
                      //sort all lists of files to ensure they are comapred correctly
                      repo.modifiedFiles = repo.modifiedFiles.sort();
-                     lastModified = repo.modifiedFiles
                      repo.addedFiles = repo.addedFiles.sort();
-                     lastAdded = repo.addedFiles
                      repo.removedFiles = repo.removedFiles.sort();
-                     lastRemoved = repo.removedFiles
+                     
+                     if (repo.modifiedFiles != ""){
+                        lastModified = repo.modifiedFiles
+                    } else {
+                        lastModified = "None"
+                    }
+
+                    if (repo.addedFiles != ""){
+                        lastAdded = repo.addedFiles
+                    } else {
+                        lastAdded = "None"
+                    }
+
+                    if (repo.removedFiles != ""){
+                        lastRemoved = repo.removedFiles
+                    } else {
+                        lastRemoved = "None"
+                    }
+       
                      lastCommit = repo.commitMessage
+                     console.log("Made it");
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
