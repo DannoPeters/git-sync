@@ -20,20 +20,24 @@ var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; 
 
 const port = 8080; //specify the port for the server to listen on
 
-var dirA = "hdw.dat/" //directory to copy files from in repo-A
+var dirA = "root" //directory to copy files from in repo-A. Set "root" if none specified
 var dirB = "hardware_dir"; //directory to copy files to in repo-B
 
 var user = "DannoPeters"; //set the github username of the server (configured using ssh)
 
-var fileType = ""; //specify file type to sync
-var nameContains = ""; //specify string contained in the file name to sync
-var fileContains = ""; //specify string contained in file to sync
+var typePosition = 0; //specify the position to expect the string, or "any" for any position
+var typeDeliminator = '.'; //specify deliminator for file sections, or "none" to search substrings
+var nameContains = "hdw"; //specify string contained in the file name to sync
 
 //Global Variables
 var actionArray = new Array(); //Array to store information about actions taken
 var today = new Date();
 var startTime = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()} ${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()} UTC`;
 var lastSync = 'Never';
+var lastModified = 'None';
+var lastAdded = 'None';
+var lastRemoved = 'None';
+var lastCommit = 'None';
 
 //Import Required
 let http = require(`http`); //import http library
@@ -84,7 +88,7 @@ http.createServer(function (req, res) { //create webserver
             log(`ALL`, `ERROR: Incorrect Signature: ${signature}`, 2);
         }
          });
-    res.write(`<html><center><h3>If you are reading this, Git-Sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}</i><br> Repo B: <i>${gitB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br> Last Sync: <i>${lastSync}</i>`)
+    res.write(`<html><center><h3>If you are reading this, Git-Sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}</i><br> Repo B: <i>${gitB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
 
     res.end('');
 }).listen(port, (err) => {
@@ -230,7 +234,7 @@ function githubHook(chunk, req) {
 
                     var type = `hdw`;
                     var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
-                    if (fileType(commitedFiles, type, 0, '.') && fileLoc(commitedFiles, `${dirA}`)) {
+                    if (fileType(commitedFiles, nameContains, typePosition, typeDeliminator) && fileLoc(commitedFiles, `${dirA}`)) {
                     
                     //Copy only commited Files by using file paths of each file 
                     for (filePath in commitedFiles){
@@ -280,7 +284,7 @@ function githubHook(chunk, req) {
                     queueAdd(actionArray, repo)
 
                 //leave discriptive log detailing which test for files to sync failed
-                } else  if (fileType(commitedFiles, type, 0, '.')){
+                } else  if (fileType(commitedFiles, typeFile, typePosition, typeDeliminator)){
                     log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${gitA}/${dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${gitB} Required`, 2);
                 } else  if (fileLoc(commitedFiles, `${dirA}`)){
@@ -305,8 +309,12 @@ function githubHook(chunk, req) {
 
                      //sort all lists of files to ensure they are comapred correctly
                      repo.modifiedFiles = repo.modifiedFiles.sort();
+                     lastModified = repo.modifiedFiles
                      repo.addedFiles = repo.addedFiles.sort();
+                     lastAdded = repo.addedFiles
                      repo.removedFiles = repo.removedFiles.sort();
+                     lastRemoved = repo.removedFiles
+                     lastCommit = repo.commitMessage
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
@@ -345,6 +353,7 @@ function githubHook(chunk, req) {
                 }
                 
                 }
+                //Update date and time of last sync
                 var today = new Date();
                 lastSync = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()} ${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()} UTC`;
                 }
@@ -509,16 +518,30 @@ function arraySplit (array, char) {
 */
 function fileType (repo, file, rank, char){
     var modified = arraySplit(repo, '/');
-
     //check modified files
     for (F in modified){
         fileName = modified[F][modified[F].length-1];
+        if (char == "none"){
+            if (fileName.includes(file)){
+                return true;
+            }
+        } else {
         var split = fileName.split(char);
-        if  (split[rank] == file){
-            return true
+        if (rank == "any"){
+            for (let i = 0; i < split.length; i++){
+                if  (split[i] == file){
+                return true;
+            }
+        }else{
+            if  (split[rank] == file){
+                return true;
+        }
         }
     }
-    return false
+        
+    }
+    return false;
+}
 }
 
 
@@ -567,6 +590,9 @@ function checkFiles (A,B,char){
 	Passes: 	files - to array split to divide up file path
 */
 function fileLoc (files, location){
+    if (location == "root"){
+        return true;
+    }
     var splitLocation = location.split('/');
     var fileLocations = arraySplit(files, '/');
     for (F in fileLocations){
