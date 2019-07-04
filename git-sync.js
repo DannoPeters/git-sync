@@ -20,14 +20,14 @@ var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; 
 
 const port = 8080; //specify the port for the server to listen on
 
-var dirA = "root" //directory to copy files from in repo-A. Set "root" if none specified
-var dirB = "hardware_dir"; //directory to copy files to in repo-B
+var dirA = "" //directory to copy files from in repo-A. Set "" if none specified
+var dirB = "hardware_dir"; //directory to copy files to in repo-B.  Set "" if none specified
 
 var user = "DannoPeters"; //set the github username of the server (configured using ssh)
 
-var typePosition = 0; //specify the position to expect the string, or "any" for any position
-var typeDeliminator = '.'; //specify deliminator for file sections, or "none" to search substrings
-var nameContains = "hdw"; //specify string contained in the file name to sync
+var typePosition = 'any'; //specify the position to expect the string, or "any" for any position
+var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
+var nameContains = 'hdw'; //specify string contained in the file name to sync
 
 //Global Variables
 var actionArray = new Array(); //Array to store information about actions taken
@@ -245,14 +245,14 @@ function githubHook(chunk, req) {
                         }
 
                         try {
-                        var cmd = `cp ${repoA}/${commitedFiles[filePath]} ${repoB}/${dirB}/${copyPath}`;
+                        var cmd = `cp ${repoA}/${commitedFiles[filePath]} ${repoB}/${dirB}/${copyPath} -a`;
                          log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
                          execSync(`${cmd}`); 
                     }
                     catch (unlogged_error) { //error is not logged as expected in normal operation whne new folder is pushed to git
                         try { //if copying each file directly fails (ie new folder created) then recursively sync whole directory
                             log(`ALL`, `ERROR: Copy Command failed, Attempting to recursive copy directory`, 2);
-                            var cmd = `cp ${repoA}/${dirA} ${repoB}/${dirB} --recursive`;
+                            var cmd = `cp ${repoA}/${dirA} ${repoB}/${dirB} -a`;
                             log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
                             execSync(`${cmd}`); 
                         }
@@ -268,7 +268,7 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     //Commit changes to local repoB with message from GitHub repo
-                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username}   Message:${repo.commitMessage}"`;
+                    var cmd = `cd ${repoB} && git commit -m "User: ${repo.username}   Message: ${repo.commitMessage}"`;
                     repo.finalCommitMessage = `User: ${repo.username}   Message:${repo.commitMessage}`;
                     runCmd(cmd);
 
@@ -532,7 +532,8 @@ function fileType (repo, file, rank, char){
                 if  (split[i] == file){
                 return true;
             }
-        }else{
+        }
+        } else {
             if  (split[rank] == file){
                 return true;
         }
@@ -542,7 +543,7 @@ function fileType (repo, file, rank, char){
     }
     return false;
 }
-}
+
 
 
 /* checkFiles 
@@ -590,9 +591,9 @@ function checkFiles (A,B,char){
 	Passes: 	files - to array split to divide up file path
 */
 function fileLoc (files, location){
-    if (location == "root"){
+    if (location == ""){
         return true;
-    }
+    } else {
     var splitLocation = location.split('/');
     var fileLocations = arraySplit(files, '/');
     for (F in fileLocations){
@@ -601,6 +602,6 @@ function fileLoc (files, location){
                 return true;
             }
         }
-    }
+    } }
     return false;
 }
