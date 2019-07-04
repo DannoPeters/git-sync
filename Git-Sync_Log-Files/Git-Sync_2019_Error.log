@@ -1,4 +1,0 @@
-
-29/5/2019 16:21:38 UTC    INIT: Node.js server listening on 8080
-29/5/2019 17:5:10 UTC              ERROR: Copy Command failed, Attempting to recursive copy directory
-29/5/2019 17:5:16 UTC              ERROR: DannoPeters/Repo-B push confirmation failed: TypeError: Cannot read property 'length' of undefined

@@ -456,8 +456,8 @@ function queueGet(queue) {
 function log (stream, message, level, prefix){
     prefix = prefix || '';
     var today = new Date();
-    var operation = fs.createWriteStream(`./Git-Sync_Log-Files/Git-Sync_${today.getUTCFullYear()}_Operation.log`, {flags:'a'});
-    var error = fs.createWriteStream(`./Git-Sync_Log-Files/Git-Sync_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
+    var operation = fs.createWriteStream(`./git-syncJS_Log-Files/git-syncJS_${today.getUTCFullYear()}_Operation.log`, {flags:'a'});
+    var error = fs.createWriteStream(`./git-syncJS-Files/git-syncJS_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
 
     var date = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()}`;
     var time = `${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()}`;
