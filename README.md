@@ -163,5 +163,8 @@ var typePosition = 'any'; //specify the position to expect the string, or "any" 
 - in each of the repos navigate to Settings -> Webhooks, slect edit and press the **Active** checkbox, then **Update Webhook**
 - To test your webhook post a commit to your Repo A, a commit of the following format should be made in repo B 
     *User: {user} Message:{message}* ie) *User: DannoPeters Message:Update hdw.dat.ade*
+    
+# Trouble Shooting and Common Questions
+
 
     
