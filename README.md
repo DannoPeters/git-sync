@@ -96,8 +96,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    
 ### 7. Git-Sync.JS Config
 Open the Git-Sync.JS file in a text editor and set the following varibales:
-```//User Configuration ***Both Repos MUST have local configuration***
-var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
+```var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
 var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
 
 var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
@@ -110,10 +109,14 @@ var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; 
 
 const port = 8080; //specify the port for the server to listen on
 
-var dirA = "hdw.dat/" //directory to copy files from in repo-A
-var dirB = "hardware_dir"; //directory to copy files to in repo-B
+var dirA = "" //directory to copy files from in repo-A. Set "" if none specified
+var dirB = "hardware_dir"; //directory to copy files to in repo-B.  Set "" if none specified
 
 var user = "DannoPeters"; //set the github username of the server (configured using ssh)
+
+var nameContains = 'hdw'; //specify string contained in the file name to sync
+var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
+var typePosition = 'any'; //specify the position to expect the string, or "any" for any position
 ```
 
 **secretA** - Secret set for Repo A
@@ -143,6 +146,16 @@ var user = "DannoPeters"; //set the github username of the server (configured us
 
 
 **user** - username of the fresh github account setup with SSH access
+
+
+**nameContains** - sub string contained in files which are to be synced. 
+
+
+**typeDeliminator** - specify the deliminator (what sperates portions of the filename ie) hardware.dat is superated by **.**) or enter "none" to search substrings 
+
+
+**typePosition** - numberical position of the deliminated string, specify "any" for any position, or "last" for the file extension. Note: this section is N/A if "none" is selected for typeDeliminator.
+
 
 ### 8. Starting up Syncing
 - Start the Git-Sync.js script
