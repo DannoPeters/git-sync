@@ -51,26 +51,26 @@ const dns = require('dns'); //required to resolve domain name for log file
 
 
 /* Webserver
-	Purpose: Creates a webserver in order to recieve websocket requests
+    Purpose: Creates a webserver in order to recieve websocket requests
 
-	Inputs: 	req - object containing http request event
-				res - object containing server responce event
+    Inputs:     req - object containing http request event
+                res - object containing server responce event
 
-	Wait it does:
-		- Record request in log file
-		- Verify the JSON is authentic using the secret
-			- call githubwebHook function if it is an authentic request
-			- otherwise record error and keep listening
+    Wait it does:
+        - Record request in log file
+        - Verify the JSON is authentic using the secret
+            - call githubwebHook function if it is an authentic request
+            - otherwise record error and keep listening
 
-	Returned: None
+    Returned: None
 
-	Passes: 	chunk - JSON file sent to web server
-				req - the request event object
+    Passes:     chunk - JSON file sent to web server
+                req - the request event object
 */
 http.createServer(function (req, res) { //create webserver
     req.on(`data`, function(chunk) {
 
-    	//Grab source IP and soscket for log file, multiple methods used for diffrently formatted requests
+        //Grab source IP and soscket for log file, multiple methods used for diffrently formatted requests
         var jsonIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         var jsonPort = req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
         
@@ -102,18 +102,18 @@ http.createServer(function (req, res) { //create webserver
 });
 
 /* runCmd
-	Purpose: runs commands in synchronus (serial) terminal 
+    Purpose: runs commands in synchronus (serial) terminal 
 
-	Inputs: 	cmd - command to be run, string
+    Inputs:     cmd - command to be run, string
 
-	Wait it does:
-		- log command to be exicuted
-		- tries to execute command
-			- catch will log error and exit gracefully
+    Wait it does:
+        - log command to be exicuted
+        - tries to execute command
+            - catch will log error and exit gracefully
 
-	Returned: None
+    Returned: None
 
-	Passes: none
+    Passes: none
 */
 function runCmd(cmd) {
     log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
@@ -128,20 +128,20 @@ function runCmd(cmd) {
 }
 
 /* githubJSON
-	Purpose: creates a linked list of all important information from JSON
+    Purpose: creates a linked list of all important information from JSON
 
-	Inputs: 	file - the JSOn file sent from the webhook
-				event - type of github event (important since JSON formatting is diffrent for each)
+    Inputs:     file - the JSOn file sent from the webhook
+                event - type of github event (important since JSON formatting is diffrent for each)
 
-	Wait it does:
-		- parces json file into githubWebHook variable
-		- tries to store data in repo based on webhook event
-			- catch logs error message and exists gracefully with no return
-			- otherwise returns repo
+    Wait it does:
+        - parces json file into githubWebHook variable
+        - tries to store data in repo based on webhook event
+            - catch logs error message and exists gracefully with no return
+            - otherwise returns repo
 
-	Returned: 	repo - linked list of important informationf fromt the recieved JSON
+    Returned:   repo - linked list of important informationf fromt the recieved JSON
 
-	Passes: none
+    Passes: none
 */
 function githubJSON(file, event) {
     var githubWebHook = JSON.parse(file); //Parse the JSON datafile from the push
@@ -178,32 +178,32 @@ function githubJSON(file, event) {
 
 
 /* githubHook
-	Purpose: based on github event and source repo runs diffrent code for syncing and sync confirmation
+    Purpose: based on github event and source repo runs diffrent code for syncing and sync confirmation
 
-	Inputs: 	chunk - JSON file sent to web server
-				req - object containing http request event
+    Inputs:     chunk - JSON file sent to web server
+                req - object containing http request event
 
-	Wait it does:
-		- if push webhook from repoA
-			- check if user other than this server
-			- git pull RepoA and repoB on server
-			- cp repo A clone to repo B clone
-			- git add repoB
-			- git commit -m repo A push commit message
-			- git push to repo B
+    Wait it does:
+        - if push webhook from repoA
+            - check if user other than this server
+            - git pull RepoA and repoB on server
+            - cp repo A clone to repo B clone
+            - git add repoB
+            - git commit -m repo A push commit message
+            - git push to repo B
 
-		- if push webhook from repoB
-			- check that user pushing is this server
-			- check that same file names added, modified, or removed were edited on push
-			- check that commit message is correct
+        - if push webhook from repoB
+            - check that user pushing is this server
+            - check that same file names added, modified, or removed were edited on push
+            - check that commit message is correct
 
-	Returned: none
+    Returned: none
 
-	Passes: cmd - commands to be exicited by runCmd
-			chunk - JSON file to be pased into linked list (repo) by githubJSON function
-			req.headers['x-github-event'] - event type specified in server request passed to githubJSON to place proper variabel sinto linked list
-			commitedFiles - list of all added, modified, or removed git files sent to fileType to confirm specified type of file to trigger sync, and fileLoc to ensure specified location to trigger sync
-			repo - sorted linked list of JSON data sent to queue to confirm with webhook from repoB
+    Passes: cmd - commands to be exicited by runCmd
+            chunk - JSON file to be pased into linked list (repo) by githubJSON function
+            req.headers['x-github-event'] - event type specified in server request passed to githubJSON to place proper variabel sinto linked list
+            commitedFiles - list of all added, modified, or removed git files sent to fileType to confirm specified type of file to trigger sync, and fileLoc to ensure specified location to trigger sync
+            repo - sorted linked list of JSON data sent to queue to confirm with webhook from repoB
 */
 function githubHook(chunk, req) {
     //Test if file has GitHub Event info
@@ -352,22 +352,22 @@ function githubHook(chunk, req) {
                     if (testModified == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} modified files was sucessful`, 2);
                     } else {
-                    	log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 2);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} modified files synced incorrectly`, 2);
                     }
                     if (testAdded == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} added files was sucessful`, 2);
                     } else {
-                    	log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 2);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} added files synced incorrectly`, 2);
                     }
                     if (testRemoved == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} removed files was sucessful`, 2);
                     } else {
-                    	log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 2);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} removed files synced incorrectly`, 2);
                     }
                     if (testCommit == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} commit was sucessful`, 2);
                     } else {
-                    	log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 2);
+                        log(`ALL`, `ERROR: Git Sync between ${gitA} and ${gitB} commit is incorrect`, 2);
                     } 
                 }
                 
@@ -392,18 +392,18 @@ function githubHook(chunk, req) {
 
 
 /* queueAdd
-	Purpose: adds value to a specifed queue
+    Purpose: adds value to a specifed queue
 
-	Inputs: 	queue - the queue to send the value to
-				value - the value to be sent to the queue
+    Inputs:     queue - the queue to send the value to
+                value - the value to be sent to the queue
 
-	Wait it does:
-		- pushes value to specified queue
-			- logs push to queue
+    Wait it does:
+        - pushes value to specified queue
+            - logs push to queue
 
-	Returned: 	none
+    Returned:   none
 
-	Passes: value - pushes to stack
+    Passes: value - pushes to stack
 */
 function queueAdd(queue, value) {
  queue.push(value);
@@ -413,46 +413,46 @@ function queueAdd(queue, value) {
  
 
 /* queueGet
-	Purpose: retrieves a value from specified queue
+    Purpose: retrieves a value from specified queue
 
-	Inputs: 	queue - the queue to send the value to
-				value - the value to be sent to the queue
+    Inputs:     queue - the queue to send the value to
+                value - the value to be sent to the queue
 
-	Wait it does:
-		- retrieves data from specified queue
-			- returns value and logs retreval
+    Wait it does:
+        - retrieves data from specified queue
+            - returns value and logs retreval
 
-	Returned: 	retrievedQueueValue - value retrieved from queue
+    Returned:   retrievedQueueValue - value retrieved from queue
 
-	Passes: 	none
+    Passes:     none
 */
 function queueGet(queue) {
     var retrievedQueueValue = queue.shift();
     if(retrievedQueueValue) {
-    	log(`OP`, `STACK: previos repo data retrieved from queue`, 2);
+        log(`OP`, `STACK: previos repo data retrieved from queue`, 2);
        return retrievedQueueValue;
     }
     else {
-    	log(`ALL`, `ERROR: STACK: no data to be retrieved from queue`, 2);
+        log(`ALL`, `ERROR: STACK: no data to be retrieved from queue`, 2);
        return null;
     }
 }
 
 
 /* log
-	Purpose: create and write data to log files on server
+    Purpose: create and write data to log files on server
 
-	Inputs: 	stream - the log file which should be written to
-				message - string to be written tot eh log file
-				level - indent level of the text to be added
-				prefix - prefix to be placed infront of the log message
+    Inputs:     stream - the log file which should be written to
+                message - string to be written tot eh log file
+                level - indent level of the text to be added
+                prefix - prefix to be placed infront of the log message
 
-	Wait it does:
-		- writes to log files with data and time (UTC) and specifed message
+    Wait it does:
+        - writes to log files with data and time (UTC) and specifed message
 
-	Returned: 	none
+    Returned:   none
 
-	Passes: 	none
+    Passes:     none
 */
 function log (stream, message, level, prefix){
     prefix = prefix || '';
@@ -490,18 +490,18 @@ function log (stream, message, level, prefix){
 
 
 /* arraySplit 
-	Purpose: create and write data to log files on server
+    Purpose: create and write data to log files on server
 
-	Inputs: 	array - array of strings to be split
-				char - the char to split the strings by
+    Inputs:     array - array of strings to be split
+                char - the char to split the strings by
 
-	Wait it does:
-		- splits each string in an array into susequent strings
-			- returns each split string as a sub array of the main array
+    Wait it does:
+        - splits each string in an array into susequent strings
+            - returns each split string as a sub array of the main array
 
-	Returned: 	array1 - array of sub arrays containing each split string
+    Returned:   array1 - array of sub arrays containing each split string
 
-	Passes: 	none
+    Passes:     none
 */
 function arraySplit (array, char) {
     var array1 = new Array(array.length);
@@ -520,20 +520,20 @@ function arraySplit (array, char) {
 
 
 /* fileType 
-	Purpose: check the type of file
+    Purpose: check the type of file
 
-	Inputs: 	repo - linked list of information from github JSON
-				file - string to recognize file by
-				rank - rank in the file name to find file string
-				char - delimiting char between ranks
+    Inputs:     repo - linked list of information from github JSON
+                file - string to recognize file by
+                rank - rank in the file name to find file string
+                char - delimiting char between ranks
 
-	Wait it does:
-		- writes to log files with data and time (UTC) and specifed message
+    Wait it does:
+        - writes to log files with data and time (UTC) and specifed message
 
-	Returned: 	True - if file of specified type is found
-				False - if no files of specified type are found
+    Returned:   True - if file of specified type is found
+                False - if no files of specified type are found
 
-	Passes: 	none
+    Passes:     none
 */
 function fileType (repo, file, rank, char){
     var modified = arraySplit(repo, '/');
@@ -566,18 +566,18 @@ function fileType (repo, file, rank, char){
 
 
 /* checkFiles 
-	Purpose: checks if two file names/paths are the same
+    Purpose: checks if two file names/paths are the same
 
-	Inputs: 	A - First file name/path to check
-				B - Second file name/path to compare to first
-				char - char to split file names by (usually '/')
+    Inputs:     A - First file name/path to check
+                B - Second file name/path to compare to first
+                char - char to split file names by (usually '/')
 
-	Wait it does:
-		- writes to log files with data and time (UTC) and specifed message
+    Wait it does:
+        - writes to log files with data and time (UTC) and specifed message
 
-	Returned: 	none
+    Returned:   none
 
-	Passes: 	none
+    Passes:     none
 */
 function checkFiles (A,B,char){
     splitA = arraySplit(A, char);
@@ -596,18 +596,18 @@ function checkFiles (A,B,char){
 
 
 /* fileLoc
-	Purpose: checks if any of listed files are in specifed folder
+    Purpose: checks if any of listed files are in specifed folder
 
-	Inputs: 	files - list of files synced to repoB
-				location - location where thay should have been place in repoB
+    Inputs:     files - list of files synced to repoB
+                location - location where thay should have been place in repoB
 
-	Wait it does:
-		- splits up both locations of each file and specified location using array split
-			- returns true if any of the files are found to be in the specifdied location
+    Wait it does:
+        - splits up both locations of each file and specified location using array split
+            - returns true if any of the files are found to be in the specifdied location
 
-	Returned: 	True - if all files are in correct location
+    Returned:   True - if all files are in correct location
 
-	Passes: 	files - to array split to divide up file path
+    Passes:     files - to array split to divide up file path
 */
 function fileLoc (files, location){
     if (location == ""){
