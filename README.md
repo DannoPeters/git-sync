@@ -165,7 +165,8 @@ var typePosition = 'any'; //specify the position to expect the string, or "any" 
 - in each of the repos navigate to Settings -> Webhooks, slect edit and press the **Active** checkbox, then **Update Webhook**
 - To test your webhook post a commit to your Repo A, a commit of the following format should be made in repo B 
     *User: {user} Message:{message}* ie) *User: DannoPeters Message:Update hdw.dat.ade*
-    
+    - Refreshing the Web UI will show the time and content of the last repo sync, an example is shown below.
+ ![Web UI confimring git-sync.JS last repository sync](README-Images/git-sync_Init_WebUI.png?raw=true "git-sync.JS  last repository sync]")   
 # Trouble Shooting and Common Questions
 
 
