@@ -158,8 +158,10 @@ var typePosition = 'any'; //specify the position to expect the string, or "any" 
 
 
 ### 8. Starting up Syncing
-- Start the Git-Sync.js script
+- Start the git-sync.js script
 - If you are using Ngrok, start the Ngrok session and copy your forwarding URL
+- Going to your public facing IP or URL assigned to local port 8080 you should see the following screen confirming git-sync.JS is running and acessible through your firewall/NAT.
+![Web UI confimring git-sync.JS is running](README-Images/git-sync_Init_WebUI.png?raw=true "git-sync.JS is running")
 - in each of the repos navigate to Settings -> Webhooks, slect edit and press the **Active** checkbox, then **Update Webhook**
 - To test your webhook post a commit to your Repo A, a commit of the following format should be made in repo B 
     *User: {user} Message:{message}* ie) *User: DannoPeters Message:Update hdw.dat.ade*
