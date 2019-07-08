@@ -25,9 +25,10 @@ var dirB = "hardware_dir"; //directory to copy files to in repo-B.  Set "" if no
 
 var user = "DannoPeters"; //set the github username of the server (configured using ssh)
 
-var typePosition = 'any'; //specify the position to expect the string, or "any" for any position
-var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
 var nameContains = 'hdw'; //specify string contained in the file name to sync
+var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
+var typePosition = 'any'; //specify the position to expect the string, "any" for any position
+
 
 //Global Variables
 var actionArray = new Array(); //Array to store information about actions taken
@@ -90,7 +91,7 @@ http.createServer(function (req, res) { //create webserver
         }
          });
     console.log("HTML Running");
-    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}/${dirA}</i><br> Repo B: <i>${gitB}/${dirB}</i><br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
+    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${gitA}/${dirA}</i><br> Repo B: <i>${gitB}/${dirB}</i><br><br><u>Settings</u><br> Contains: <i>${nameContains}</i>    Deliminator: <i>${typeDeliminator}</i>    Position: <i>${typePosition} <br><br><u>Local</u><br> Repo A: <i>${repoA}</i><br> Repo B: <i>${repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
     res.end('');
 
 }).listen(port, (err) => {
