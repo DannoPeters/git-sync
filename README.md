@@ -64,7 +64,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 **NOTE:** *Your forwarding URL will be updated each time Ngrok is started.*
  
  ### 2. Where to put the script
- The Git-Sync.JS script must be placed in a public folder of your web server, or in the folder where you will run ngrok from
+ The Git-Sync.JS script can be placed in any folder of your web server, as it will listen on localhost:8080 for requests forwarded from a public facing IP or URL
  
  ### 3. Setup a new github account
  Use a fresh github account, ensure this account has read priveldges from your master repo and read/write privledges to the slave repo. In these instructions and the Sync-Git.JS script Repo A is the master and Repo B is the slave.
