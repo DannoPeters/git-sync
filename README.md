@@ -167,7 +167,7 @@ var typePosition = 'any'; //specify the position to expect the string, or "any" 
 - To test your webhook post a commit to your Repo A, a commit of the following format should be made in repo B 
     *User: {user} Message:{message}* ie) *User: DannoPeters Message:Update hdw.dat.ade*
     - Refreshing the Web UI will show the time and content of the last repo sync, an example is shown below.
- ![Web UI confimring git-sync.JS last repository sync](README-Images/git-sync_Init_WebUI.png?raw=true "git-sync.JS  last repository sync]")   
+ ![Web UI confimring git-sync.JS last repository sync](README-Images/git-sync_Added_WebUI.png?raw=true "git-sync.JS  last repository sync]")   
 # Trouble Shooting and Common Questions
 
 
