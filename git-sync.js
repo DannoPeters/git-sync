@@ -47,6 +47,7 @@ var lastCommit = 'None';
 //Import Required
 let http = require(`http`); //import http library
 let crypto = require(`crypto`); //import crypto library
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 var fs = require("fs"); //required to write to files
 const dns = require('dns'); //required to resolve domain name for log file
@@ -229,7 +230,7 @@ function githubHook(chunk, req) {
                         log(`OP`, `JSON: No further action will be taken (Prevents accidental push loop)`, 2);
                     } else {
                         log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
-                    if (req.headers[])
+
                     //Pull from github repoA to local repo
                     var cmd = `cd ${repoA} && git pull origin ${repoA_branch}`;
                     runCmd(cmd);
@@ -279,7 +280,7 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${repoB} && git push`;
+                    var cmd = `cd ${repoB} && git push --set-upstream origin gitSync`;
                     runCmd(cmd);
 
                     //Store information to confirm proper push to repo B
@@ -353,7 +354,7 @@ function githubHook(chunk, req) {
                     if (testModified && testAdded && testRemoved && testCommit) {
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful :-)`, 2);
                         //Since push was sucessful start a pull request
-                        pullReq(repoB, branchA, branchB, repo)
+                        
                     }  else {
                     if (testModified == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} modified files was sucessful`, 2);
@@ -386,6 +387,7 @@ function githubHook(chunk, req) {
                     log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 2);
                     return;
                 }
+                pullReq(repoB, repoB_branchA, repoB_branchB, repo)
                 break;
 
             default:
@@ -464,7 +466,7 @@ function log (stream, message, level, prefix){
     prefix = prefix || '';
     var today = new Date();
     var operation = fs.createWriteStream(`./git-syncJS_Log-Files/git-syncJS_${today.getUTCFullYear()}_Operation.log`, {flags:'a'});
-    var error = fs.createWriteStream(`./git-syncJS-Files/git-syncJS_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
+    var error = fs.createWriteStream(`./git-syncJS_Log-Files/git-syncJS_${today.getUTCFullYear()}_Error.log`, {flags:'a'});
 
     var date = `${today.getUTCDate()}/${(today.getUTCMonth()+1)}/${today.getUTCFullYear()}`;
     var time = `${(today.getUTCHours())}:${(today.getUTCMinutes())}:${today.getUTCSeconds()}`;
@@ -645,21 +647,32 @@ function fileLoc (files, location){
 
     Passes:     files - to array split to divide up file path
 */
-function pullReq (repoB, branchA, branchB, repo){
-
+function pullReq (repoB, repoB_branchA, repoB_branchB, repo){
+    console.log('Starting Pull Request');
     var pullJSON = new Object();
+    pullJSON.access_token = `da3016d7581bff33fb9c55c528263c53dc2fe1ef`;
     pullJSON.title = `${repo.message}`;
-    pullJSON.head = `${repoB}:${branchA}`;
-    pullJSON.base = `${repoB}:${branchB}`;
+    pullJSON.head = `${repoB_branchA}`;
+    pullJSON.base = `${repoB_branchB}`;
     pullJSON.body = `Modified:${repo.modifiedFiles}`;
-    pullJSON.maintainer_can_modify = True;   
+    pullJSON.maintainer_can_modify = true;   
 
     var jsonString = JSON.stringify(pullJSON);
     log(`OP`, `JSON: pull request JSON generated`, 2);
 
-    xmlhttp.open("POST", `https://api.github.com/repos/${user}/${repoB}/pulls`);
-    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
-    xmlhttp.send(jsonString);
-    log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${user}/${repoB}/pulls`, 2);
+    fetch(`https://api.github.com/repos/${user}/${repoB}/pulls`,
+        {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: jsonString
+        })
+        .then(function(res){ console.log(res) })
+        .catch(function(res){ console.log(res) })`//*/
+
+    log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${gitB}/pulls`, 2);
+    console.log('Pull Request Sent');
 
 }
