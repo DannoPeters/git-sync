@@ -16,6 +16,10 @@ var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Send
 var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
 var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
 
+var repoA_branch = "master" //branch to sync from
+var repoB_branchA = "gitSync" //initial sync location (this is where pull request will be generated from)
+var repoB_branchB =  "master" //final sync location (this is where you want the pull request to go to)
+
 var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
 
 const port = 8080; //specify the port for the server to listen on
@@ -220,18 +224,18 @@ function githubHook(chunk, req) {
 
             case gitA: //sync to repo B
 
-                    if (repo.username == user) { //confirm push is not from thsi server (to prevent push loop)
+                    if (repo.username == user) { //confirm push is not from this server (to prevent push loop)
                         log(`OP`, `JSON: GitHub user "${repo.username}" (This Server) pushed to ${repo.gitFullName}`, 2);
                         log(`OP`, `JSON: No further action will be taken (Prevents accidental push loop)`, 2);
                     } else {
                         log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
-
-                    //Pull from github repoB to local repo
-                    var cmd = `cd ${repoA} && git pull`;
+                    if (req.headers[])
+                    //Pull from github repoA to local repo
+                    var cmd = `cd ${repoA} && git pull origin ${repoA_branch}`;
                     runCmd(cmd);
 
                    //Pull request for repoB
-                    var cmd = `cd ${repoB} && git pull`;
+                    var cmd = `cd ${repoB} && git pull origin ${repoB_branchA}`;
                     runCmd(cmd);
 
                     var type = `hdw`;
@@ -348,6 +352,8 @@ function githubHook(chunk, req) {
                     // only prints one message if sucessful, otherwise details which tests passed and which failed
                     if (testModified && testAdded && testRemoved && testCommit) {
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful :-)`, 2);
+                        //Since push was sucessful start a pull request
+                        pullReq(repoB, branchA, branchB, repo)
                     }  else {
                     if (testModified == true){
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} modified files was sucessful`, 2);
@@ -623,4 +629,37 @@ function fileLoc (files, location){
         }
     } }
     return false;
+}
+
+/* pullReq
+    Purpose: creates a pull request from synced branch to specified branch (usually dev or main)
+
+    Inputs:     files - list of files synced to repoB
+                location - location where thay should have been place in repoB
+
+    Wait it does:
+        - splits up both locations of each file and specified location using array split
+            - returns true if any of the files are found to be in the specifdied location
+
+    Returned:   True - if all files are in correct location
+
+    Passes:     files - to array split to divide up file path
+*/
+function pullReq (repoB, branchA, branchB, repo){
+
+    var pullJSON = new Object();
+    pullJSON.title = `${repo.message}`;
+    pullJSON.head = `${repoB}:${branchA}`;
+    pullJSON.base = `${repoB}:${branchB}`;
+    pullJSON.body = `Modified:${repo.modifiedFiles}`;
+    pullJSON.maintainer_can_modify = True;   
+
+    var jsonString = JSON.stringify(pullJSON);
+    log(`OP`, `JSON: pull request JSON generated`, 2);
+
+    xmlhttp.open("POST", `https://api.github.com/repos/${user}/${repoB}/pulls`);
+    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+    xmlhttp.send(jsonString);
+    log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${user}/${repoB}/pulls`, 2);
+
 }
