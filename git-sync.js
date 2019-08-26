@@ -51,6 +51,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 var fs = require("fs"); //required to write to files
 const dns = require('dns'); //required to resolve domain name for log file
+//const Octokit = require('octokit/rest') //required to generate oAuth token to generate pull requests from github API
 
 
 
@@ -338,22 +339,24 @@ function githubHook(chunk, req) {
                     }
        
                      lastCommit = repo.commitMessage
+                     
                      console.log("Made it");
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
-                    
+                    pullReq(repoB, repoB_branchA, repoB_branchB, pastRepo)
                     //Check all added, modified, and deleted files match those in last push to repo B and commit is correct
                     var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
                     var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
                     var testRemoved = checkFiles(repo.removedFiles, pastRepo.removedFiles, '/');
                     var testCommit = (repo.commitMessage == pastRepo.finalCommitMessage);
-
+                    
                     //Write to log file confirming sucesses and errors
                     // only prints one message if sucessful, otherwise details which tests passed and which failed
                     if (testModified && testAdded && testRemoved && testCommit) {
                         log(`OP`, `CONFIRM: Git Sync between ${gitA} and ${gitB} was sucessful :-)`, 2);
                         //Since push was sucessful start a pull request
+
                         
                     }  else {
                     if (testModified == true){
@@ -387,7 +390,7 @@ function githubHook(chunk, req) {
                     log(`ALL`, `ERROR: ${gitB} push confirmation failed: ${error}`, 2);
                     return;
                 }
-                pullReq(repoB, repoB_branchA, repoB_branchB, repo)
+                
                 break;
 
             default:
@@ -647,21 +650,22 @@ function fileLoc (files, location){
 
     Passes:     files - to array split to divide up file path
 */
-function pullReq (repoB, repoB_branchA, repoB_branchB, repo){
-    console.log('Starting Pull Request');
+function pullReq (repoB, repoB_branchA, repoB_branchB, pastRepo){
+    var config = require('./git-sync_config.js')
+    console.log(`${config.Auth.personal_access_token}`);
     var pullJSON = new Object();
-    pullJSON.access_token = `da3016d7581bff33fb9c55c528263c53dc2fe1ef`;
-    pullJSON.title = `${repo.message}`;
+    pullJSON.authorization = config.Auth.personal_access_token;
+    pullJSON.title = `${pastRepo.finalCommitMessage}`;
     pullJSON.head = `${repoB_branchA}`;
     pullJSON.base = `${repoB_branchB}`;
-    pullJSON.body = `Modified:${repo.modifiedFiles}`;
+    pullJSON.body = `Modified:${pastRepo.modifiedFiles}`;
     pullJSON.maintainer_can_modify = true;   
 
     var jsonString = JSON.stringify(pullJSON);
     log(`OP`, `JSON: pull request JSON generated`, 2);
 
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", `https://api.github.com/repos/${gitB}/pulls?access_token=da3016d7581bff33fb9c55c528263c53dc2fe1ef`);
+    xmlhttp.open("POST", `https://api.github.com/repos/${gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
     xmlhttp.send(jsonString);//*/
     console.log(`${xmlhttp.response}`);
@@ -670,3 +674,65 @@ function pullReq (repoB, repoB_branchA, repoB_branchB, repo){
     console.log('Pull Request Sent');
 
 }
+
+/*function generateOAuth (scopes, reason){
+    import {
+      READ_ONLY_SCOPE,
+      REPOSITORY_SCOPE,
+      ORGANIZATION_SCOPE,
+      PUBLIC_KEY_SCOPE,
+      REPOSITORY_HOOK_SCOPE,
+      GIST_SCOPE,
+      NOTIFICATIONS_SCOPE,
+      USER_SCOPE,
+      DELETE_REPOSITORY_SCOPE,
+      DISCUSSION_SCOPE,
+      GPG_KEY_SCOPE,
+    } from './scopes';
+
+    const scopeToApiValue = Object.freeze({
+      [READ_ONLY_SCOPE]: '',
+      [REPOSITORY_SCOPE.EVERYTHING]: 'repo',
+      [ORGANIZATION_SCOPE.EVERYTHING]: 'admin:org',
+      [PUBLIC_KEY_SCOPE.EVERYTHING]: 'admin:public_key',
+      [REPOSITORY_HOOK_SCOPE.EVERYTHING]: 'admin:repo_hook',
+      [GIST_SCOPE]: 'gist',
+      [NOTIFICATIONS_SCOPE]: 'notifications',
+      [USER_SCOPE.EVERYTHING]: 'user',
+      [DELETE_REPOSITORY_SCOPE]: 'delete_repo',
+      [DISCUSSION_SCOPE.EVERYTHING]: 'write:discussion',
+      [GPG_KEY_SCOPE.EVERYTHING]: 'admin:gpg_key',
+    });
+
+    const generateToken = async ({
+      username,
+      password,
+      twoFactorAuthenticationCode,
+      reason,
+      scopes,
+    }) => {
+      const apiValues = scopes.map(scope => scopeToApiValue[scope]);
+      const client = new GitHub();
+      client.authenticate({
+        type: 'basic',
+        username,
+        password,
+      });
+
+      const parameters = {
+        note: reason,
+        scopes: apiValues,
+      };
+
+      if (twoFactorAuthenticationCode) {
+        parameters.headers = { 'X-GitHub-OTP': twoFactorAuthenticationCode };
+      }
+
+      const response = await client.authorization.create(parameters);
+
+      return {
+        token: response.data.token,
+        id: response.data.id,
+      };
+    };
+} //*/
