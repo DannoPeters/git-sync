@@ -660,17 +660,11 @@ function pullReq (repoB, repoB_branchA, repoB_branchB, repo){
     var jsonString = JSON.stringify(pullJSON);
     log(`OP`, `JSON: pull request JSON generated`, 2);
 
-    fetch(`https://api.github.com/repos/${user}/${repoB}/pulls`,
-        {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: jsonString
-        })
-        .then(function(res){ console.log(res) })
-        .catch(function(res){ console.log(res) })`//*/
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", `https://api.github.com/repos/${gitB}/pulls?access_token=da3016d7581bff33fb9c55c528263c53dc2fe1ef`);
+    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+    xmlhttp.send(jsonString);//*/
+    console.log(`${xmlhttp.response}`);
 
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${gitB}/pulls`, 2);
     console.log('Pull Request Sent');
