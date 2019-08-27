@@ -656,36 +656,3 @@ function pullReq (pastRepo, branch){
     console.log('Pull Request Sent');
 
 }
-
-function branchReq (abbrev){
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var sha = JSON.parse(this.responseText).object.sha;
-        createBranch(abbrev, sha)
-        }
-    }
-    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads/master?access_token=${config.Auth.personal_access_token}`);
-    xmlhttp.send();
-}
-
-function createBranch (abbrev, sha) {
-    console.log(`${sha}`)
-    let xmlhttp = new XMLHttpRequest();
-    var branchJSON = new Object();
-    branchJSON.ref = `refs/heads/${abbrev}_dev`;
-    branchJSON.sha = `${sha}`;
-    jsonString = JSON.stringify(branchJSON);
-    xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/git/refs?access_token=${config.Auth.personal_access_token}`);
-    xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
-    xmlhttp.send(jsonString);
-
-    xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        console.log(`${JSON.parse(this.responseText)}`)
-    }
-}
-    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads?access_token=${config.Auth.personal_access_token}`, true);
-    xmlhttp.send();
-
-}
