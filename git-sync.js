@@ -214,6 +214,11 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branchA}`;
                     runCmd(cmd);
 
+                    //Create new branch and switch to it for repo B
+                    var cmd = `cd ${config.Setup.repoB} && git checkout -b ${radar_abbrev}_dev`
+                    runCmd(cmd);
+
+
                     var type = `hdw`;
                     var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
                     if (fileType(commitedFiles, config.Setup.nameContains, config.Setup.typePosition, config.Setup.typeDeliminator) && fileLoc(commitedFiles, `${config.Setup.dirA}`)) {
@@ -255,7 +260,11 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${config.Setup.repoB} && git push --set-upstream origin gitSync`;
+                    var cmd = `cd ${config.Setup.repoB} && git push origin ${radar_abbrev}_dev`;
+                    runCmd(cmd);
+
+                    //delete local repo B branch after push
+                    var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
                     runCmd(cmd);
 
                     //Store information to confirm proper push to repo B
@@ -318,7 +327,7 @@ function githubHook(chunk, req) {
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
-                    pullReq(pastRepo)
+                    pullReq(pastRepo, `${radar_abbrev}_dev`)
                     //Check all added, modified, and deleted files match those in last push to repo B and commit is correct
                     var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
                     var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
@@ -624,38 +633,23 @@ function fileLoc (files, location){
 
     Passes:     files - to array split to divide up file path
 */
-function pullReq (pastRepo){
+function pullReq (pastRepo, branch){
     console.log(`Starting Pull Request`);
     var pullJSON = new Object();
     console.log(pastRepo.finalCommitMessage)
     pullJSON.title = `${pastRepo.finalCommitMessage}`;
-    pullJSON.head = `${config.Setup.repoB_branchA}`;
+    pullJSON.head = `${branch}`;
     pullJSON.base = `${config.Setup.repoB_branchB}`;
     pullJSON.body = `Modified:${pastRepo.modifiedFiles}`;
-    pullJSON.maintainer_can_modify = true;   
+    pullJSON.maintainer_can_modify = true;
 
     var jsonString = JSON.stringify(pullJSON);
     log(`OP`, `JSON: pull request JSON generated`, 2);
-    /*
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
-    xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
-    xmlhttp.send(jsonString);//*/
-    window.onload = function(){
-    var request = new XMLHttpRequest();
-    
-
-    request.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-        }
-    };
-
-    request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`, true);
+    request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
     request.send(jsonString);
-}
-
+    console.log(`request sent`)
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
 
@@ -663,15 +657,13 @@ function pullReq (pastRepo){
 
 function branchReq (abbrev){
     let xmlhttp = new XMLHttpRequest();
-    let sha = null
-    let jsonString = null
     xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        sha = JSON.parse(this.responseText).object.sha;
+        var sha = JSON.parse(this.responseText).object.sha;
         createBranch(abbrev, sha)
         }
     }
-    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads/master?access_token=${config.Auth.personal_access_token}`, true);
+    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads/master?access_token=${config.Auth.personal_access_token}`);
     xmlhttp.send();
 }
 
