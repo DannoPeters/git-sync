@@ -318,7 +318,7 @@ function githubHook(chunk, req) {
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
-                    pullReq(config.Setup.repoB, config.Setup.repoB_branchA, config.Setup.repoB_branchB, pastRepo)
+                    pullReq(pastRepo)
                     //Check all added, modified, and deleted files match those in last push to repo B and commit is correct
                     var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
                     var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
@@ -627,6 +627,7 @@ function fileLoc (files, location){
 function pullReq (pastRepo){
     console.log(`Starting Pull Request`);
     var pullJSON = new Object();
+    console.log(pastRepo.finalCommitMessage)
     pullJSON.authorization = config.Auth.personal_access_token;
     pullJSON.title = `${pastRepo.finalCommitMessage}`;
     pullJSON.head = `${config.Setup.repoB_branchA}`;
@@ -639,9 +640,15 @@ function pullReq (pastRepo){
 
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
-    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+    xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
     xmlhttp.send(jsonString);//*/
-    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    };
+
+    xmlhttp.open('GET', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     xmlhttp.send();
     var data;
     if (!xmlhttp.responseType || xmlhttp.responseType === "text") {
@@ -651,7 +658,7 @@ function pullReq (pastRepo){
     } else {
         data = xmlhttp.response;
     }
-    console.log(`${data}`);
+    console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
 
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
