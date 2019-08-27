@@ -215,10 +215,17 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     radar_abbrev = repo.modifiedFiles[0].split('.')[2]
-                    console.log(radar_abbrev)
+                    //console.log(radar_abbrev)
+
+                    //delete existing repo b branch
+                    var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
+                    runCmd(cmd);
+
                     //Create new branch and switch to it for repo B
                     var cmd = `cd ${config.Setup.repoB} && git checkout -b ${radar_abbrev}_dev`
                     runCmd(cmd);
+                 
+                    
 
 
                     var type = `hdw`;
@@ -265,9 +272,7 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git push origin ${radar_abbrev}_dev`;
                     runCmd(cmd);
 
-                    //delete local repo B branch after push **Blocked by git
-                    //var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
-                    //runCmd(cmd);
+                    
 
                     //Store information to confirm proper push to repo B
                     //sort all lists of files to ensure they are comapred correctly
@@ -647,11 +652,32 @@ function pullReq (pastRepo, branch){
     var jsonString = JSON.stringify(pullJSON);
     console.log(`${jsonString}`)
     log(`OP`, `JSON: pull request JSON generated`, 2);
+    
+    
     let request = new XMLHttpRequest();
     request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
     request.send(jsonString);
-    console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`)
+    console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`) 
+    //*/
+
+    /*
+    window.onload = function(){
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 201) {
+            console.log(this.responseText);
+        }
+    };
+
+    request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`, true);
+    request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+    request.send(jsonString);
+    }
+    //*/
+
+
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
 
