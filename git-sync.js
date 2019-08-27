@@ -214,6 +214,8 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branchA}`;
                     runCmd(cmd);
 
+                    radar_abbrev = repo.modifiedFiles[0].split('.')[2]
+                    console.log(radar_abbrev)
                     //Create new branch and switch to it for repo B
                     var cmd = `cd ${config.Setup.repoB} && git checkout -b ${radar_abbrev}_dev`
                     runCmd(cmd);
@@ -263,9 +265,9 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git push origin ${radar_abbrev}_dev`;
                     runCmd(cmd);
 
-                    //delete local repo B branch after push
-                    var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
-                    runCmd(cmd);
+                    //delete local repo B branch after push **Blocked by git
+                    //var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
+                    //runCmd(cmd);
 
                     //Store information to confirm proper push to repo B
                     //sort all lists of files to ensure they are comapred correctly
