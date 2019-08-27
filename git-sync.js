@@ -196,6 +196,7 @@ function githubHook(chunk, req) {
         }
 
         if (req.headers['x-github-event'] == "push") { //if event type is push run following code
+        try {
         switch (repo.gitFullName){
 
             case config.Setup.gitA: //sync to repo B
@@ -387,6 +388,10 @@ function githubHook(chunk, req) {
                 log(`ALL`, `ERROR: Source "${repo.gitFullName}" Not Recognized`, 2);
             break;
         }
+    }
+    catch (error){
+        log(`ALL`, `ERROR: Source "${repo.gitFullName}" Not Recognized: ${error}`, 2);
+    }
 
         }
     }
