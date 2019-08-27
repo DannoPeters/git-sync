@@ -25,9 +25,9 @@ var fs = require("fs"); //required to write to files
 const dns = require('dns'); //required to resolve domain name for log file
 //const Octokit = require('octokit/rest') //required to generate oAuth token to generate pull requests from github API
 var config = require('./git-sync_config.js');
-console.log(`${config.Auth.personal_access_token}`)
+//console.log(`${config.Auth.personal_access_token}`)
 
-
+branchReq('sas')
 
 
 /* Webserver
@@ -628,7 +628,6 @@ function pullReq (pastRepo){
     console.log(`Starting Pull Request`);
     var pullJSON = new Object();
     console.log(pastRepo.finalCommitMessage)
-    pullJSON.authorization = config.Auth.personal_access_token;
     pullJSON.title = `${pastRepo.finalCommitMessage}`;
     pullJSON.head = `${config.Setup.repoB_branchA}`;
     pullJSON.base = `${config.Setup.repoB_branchB}`;
@@ -637,30 +636,62 @@ function pullReq (pastRepo){
 
     var jsonString = JSON.stringify(pullJSON);
     log(`OP`, `JSON: pull request JSON generated`, 2);
-
+    /*
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
     xmlhttp.send(jsonString);//*/
-    xmlhttp.onreadystatechange = function() {
+    window.onload = function(){
+    var request = new XMLHttpRequest();
+    
+
+    request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
         }
     };
 
-    xmlhttp.open('GET', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
-    xmlhttp.send();
-    var data;
-    if (!xmlhttp.responseType || xmlhttp.responseType === "text") {
-        data = xmlhttp.responseText;
-    } else if (xmlhttp.responseType === "document") {
-        data = xmlhttp.responseXML;
-    } else {
-        data = xmlhttp.response;
-    }
-    console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
+    request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`, true);
+    request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+    request.send(jsonString);
+}
 
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
+
+}
+
+function branchReq (abbrev){
+    let xmlhttp = new XMLHttpRequest();
+    let sha = null
+    let jsonString = null
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        sha = JSON.parse(this.responseText).object.sha;
+        createBranch(abbrev, sha)
+        }
+    }
+    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads/master?access_token=${config.Auth.personal_access_token}`, true);
+    xmlhttp.send();
+}
+
+function createBranch (abbrev, sha) {
+    console.log(`${sha}`)
+    let xmlhttp = new XMLHttpRequest();
+    var branchJSON = new Object();
+    branchJSON.ref = `refs/heads/${abbrev}_dev`;
+    branchJSON.sha = `${sha}`;
+    jsonString = JSON.stringify(branchJSON);
+    xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/git/refs?access_token=${config.Auth.personal_access_token}`);
+    xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+    xmlhttp.send(jsonString);
+
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(`${JSON.parse(this.responseText)}`)
+    }
+}
+    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/git/refs/heads?access_token=${config.Auth.personal_access_token}`, true);
+    xmlhttp.send();
 
 }
