@@ -16,6 +16,8 @@ var lastAdded = 'None';
 var lastRemoved = 'None';
 var lastCommit = 'None';
 
+var radar_abbrev = 'sas';
+
 //Import Required
 let http = require(`http`); //import http library
 let crypto = require(`crypto`); //import crypto library
@@ -26,8 +28,6 @@ const dns = require('dns'); //required to resolve domain name for log file
 //const Octokit = require('octokit/rest') //required to generate oAuth token to generate pull requests from github API
 var config = require('./git-sync_config.js');
 //console.log(`${config.Auth.personal_access_token}`)
-
-branchReq('sas')
 
 
 /* Webserver
