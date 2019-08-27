@@ -644,14 +644,14 @@ function pullReq (pastRepo, branch){
     pullJSON.base = `${config.Setup.repoB_branchB}`;
     pullJSON.body = `Modified:${pastRepo.modifiedFiles}`;
     pullJSON.maintainer_can_modify = true;
-
     var jsonString = JSON.stringify(pullJSON);
+    console.log(`${jsonString}`)
     log(`OP`, `JSON: pull request JSON generated`, 2);
-    let xmlhttp = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
     request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
     request.send(jsonString);
-    console.log(`request sent`)
+    console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`)
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
 
