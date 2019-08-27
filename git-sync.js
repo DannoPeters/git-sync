@@ -6,20 +6,6 @@ Copyright SuperDARNCanada
 Authors: Marina Schmidt and Danno Peters
 */
 
-var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
-
-const port = 8080; //specify the port for the server to listen on
-
-var dirA = "" //directory to copy files from in repo-A. Set "" if none specified
-var dirB = "hardware_dir"; //directory to copy files to in repo-B.  Set "" if none specified
-
-var user = "DannoPeters"; //set the github username of the server (configured using ssh)
-
-var nameContains = 'hdw'; //specify string contained in the file name to sync
-var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
-var typePosition = 'any'; //specify the position to expect the string, "any" for any position
-//*/
-
 //Global Variables
 var actionArray = new Array(); //Array to store information about actions taken
 var today = new Date();
@@ -85,12 +71,12 @@ http.createServer(function (req, res) { //create webserver
         }
          });
     console.log("HTML Running");
-    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${config.Setup.gitA}/${dirA}</i><br> Repo B: <i>${config.Setup.gitB}/${dirB}</i><br><br><u>Settings</u><br> Contains: <i>${nameContains}</i>    Deliminator: <i>${typeDeliminator}</i>    Position: <i>${typePosition} <br><br><u>Local</u><br> Repo A: <i>${config.Setup.repoA}</i><br> Repo B: <i>${config.Setup.repoB}</i> <br><br> Server User: <i>${user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
+    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${config.Setup.gitA}/${config.Setup.dirA}</i><br> Repo B: <i>${config.Setup.gitB}/${config.Setup.dirB}</i><br><br><u>Settings</u><br> Contains: <i>${config.Setup.nameContains}</i>    Deliminator: <i>${config.Setup.typeDeliminator}</i>    Position: <i>${config.Setup.typePosition} <br><br><u>Local</u><br> Repo A: <i>${config.Setup.repoA}</i><br> Repo B: <i>${config.Setup.repoB}</i> <br><br> Server User: <i>${config.Setup.user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
     res.end('');
 
-}).listen(port, (err) => {
+}).listen(config.Setup.port, (err) => {
     if (err) return log(`ALL`, `\n ERROR: Issue with init of server: ${err}`, 0);
-    log(`ALL`, `INIT: Node.js server listening on ${port}`, 0, '\n');
+    log(`ALL`, `INIT: Node.js server listening on ${config.Setup.port}`, 0, '\n');
 
 
 });
@@ -214,7 +200,7 @@ function githubHook(chunk, req) {
 
             case config.Setup.gitA: //sync to repo B
 
-                    if (repo.username == user) { //confirm push is not from this server (to prevent push loop)
+                    if (repo.username == config.Setup.user) { //confirm push is not from this server (to prevent push loop)
                         log(`OP`, `JSON: GitHub user "${repo.username}" (This Server) pushed to ${repo.gitFullName}`, 2);
                         log(`OP`, `JSON: No further action will be taken (Prevents accidental push loop)`, 2);
                     } else {
@@ -230,7 +216,7 @@ function githubHook(chunk, req) {
 
                     var type = `hdw`;
                     var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
-                    if (fileType(commitedFiles, nameContains, typePosition, typeDeliminator) && fileLoc(commitedFiles, `${dirA}`)) {
+                    if (fileType(commitedFiles, config.Setup.nameContains, config.Setup.typePosition, config.Setup.typeDeliminator) && fileLoc(commitedFiles, `${config.Setup.dirA}`)) {
                     
                     //Copy only commited Files by using file paths of each file 
                     for (filePath in commitedFiles){
@@ -241,14 +227,14 @@ function githubHook(chunk, req) {
                         }
 
                         try {
-                        var cmd = `cp ${config.Setup.repoA}/${commitedFiles[filePath]} ${config.Setup.repoB}/${dirB}/${copyPath} -a`;
+                        var cmd = `cp ${config.Setup.repoA}/${commitedFiles[filePath]} ${config.Setup.repoB}/${config.Setup.dirB}/${copyPath} -a`;
                          log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
                          execSync(`${cmd}`); 
                     }
                     catch (unlogged_error) { //error is not logged as expected in normal operation whne new folder is pushed to git
                         try { //if copying each file directly fails (ie new folder created) then recursively sync whole directory
                             log(`ALL`, `ERROR: Copy Command failed, Attempting to recursive copy directory`, 2);
-                            var cmd = `cp ${config.Setup.repoA}/${dirA} ${config.Setup.repoB}/${dirB} -a`;
+                            var cmd = `cp ${config.Setup.repoA}/${config.Setup.dirA} ${config.Setup.repoB}/${config.Setup.dirB} -a`;
                             log(`OP`, `SYNC: Exicuted ${cmd}`, 2);
                             execSync(`${cmd}`); 
                         }
@@ -280,14 +266,14 @@ function githubHook(chunk, req) {
                     queueAdd(actionArray, repo)
 
                 //leave discriptive log detailing which test for files to sync failed
-                } else  if (fileType(commitedFiles, nameContains, typePosition, typeDeliminator)){
-                    log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${config.Setup.gitA}/${dirA}`, 2);
+                } else  if (fileType(commitedFiles, config.Setup.nameContains, config.Setup.typePosition, config.Setup.typeDeliminator)){
+                    log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${config.Setup.gitA}/${config.Setup.dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${config.Setup.gitB} Required`, 2);
-                } else  if (fileLoc(commitedFiles, `${dirA}`)){
+                } else  if (fileLoc(commitedFiles, `${config.Setup.dirA}`)){
                     log(`OP`, `SYNC: No changes to files of type "${type}" found in push`, 2);
                     log(`OP`, `SYNC: No Push to ${config.Setup.gitB} Required`, 2);
                 } else {
-                    log(`OP`, `SYNC: No changes to files of type "${type}" AND no chnges found in ${config.Setup.gitA}/${dirA}`, 2);
+                    log(`OP`, `SYNC: No changes to files of type "${type}" AND no chnges found in ${config.Setup.gitA}/${config.Setup.dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${config.Setup.gitB} Required`, 2);
                 }
             }
@@ -297,7 +283,7 @@ function githubHook(chunk, req) {
             case config.Setup.gitB: //Verify that push to repo B was correct
                     try{
 
-                    if (repo.username != user) { //ensure push came from this server (to prevent falase positives)
+                    if (repo.username != config.Setup.user) { //ensure push came from this server (to prevent falase positives)
                         log(`OP`, `JSON: GitHub user "${repo.username}" pushed to ${repo.gitFullName}`, 2);
                         log(`OP`, `JSON: No further action required (prevents false push confirm)`, 2);
                     } else {
@@ -655,7 +641,17 @@ function pullReq (pastRepo){
     xmlhttp.open("POST", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
     xmlhttp.send(jsonString);//*/
-    console.log(`${xmlhttp.response}`);
+    xmlhttp.open("GET", `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
+    xmlhttp.send();
+    var data;
+    if (!xmlhttp.responseType || xmlhttp.responseType === "text") {
+        data = xmlhttp.responseText;
+    } else if (xmlhttp.responseType === "document") {
+        data = xmlhttp.responseXML;
+    } else {
+        data = xmlhttp.response;
+    }
+    console.log(`${data}`);
 
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
