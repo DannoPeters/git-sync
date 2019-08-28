@@ -97,29 +97,52 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    
 ### 7. Git-Sync.JS Config
 Open the Git-Sync.JS file in a text editor and set the following varibales:
-```var secretA = "Very$ecret$ecret"; //Secret for verifying WebHook from RepoA
-var secretB = "AnotherVery$ecret$ecret"; //Secret for verifying WebHook from RepoB
+```const Auth = {
+    personal_access_token : '[*** INSERT YOUR PERSONAL ACCESS TOKEN HERE***]',
+    secretA : "VerySecretSecret", //Secret for verifying WebHook from RepoA
+    secretB : "AnotherVerySecretSecret", //Secret for verifying WebHook from RepoB
+};
 
-var gitA = "DannoPeters/Repo-A"; //Full repo name, used to identify Webhook Sender
-var gitB = "DannoPeters/Repo-B"; //Full repo name, used to identify Webhook Sender
+const Setup = {
+    gitSync : "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS", //Location of Git-Sync.js on server
 
-var repoA = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A"; //location of repo-A on server
-var repoB = "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B"; //location of repo-b on server
+    gitA : "DannoPeters/Repo-A", //Full repo name, used to identify Webhook Sender
+    gitB : "DannoPeters/Repo-B", //Full repo name, used to identify Webhook Sender
 
-var gitSync = "/run/media/peters/Danno_SuperDARN/Git_Projects/Git-Sync-NodeJS"; //Location of Git-Sync.js on server
+    repoA : "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-A", //location of repo-A on server
+    repoB : "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B", //location of repo-b on server
 
-const port = 8080; //specify the port for the server to listen on
+    repoA_branch : "master", //branch to sync from
+    repoB_branchA : '', //initial sync location (this is where pull request will be generated from)
+    repoB_branchB :  "master", //final sync location (this is where you want the pull request to go to)
 
-var dirA = "" //directory to copy files from in repo-A. Set "" if none specified
-var dirB = "hardware_dir"; //directory to copy files to in repo-B.  Set "" if none specified
+    port : 8080, //specify the port for the server to listen on
 
-var user = "DannoPeters"; //set the github username of the server (configured using ssh)
+    dirA : "", //directory to copy files from in repo-A. Set "" if none specified
+    dirB : "hardware_dir", //directory to copy files to in repo-B.  Set "" if none specified
 
-var nameContains = 'hdw'; //specify string contained in the file name to sync
-var typeDeliminator = '.'; //specify deliminator for file sections, "none" to search substrings
-var typePosition = 'any'; //specify the position to expect the string, or "any" for any position
+    user : "DannoPeters", //set the github username of the server (configured using ssh)
+
+    //Files to Sync
+    sync : {
+    nameContains : 'hdw', //specify string contained in the file name to sync
+    typeDeliminator : '.', //specify deliminator for file sections, "none" to search substrings
+    typePosition : 'any', //specify the position to expect the string, "any" for any position (indexing starts at 0)
+	}
+
+    //Branch to pull From
+    branch : {
+    prefix : '',
+    constant : false, //set to "true" to have branch name only determined by prefix and suffix. This will cause the same branch to be used for all syncs. "false" allows dynamic branch naming based on first modifed file
+    typeDeliminator : '.', //specify deliminator for file sections, "none" to search substrings
+    typePosition : 2, //specify the position to expect the string (indexing starts at 0)
+    suffix : '_dev'
+	}
+};
+
+module.exports = { Auth, Setup }
 ```
-
+**personal_access_token** - personal acess token generated int eh previous step. This allows for the use of the github API for generating pull requests
 **secretA** - Secret set for Repo A
 
 **secretB** - Secret set for Repo B
@@ -148,8 +171,21 @@ var typePosition = 'any'; //specify the position to expect the string, or "any" 
 
 **user** - username of the fresh github account setup with SSH access
 
-
+#### Sync
 **nameContains** - sub string contained in files which are to be synced. 
+
+
+**typeDeliminator** - specify the deliminator (what sperates portions of the filename ie) hardware.dat is superated by **.**) or enter "none" to search substrings 
+
+
+**typePosition** - numberical position of the deliminated string, specify "any" for any position, or "last" for the file extension. Note: this section is N/A if "none" is selected for typeDeliminator.
+
+#### Branch
+  Allows for branches to be named dyanamically.
+  
+**prefix** - string to be placed before dynamic portion
+
+**constant** - bool, set to true for fixed branch naming (combination of prefix and suffix) or set to false to create banches based on file names
 
 
 **typeDeliminator** - specify the deliminator (what sperates portions of the filename ie) hardware.dat is superated by **.**) or enter "none" to search substrings 
