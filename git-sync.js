@@ -219,11 +219,11 @@ function githubHook(chunk, req) {
                     //console.log(radar_abbrev)
 
                     //delete existing repo b branch
-                    var cmd = `cd ${config.Setup.repoB} && git branch -d ${radar_abbrev}_dev`;
+                    var cmd = `cd ${config.Setup.repoB} && git branch -d ${config.Setup.branch.prefix}${radar_abbrev}${config.Setup.branch.suffix}`;
                     runCmd(cmd);
 
                     //Create new branch and switch to it for repo B
-                    var cmd = `cd ${config.Setup.repoB} && git checkout -b ${radar_abbrev}_dev`
+                    var cmd = `cd ${config.Setup.repoB} && git checkout -b ${config.Setup.branch.prefix}${radar_abbrev}${config.Setup.branch.suffix}`
                     runCmd(cmd);
                  
                     
@@ -270,7 +270,7 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                     //Push local repoB to GitHub
-                    var cmd = `cd ${config.Setup.repoB} && git push origin ${radar_abbrev}_dev`;
+                    var cmd = `cd ${config.Setup.repoB} && git push origin ${config.Setup.branch.prefix}${radar_abbrev}${config.Setup.branch.suffix}`;
                     runCmd(cmd);
 
                     
@@ -335,7 +335,7 @@ function githubHook(chunk, req) {
 
                     //retrieve past repo data from queue
                     var pastRepo = queueGet(actionArray);
-                    pullReq(pastRepo, `${radar_abbrev}_dev`)
+                    pullReq(pastRepo, `${config.Setup.branch.prefix}${radar_abbrev}${config.Setup.branch.suffix}`)
                     //Check all added, modified, and deleted files match those in last push to repo B and commit is correct
                     var testModified = checkFiles(repo.modifiedFiles, pastRepo.modifiedFiles, '/');
                     var testAdded = checkFiles(repo.addedFiles, pastRepo.addedFiles, '/');
