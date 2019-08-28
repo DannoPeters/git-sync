@@ -25,9 +25,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 var execSync = require(`child_process`).execSync; //include child_process library so we can exicute shell commands
 var fs = require("fs"); //required to write to files
 const dns = require('dns'); //required to resolve domain name for log file
-//const Octokit = require('octokit/rest') //required to generate oAuth token to generate pull requests from github API
 var config = require('./git-sync_config.js');
-//console.log(`${config.Auth.personal_access_token}`)
 
 
 /* Webserver
@@ -638,16 +636,16 @@ function fileLoc (files, location){
 /* pullReq
     Purpose: creates a pull request from synced branch to specified branch (usually dev or main)
 
-    Inputs:     files - list of files synced to repoB
-                location - location where thay should have been place in repoB
+    Inputs:     pastRepo - information about last repo push (used for label and message fo pull request)
+                branch - branch to generate a pull request from
+                config.Setup.repoB_branchB - brnach to generate a pull request to
 
     Wait it does:
-        - splits up both locations of each file and specified location using array split
-            - returns true if any of the files are found to be in the specifdied location
+        - generates a pull request for files synced from repo-A to repo-B
 
-    Returned:   True - if all files are in correct location
+    Returned:   None
 
-    Passes:     files - to array split to divide up file path
+    Passes:     JSON file to GitHub Rest API
 */
 function pullReq (pastRepo, branch){
     console.log(`Starting Pull Request`);
@@ -662,30 +660,11 @@ function pullReq (pastRepo, branch){
     console.log(`${jsonString}`)
     log(`OP`, `JSON: pull request JSON generated`, 2);
     
-    
     let request = new XMLHttpRequest();
     request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`);
     request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
     request.send(jsonString);
     console.log(`https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`) 
-    //*/
-
-    /*
-    window.onload = function(){
-    var request = new XMLHttpRequest();
-
-    request.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 201) {
-            console.log(this.responseText);
-        }
-    };
-
-    request.open('POST', `https://api.github.com/repos/${config.Setup.gitB}/pulls?access_token=${config.Auth.personal_access_token}`, true);
-    request.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-    request.send(jsonString);
-    }
-    //*/
-
 
     log(`OP`, `JSON: pull request JSON sent to https://api.github.com/repos/${config.Setup.gitB}/pulls`, 2);
     console.log('Pull Request Sent');
