@@ -215,7 +215,11 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branchA}`;
                     runCmd(cmd);
 
-                    radar_abbrev = repo.modifiedFiles[0].split(config.Setup.branch.typeDeliminator)[config.Setup.branch.typePosition]
+                    if (config.Setup.branch.constant == false) {
+                        radar_abbrev = repo.modifiedFiles[0].split(config.Setup.branch.typeDeliminator)[config.Setup.branch.typePosition]
+                    } else {
+                        radar_abbrev = ''
+                    }
                     //console.log(radar_abbrev)
 
                     //delete existing repo b branch
