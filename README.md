@@ -141,9 +141,12 @@ const Setup = {
 
 module.exports = { Auth, Setup }
 ```
-**personal_access_token** - personal acess token generated int eh previous step. This allows for the use of the github API for generating pull requests
-	replace [*** INSERT YOUR PERSONAL ACCESS TOKEN HERE***] with your token which will look something like this: ff34885a8624460a855540c6592698d2f1812843
+**personal_access_token** - personal acess token generated int eh previous step. This allows for the use of the github API for generating pull requests 
+
+	- Replace [*** INSERT YOUR PERSONAL ACCESS TOKEN HERE***] with your token which will look something like this: ff34885a8624460a855540c6592698d2f1812843
+	
 	NOTE: This is an example token, not an actual token for any account, please use your own
+	
 **secretA** - Secret set for Repo A
 
 **secretB** - Secret set for Repo B
