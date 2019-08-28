@@ -113,7 +113,6 @@ const Setup = {
     repoB : "/run/media/peters/Danno_SuperDARN/Git_Projects/Repo-B", //location of repo-b on server
 
     repoA_branch : "master", //branch to sync from
-    repoB_branchA : '', //initial sync location (this is where pull request will be generated from)
     repoB_branchB :  "master", //final sync location (this is where you want the pull request to go to)
 
     port : 8080, //specify the port for the server to listen on
