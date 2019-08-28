@@ -75,10 +75,16 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
  If you have not used SSh authentication before, consult the github guide:
  https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account
  
- ### 5. Local Repos
+ ### 5. Personal Access Token
+ A personal access token is requiered to use the GitHub Rest API to create pull requests.
+Tokens can be generated from the GitHub web interface by following this guide: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+This token should only be used for this app. This allows for usage monitoring and revoking of the keys for individual applications
+Ensure that your git-sync_config.js file in NOT synced with any public repositoires or exposed on the server. 
+ 
+ ### 6. Local Repos
   Using your fresh github account clone both of the repos you would like to sync to your local git. 
   
- ### 6. GitHub WebHook Config
+ ### 7. GitHub WebHook Config
  Using the GitHub web interface inside of your repos navigate to Settings -> Webhooks
  Then select "Add Webhook" at the top right
  
@@ -96,7 +102,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
    
    NOTE: if the github webhook is set as active by mistake you will recive an error stating "last delivery was not sucessful" This error is normal and expected, plese deactivate the webhook by selecting the edit button, then deselcting the "active" check box. 
    
-### 7. Git-Sync.JS Config
+### 8. Git-Sync.JS Config
 Open the Git-Sync.JS file in a text editor and set the following varibales:
 ```const Auth = {
     personal_access_token : '[*** INSERT YOUR PERSONAL ACCESS TOKEN HERE***]',
@@ -199,7 +205,7 @@ module.exports = { Auth, Setup }
 **typePosition** - numberical position of the deliminated string, specify "any" for any position, or "last" for the file extension. Note: this section is N/A if "none" is selected for typeDeliminator.
 
 
-### 8. Starting up Syncing
+### 9. Starting up Syncing
 - Start the git-sync.js script
 - If you are using Ngrok, start the Ngrok session and copy your forwarding URL
 - Going to your public facing IP or URL assigned to local port 8080 you should see the following screen confirming git-sync.JS is running and acessible through your firewall/NAT.
