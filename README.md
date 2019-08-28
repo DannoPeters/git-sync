@@ -7,14 +7,15 @@ What it Does:
 - Updates local Repo-A using a pull request
 - read commit message from webhook
 - Checks pushed file type and location in repo A
-- cp local Repo-A files to local Repo-B
+- creates a new branch of Repo-B
+- cp local Repo-A files to new branch of local Repo-B
 - Commit local Repo-B with message and username
-- Push local Repo-B to GitHub
-- cp local Repo-A folders to local Repo-B
-- gracefully exit if errors result from terminal commands or JSON
+- Push new branch of local Repo-B to GitHub
+- Generate pull request from new branch of Repo-B to specified branch of Repo-B (usually master)
 - Check if Push was successful (checks uploaded file names and commit)
 - Checks user who initiated webhook (prevents push loop or false push confirm)
 - server side logging system
+- gracefully exit if errors result from terminal commands or JSON
 
 
 ToDo:
