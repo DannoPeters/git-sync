@@ -71,7 +71,7 @@ http.createServer(function (req, res) { //create webserver
         }
          });
     console.log("HTML Running");
-    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${config.Setup.gitA}/${config.Setup.dirA}</i><br> Repo B: <i>${config.Setup.gitB}/${config.Setup.dirB}</i><br><br><u>Settings</u><br> Contains: <i>${config.Setup.nameContains}</i>    Deliminator: <i>${config.Setup.typeDeliminator}</i>    Position: <i>${config.Setup.typePosition} <br><br><u>Local</u><br> Repo A: <i>${config.Setup.repoA}</i><br> Repo B: <i>${config.Setup.repoB}</i> <br><br> Server User: <i>${config.Setup.user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
+    res.write(`<html><center><h3>If you are reading this, git-sync.JS is running. :-)</h3> </html></br><img src="https://res.cloudinary.com/dwktbavf8/image/upload/v1524441964/SuperDARN/superDARN-logo.png" alt="SuperDarn Logo"></html></br>Copyright: SuperDARN Canada <br><a href="https://superdarn.ca">SuperDARN.ca</a> <br><br>Authors: Marina Schmidt and Danno Peters <br><br><br> <strong>Git-Sync.JS Settings</strong><br><u>Remote</u><br> Repo A: <i>${config.Setup.gitA}/${config.Setup.dirA}</i><br> Repo B: <i>${config.Setup.gitB}/${config.Setup.dirB}</i><br><br><u>Settings</u><br> Contains: <i>${config.Setup.sync.nameContains}</i>    Deliminator: <i>${config.Setup.sync.typeDeliminator}</i>    Position: <i>${config.Setup.sync.typePosition} <br><br><u>Local</u><br> Repo A: <i>${config.Setup.repoA}</i><br> Repo B: <i>${config.Setup.repoB}</i> <br><br> Server User: <i>${config.Setup.user}</i> <br><br> Running Since: <i>${startTime}</i><br><br> Last Sync: <i>${lastSync}</i> <br> Last Commit: <i>${lastCommit}</i><br> <u>Last Modified</u> <br><i>${lastModified}</i><br> <u>Last Added</u> <br><i>${lastAdded}</i><br> <u>Last Removed</u> <br><i>${lastRemoved}</i>`)
     res.end('');
 
 }).listen(config.Setup.port, (err) => {
@@ -215,7 +215,7 @@ function githubHook(chunk, req) {
                     var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branchA}`;
                     runCmd(cmd);
 
-                    radar_abbrev = repo.modifiedFiles[0].split('.')[2]
+                    radar_abbrev = repo.modifiedFiles[0].split(config.Setup.branch.typeDeliminator)[config.Setup.branch.typePosition]
                     //console.log(radar_abbrev)
 
                     //delete existing repo b branch
@@ -231,7 +231,7 @@ function githubHook(chunk, req) {
 
                     var type = `hdw`;
                     var commitedFiles = repo.modifiedFiles.concat(repo.addedFiles);
-                    if (fileType(commitedFiles, config.Setup.nameContains, config.Setup.typePosition, config.Setup.typeDeliminator) && fileLoc(commitedFiles, `${config.Setup.dirA}`)) {
+                    if (fileType(commitedFiles, config.Setup.sync.nameContains, config.Setup.sync.typePosition, config.Setup.sync.typeDeliminator) && fileLoc(commitedFiles, `${config.Setup.dirA}`)) {
                     
                     //Copy only commited Files by using file paths of each file 
                     for (filePath in commitedFiles){
@@ -283,7 +283,7 @@ function githubHook(chunk, req) {
                     queueAdd(actionArray, repo)
 
                 //leave discriptive log detailing which test for files to sync failed
-                } else  if (fileType(commitedFiles, config.Setup.nameContains, config.Setup.typePosition, config.Setup.typeDeliminator)){
+                } else  if (fileType(commitedFiles, config.Setup.sync.nameContains, config.Setup.sync.typePosition, config.Setup.sync.typeDeliminator)){
                     log(`OP`, `SYNC: Only changes to files of type "${type}" found outside of ${config.Setup.gitA}/${config.Setup.dirA}`, 2);
                     log(`OP`, `SYNC: No Push to ${config.Setup.gitB} Required`, 2);
                 } else  if (fileLoc(commitedFiles, `${config.Setup.dirA}`)){
