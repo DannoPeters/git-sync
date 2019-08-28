@@ -34,6 +34,8 @@ ToDo:
   * crypto - required to unencrypt webhook json 
   * execSync - required to exicute shell commands from JS
   * fs - required to write files
+  * XMLHttpRequest - required to send JSONs to the GitHub API
+  * dns - required to resolve domain names
   * Node.JS - required to run the Java Script script
   
 ## Steps
