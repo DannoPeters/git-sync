@@ -212,13 +212,13 @@ function githubHook(chunk, req) {
                     runCmd(cmd);
 
                    //Pull request for repoB
-                    var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branch}`;
+                    var cmd = `cd ${config.Setup.repoB} && git pull origin ${config.Setup.repoB_branchA}`;
                     runCmd(cmd);
 
                     if (config.Setup.branch.constant == false) {
-                        radar_abbrev = repo.modifiedFiles[0].split(config.Setup.branch.typeDeliminator)[config.Setup.branch.typePosition];
+                        radar_abbrev = repo.modifiedFiles[0].split(config.Setup.branch.typeDeliminator)[config.Setup.branch.typePosition]
                     } else {
-                        radar_abbrev = '';
+                        radar_abbrev = ''
                     }
                     //console.log(radar_abbrev)
 
@@ -655,7 +655,7 @@ function pullReq (pastRepo, branch){
     console.log(pastRepo.finalCommitMessage)
     pullJSON.title = `${pastRepo.finalCommitMessage}`;
     pullJSON.head = `${branch}`;
-    pullJSON.base = `${config.Setup.repoB_branch}`;
+    pullJSON.base = `${config.Setup.repoB_branchB}`;
     pullJSON.body = `Modified:${pastRepo.modifiedFiles}`;
     pullJSON.maintainer_can_modify = true;
     var jsonString = JSON.stringify(pullJSON);
