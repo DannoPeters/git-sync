@@ -105,7 +105,7 @@ Ensure that your git-sync_config.js file in NOT synced with any public repositoi
    NOTE: if the github webhook is set as active by mistake you will recive an error stating "last delivery was not sucessful" This error is normal and expected, plese deactivate the webhook by selecting the edit button, then deselcting the "active" check box. 
    
 ### 8. Git-Sync.JS Config
-Open the Git-Sync.JS file in a text editor and set the following varibales:
+Open the [**example***]git-sync_config.js file in a text editor, remove the "[***example***] and set the following varibales:
 ```const Auth = {
     personal_access_token : '[*** INSERT YOUR PERSONAL ACCESS TOKEN HERE***]',
     secretA : "VerySecretSecret", //Secret for verifying WebHook from RepoA
