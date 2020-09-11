@@ -9,7 +9,7 @@
     "fetch-api": "0.0.2",
     "gith": "^1.0.4",
     "ngrok": "^3.2.5",
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.1",
     "octokit": "^1.0.0-hello-world",
     "xmlhttprequest": "^1.8.0"
   },
